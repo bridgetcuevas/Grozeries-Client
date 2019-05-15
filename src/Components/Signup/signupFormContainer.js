@@ -1,9 +1,9 @@
 import React from "react";
-import signupForm from "./signupForm";
+import SignupForm from "./SignupForm";
 import { connect } from "react-redux";
 import { signup } from "../../actions/users";
 
-class signupFormContainer extends React.Component {
+class SignupFormContainer extends React.Component {
   state = {
     firstName: "",
     lastName: "",
@@ -55,4 +55,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { signup }
-)(signupFormContainer);
+)(SignupFormContainer);
