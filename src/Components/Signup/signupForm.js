@@ -8,8 +8,8 @@ export default function SignupForm(props) {
         First Name:
         <input
           type="text"
-          name="firstName"
-          value={props.values.firstName}
+          name="first_name"
+          value={props.values.first_name}
           onChange={props.onChange}
         />
       </label>
@@ -17,8 +17,8 @@ export default function SignupForm(props) {
         Last Name:
         <input
           type="text"
-          name="lastName"
-          value={props.values.lastName}
+          name="last_name"
+          value={props.values.last_name}
           onChange={props.onChange}
         />
       </label>
@@ -26,20 +26,20 @@ export default function SignupForm(props) {
         Address:
         <input
           type="text"
-          name="streetName"
-          value={props.values.streetName}
+          name="street_name"
+          value={props.values.street_name}
           onChange={props.onChange}
         />
         <input
           type="text"
-          name="houseNumber"
-          value={props.values.houseNumber}
+          name="house_number"
+          value={props.values.house_number}
           onChange={props.onChange}
         />
         <input
           type="text"
-          name="zipCode"
-          value={props.values.zipCode}
+          name="zipcode"
+          value={props.values.zipcode}
           onChange={props.onChange}
         />
         <input
@@ -53,8 +53,8 @@ export default function SignupForm(props) {
         Phone Number:
         <input
           type="text"
-          name="phoneNumber"
-          value={props.values.phoneNumber}
+          name="phonenumber"
+          value={props.values.phonenumber}
           onChange={props.onChange}
         />
       </label>

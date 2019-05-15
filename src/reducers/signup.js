@@ -1,14 +1,10 @@
-import { USER_SIGNUP_SUCCESS, USER_SIGNUP_FAILED } from "../actions/users";
-export default function(state = {}, { type, payload }) {
+import { SIGNUP_SUCCESS } from "../actions/signup";
+
+export default function(state = { success: false }, { type }) {
   switch (type) {
-    case USER_SIGNUP_SUCCESS:
-      return {
-        success: true
-      };
-    case USER_SIGNUP_FAILED:
-      return {
-        error: payload
-      };
+    case SIGNUP_SUCCESS:
+      return { success: true };
+
     default:
       return state;
   }

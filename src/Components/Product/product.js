@@ -1,16 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 export default props => {
-
-  const { img, productName, description, price, priceBy, quantity, ingriedients, allergens, active, inStock } = props.product;
+  const {
+    image,
+    product_name,
+    description,
+    price,
+    prices_by,
+    quantity,
+    ingredients,
+    allergens,
+    active,
+    inStock
+  } = props.product;
   const detail = props.detail;
 
   if (!detail) {
     return (
-      <Link to={`/products/${props.product.id}`}>
-        <p>Product: {productName} </p>
+      <Link to={`/shops/${props.shop.id}/products/${props.product.productId}`}>
+        <p>{product_name} </p>
         <p>Description: {description}</p>
         <p>Price: {price}</p>
 
@@ -20,13 +29,13 @@ export default props => {
   } else {
     return (
       <div>
-        <img src={img} alt='product'/>
-        <p>Product: {productName} </p>
+        <img src={image} alt="product" width="300" />
+        <p>Product: {product_name} </p>
         <p>Description: {description} </p>
         <p>Price: {price}</p>
-        <p>Price by: {priceBy}</p>
+        <p>Price by: {prices_by}</p>
         <p>Quantity: {quantity} </p>
-        <p>Ingriedients: {ingriedients} </p>
+        <p>Ingriedients: {ingredients} </p>
         <p>Allergens: {allergens} </p>
         <p>Active: {active}</p>
         <p>In Stock: {inStock}</p>

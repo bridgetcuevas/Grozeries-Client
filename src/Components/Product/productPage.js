@@ -3,21 +3,21 @@ import Product from "./product";
 import { getProductDetails } from "../../actions/products";
 import { connect } from "react-redux";
 
-
 class ProductDetails extends Component {
   componentDidMount() {
-    this.props.getProductDetails(this.props.match.params.id);
+    const { shopId, productId } = this.props.match.params;
+    this.props.getProductDetails(shopId, productId);
   }
 
   render() {
     if (!this.props.productDetails) {
-      return '...Loading';
+      return "...Loading";
     } else {
-      if (this.props.productDetails) {
+      if (this.props.ProductDetails) {
         return (
           <div>
             <Product
-              key={this.props.match.params.id}
+              key={this.props.match.params.shopId}
               product={this.props.productDetails}
               detail={true}
             />
@@ -32,7 +32,7 @@ class ProductDetails extends Component {
 
 const mapStateToProps = state => {
   return {
-    productDetails: state.productDetails,
+    productDetails: state.productDetails
   };
 };
 

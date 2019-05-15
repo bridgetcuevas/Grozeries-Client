@@ -1,15 +1,14 @@
 import login from "./login";
 import signup from "./signup";
-import users from "./users";
 import products from "./products";
 import shops from "./shops";
 import categories from "./categories";
+import {combineReducers} from "redux";
 
-export default {
+export default combineReducers({
   login,
   signup,
-  users,
   products,
   shops,
   categories
-};
+});

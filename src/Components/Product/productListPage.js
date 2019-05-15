@@ -3,7 +3,6 @@ import Product from "./product";
 import { getProducts } from "../../actions/products";
 import { connect } from "react-redux";
 
-
 class ProductList extends Component {
   componentDidMount() {
     this.props.getProducts();
@@ -11,7 +10,7 @@ class ProductList extends Component {
 
   render() {
     if (!this.props.products) {
-      return '...Loading';
+      return "...Loading";
     } else {
       return (
         <ul>

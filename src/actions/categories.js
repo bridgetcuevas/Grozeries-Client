@@ -1,6 +1,4 @@
 import request from "superagent";
-import { isExpired } from "../jwt";
-import { logout } from "./users";
 
 export const SET_CATEGORIES = "SET_CATEGORIES";
 
@@ -16,16 +14,10 @@ export const setCategories = categories => {
 
 
 
-export const getCategories = () => (dispatch, getState) => {
-  const state = getState();
-  if (!state.currentUser) return null;
-  const jwt = state.currentUser.jwt;
-
-  if (isExpired(jwt)) return dispatch(logout());
+export const getCategories = () => dispatch => {
 
   request
     .get(`${baseUrl}/categories`)
-    .set("Authorization", `Bearer ${jwt}`)
     .then(result => dispatch(setCategories(result.body)))
     .catch(err => console.error(err));
 };

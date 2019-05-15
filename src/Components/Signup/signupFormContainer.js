@@ -1,33 +1,35 @@
 import React from "react";
 import SignupForm from "./signupForm";
 import { connect } from "react-redux";
-import { signup } from "../../actions/users";
+import { signup } from "../../actions/signup";
 
 class SignupFormContainer extends React.Component {
   state = {
-    firstName: "",
-    lastName: "",
-    streetName: "",
-    houseNumber: "",
-    zipCode: "",
+    first_name: "",
+    last_name: "",
+    street_name: "",
+    house_number: "",
+    zipcode: "",
     city: "",
-    phoneNumber: "",
+    phonenumber: "",
     email: "",
-    password: ""
+    password: "",
+    user_type: "customer"
   };
 
   onSubmit = user => {
     user.preventDefault();
     this.props.signup(
-      this.state.firstName,
-      this.state.lastName,
-      this.state.streetName,
-      this.state.houseNumber,
-      this.state.zipCode,
+      this.state.first_name,
+      this.state.last_name,
+      this.state.street_name,
+      this.state.house_number,
+      this.state.zipcode,
       this.state.city,
-      this.state.phoneNumber,
+      this.state.phonenumber,
       this.state.email,
-      this.state.password
+      this.state.password,
+      this.state.user_type
     );
   };
 
@@ -35,8 +37,8 @@ class SignupFormContainer extends React.Component {
     this.setState({
       [user.target.name]: user.target.value
     });
+    console.log("user target name", user.target.value);
   };
-
   render() {
     return (
       <SignupForm
@@ -49,7 +51,8 @@ class SignupFormContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  signup: state.signup
+  signup: state.signup,
+  success: state.signup.success
 });
 
 export default connect(
