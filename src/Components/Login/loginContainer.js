@@ -3,7 +3,7 @@ import LoginForm from "./loginForm";
 import { connect } from "react-redux";
 import { login } from "../../actions/users";
 
-class loginContainer extends React.Component {
+class LoginContainer extends React.Component {
   state = { email: "", password: "" };
 
   onSubmit = user => {
@@ -35,4 +35,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { login }
-)(loginContainer);
+)(LoginContainer);
