@@ -1,5 +1,5 @@
 import React from "react";
-import signupForm from "./signupForm";
+import SignupForm from "./signupForm";
 import { connect } from "react-redux";
 import { signup } from "../../actions/users";
 
@@ -39,7 +39,7 @@ class signupFormContainer extends React.Component {
 
   render() {
     return (
-      <signupForm
+      <SignupForm
         onSubmit={this.onSubmit}
         onChange={this.onChange}
         values={this.state}

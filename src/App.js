@@ -10,8 +10,8 @@ function App() {
     <div>
       <Provider store={store}>
         <div>
-          <Route path="/logins" exact component={signupFormContainer} />
-          <Route path="/register" exact component={loginContainer} />
+          <Route path="/signup" exact component={signupFormContainer} />
+          <Route path="/logins" exact component={loginContainer} />
         </div>
       </Provider>
     </div>

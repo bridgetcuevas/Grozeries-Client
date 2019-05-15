@@ -1,5 +1,5 @@
 import React from "react";
-import loginPage from "./loginPage";
+import LoginForm from "./loginForm";
 import { connect } from "react-redux";
 import { login } from "../../actions/users";
 
@@ -19,7 +19,7 @@ class loginContainer extends React.Component {
 
   render() {
     return (
-      <loginPage
+      <LoginForm
         onSubmit={this.onSubmit}
         onChange={this.onChange}
         values={this.state}

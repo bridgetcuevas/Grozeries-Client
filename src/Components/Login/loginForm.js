@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function loginPage(props) {
+export default function LoginForm(props) {
   return (
     <form onSubmit={props.onSubmit}>
       <h3>Log in </h3>
