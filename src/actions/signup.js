@@ -36,7 +36,7 @@ export const signup = (
       user_type
     })
     .then(response => {
-      dispatch(signupSuccess(response.body.jwt));
+      dispatch(signupSuccess(response.body));
     })
     .catch(console.error);
 };
