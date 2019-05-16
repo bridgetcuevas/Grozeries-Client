@@ -23,7 +23,9 @@ export const setProductDetails = productDetails => {
 export const getProducts = () => dispatch => {
   request
     .get(`${baseUrl}/products`)
-    .then(result => dispatch(setProducts(result.body)))
+    .then(result =>{ 
+      console.log("result", result);
+      dispatch(setProducts(result.body))})
     .catch(err => console.error(err));
 };
 

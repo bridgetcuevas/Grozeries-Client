@@ -9,6 +9,7 @@ class ProductList extends Component {
   }
 
   render() {
+    console.log('this.props', this.props)
     if (!this.props.products) {
       return "...Loading";
     } else {
@@ -28,7 +29,8 @@ class ProductList extends Component {
 
 const mapStateToProps = state => {
   return {
-    products: state.products
+    products: state.products,
+    shops: state.shops
   };
 };
 

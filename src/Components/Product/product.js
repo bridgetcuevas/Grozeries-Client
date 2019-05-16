@@ -11,14 +11,15 @@ export default props => {
     quantity,
     ingredients,
     allergens,
-    active,
-    inStock
+    // in_stock,
+    shopId
   } = props.product;
   const detail = props.detail;
-
+  
   if (!detail) {
+    const shopId = props.shopId
     return (
-      <Link to={`/shops/${props.shop.id}/products/${props.product.productId}`}>
+      <Link to={`/shops/${shopId}/products/${props.product.id}`}>
         <p>{product_name} </p>
         <p>Description: {description}</p>
         <p>Price: {price}</p>
@@ -37,8 +38,7 @@ export default props => {
         <p>Quantity: {quantity} </p>
         <p>Ingriedients: {ingredients} </p>
         <p>Allergens: {allergens} </p>
-        <p>Active: {active}</p>
-        <p>In Stock: {inStock}</p>
+        <p>Shop: {shopId}</p>
         <br />
       </div>
     );

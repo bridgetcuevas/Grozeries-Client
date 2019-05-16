@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Shop from "./shop";
+import Product from "../Product/product";
 import { getShopDetails } from "../../actions/shops";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
@@ -11,9 +12,9 @@ class shopDetails extends Component {
   }
 
   render() {
-    console.log("THIS PROPS", this.props)
-const {shops}= this.props
-//const {shopId}= this.props.id
+    console.log("THIS PROPS", this.props);
+    const { shopId } = this.props.match.params;
+    //const {shopId}= this.props.id
 
     //const thisShop = shops && shops.find(shop => shopId == this.props.match.params.id);
     //console.log("THIS SHOP", thisShop)
@@ -24,12 +25,27 @@ const {shops}= this.props
         ) : (
           <div>
             {this.props.shops ? (
-              <Shop
-                key={this.props.match.params.id}
-                shop={this.props.shops}
-                detail={true}
-              />
-           
+              <div>
+                <Shop
+                  key={this.props.match.params.id}
+                  shop={this.props.shops}
+                  
+                  detail={true}
+                />
+                <ul>
+                  {this.props.shops.products !== null &&
+                    this.props.shops.products.map(product => {
+                      return (
+                        <Product
+                          key={product.id}
+                          product={product}
+                          detail={false}
+                          shopId={shopId}
+                        />
+                      );
+                    })}
+                </ul>
+              </div>
             ) : (
               "no result"
             )}
