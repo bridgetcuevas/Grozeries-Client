@@ -1,5 +1,6 @@
 import React from "react"
 import {Switch, Route } from "react-router-dom"
+import LandingPage from "./Components/LandingPage/landingPage";
 import SignupFormContainer from "./Components/Signup/signupFormContainer";
 import LoginContainer from "./Components/Login/loginContainer";
 import ProductList from "./Components/Product/productListPage";
@@ -9,7 +10,7 @@ import ShopDetails from "./Components/Shop/shopPage";
 import CategoryList from "./Components/Category/categoryListPage";
 const Router = () => (
     <Switch>
-        {/* <Route exact path ="/" component = {LandingPage}/> */}
+        <Route exact path ="/" component = {LandingPage}/>
         <Route path="/register" exact component={SignupFormContainer} />
           <Route path="/logins" exact component={LoginContainer} />
           <Route path="/products" exact component={ProductList} />
