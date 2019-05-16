@@ -18,15 +18,17 @@ class ProductDetails extends Component {
           <LoadingModal />
         ) : (
           <div>
-            {this.props.products ? (
+            {this.props.products && (
             <Product
               key={this.props.match.params.id}
               product={this.props.products}
               detail={true}
             />
-            ): (
-              "no result"  
-            )}
+            )
+            // : (
+            //   "no result"  
+            // )
+            }
           </div>
         )}
        </div>

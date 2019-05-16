@@ -23,7 +23,10 @@ export const setShopDetails = shopDetails => {
 export const getShops = () => dispatch => {
   request
     .get(`${baseUrl}/shops`)
-    .then(result => dispatch(setShops(result.body)))
+    .then(result => {
+      dispatch(setShops(result.body));
+      dispatch(appLoaded());
+    })
     .catch(err => console.error(err));
 };
 

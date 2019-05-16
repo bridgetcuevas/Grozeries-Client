@@ -24,7 +24,7 @@ class shopDetails extends Component {
           <LoadingModal />
         ) : (
           <div>
-            {this.props.shops ? (
+            {this.props.shops && (
               <div>
                 <Shop
                   key={this.props.match.params.id}
@@ -33,7 +33,8 @@ class shopDetails extends Component {
                   detail={true}
                 />
                 <ul>
-                  {this.props.shops.products !== null &&
+                  {this.props.shops.products &&
+                  this.props.shops.products.length &&
                     this.props.shops.products.map(product => {
                       return (
                         <Product
@@ -46,9 +47,11 @@ class shopDetails extends Component {
                     })}
                 </ul>
               </div>
-            ) : (
-              "no result"
-            )}
+            ) 
+            // : (
+            //   "no result"
+            // )
+            }
           </div>
         )}
       </div>

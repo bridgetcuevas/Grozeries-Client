@@ -4,6 +4,7 @@ import { getShops } from "../../actions/shops";
 import { connect } from "react-redux";
 
 
+
 class ShopList extends Component {
   componentDidMount() {
     this.props.getShops();
@@ -15,7 +16,8 @@ class ShopList extends Component {
     } else {
       return (
         <ul>
-          {this.props.shops !== null &&
+          {this.props.shops &&
+          this.props.shops.length &&
             this.props.shops.map(shop => {
               return (
                 <Shop key={shop.id} shop={shop} detail={false} />
