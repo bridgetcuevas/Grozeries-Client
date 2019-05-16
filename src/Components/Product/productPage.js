@@ -17,10 +17,10 @@ class ProductDetails extends Component {
           <LoadingModal />
         ) : (
           <div>
-            {this.props.productDetails ? (
+            {this.props.products ? (
             <Product
-              key={this.props.match.params.shopId}
-              product={this.props.productDetails}
+              key={this.props.match.params.id}
+              product={this.props.products}
               detail={true}
             />
             ): (
@@ -35,7 +35,7 @@ class ProductDetails extends Component {
 
 const mapStateToProps = state => {
   return {
-    productDetails: state.productDetails
+    products: state.products
   };
 };
 

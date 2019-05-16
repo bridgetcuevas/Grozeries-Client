@@ -11,18 +11,25 @@ class shopDetails extends Component {
   }
 
   render() {
+    console.log("THIS PROPS", this.props)
+const {shops}= this.props
+//const {shopId}= this.props.id
+
+    //const thisShop = shops && shops.find(shop => shopId == this.props.match.params.id);
+    //console.log("THIS SHOP", thisShop)
     return (
       <div>
         {this.props.loading ? (
           <LoadingModal />
         ) : (
           <div>
-            {this.props.shopDetails ? (
+            {this.props.shops ? (
               <Shop
-                key={this.props.match.params.shopId}
-                shop={this.props.shopDetails}
+                key={this.props.match.params.id}
+                shop={this.props.shops}
                 detail={true}
               />
+           
             ) : (
               "no result"
             )}
@@ -36,7 +43,8 @@ class shopDetails extends Component {
 const mapStateToProps = state => {
   return {
     shopDetails: state.shopDetails,
-    loading: state.appStatus.loading
+    loading: state.appStatus.loading,
+    shops: state.shops
   };
 };
 

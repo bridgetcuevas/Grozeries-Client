@@ -32,6 +32,7 @@ export const getShopDetails = id => dispatch => {
   request
     .get(`${baseUrl}/shops/${id}`)
     .then(result => {
+      console.log("result", result.body);
       dispatch(setShopDetails(result.body));
       dispatch(appLoaded());
     })
