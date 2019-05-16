@@ -16,6 +16,7 @@ export const login = (email, password) => dispatch => {
     .post(`${baseUrl}/logins`)
     .send({ email, password })
     .then(response => {
+      console.log(response);
       dispatch(loginSuccess(response.body.jwt, response.body.email));
     })
     .catch(console.error);
