@@ -1,9 +1,7 @@
 import request from "superagent";
+import { baseUrl } from "../constants";
 
 export const SET_CATEGORIES = "SET_CATEGORIES";
-
-
-const baseUrl = "http://localhost:4000";
 
 export const setCategories = categories => {
   return {
@@ -12,12 +10,9 @@ export const setCategories = categories => {
   };
 };
 
-
 export const getCategories = () => dispatch => {
-
   request
     .get(`${baseUrl}/categories`)
     .then(result => dispatch(setCategories(result.body)))
     .catch(err => console.error(err));
 };
-

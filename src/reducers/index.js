@@ -3,8 +3,9 @@ import signup from "./signup";
 import products from "./products";
 import shops from "./shops";
 import categories from "./categories";
-import {combineReducers} from "redux";
+import { combineReducers } from "redux";
 import appStatus from "./appStatus";
+import product from "./product";
 
 export default combineReducers({
   login,
@@ -12,5 +13,6 @@ export default combineReducers({
   products,
   shops,
   categories,
-  appStatus
+  appStatus,
+  product
 });

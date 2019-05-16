@@ -1,10 +1,9 @@
 import request from "superagent";
 import { appLoaded, appLoading } from "./appStatus";
+import { baseUrl } from "../constants";
 
 export const SET_SHOPS = "SET_SHOPS";
 export const SET_SHOP_DETAILS = "SET_SHOP_DETAILS";
-
-const baseUrl = "http://localhost:4000";
 
 export const setShops = shops => {
   return {

@@ -1,8 +1,7 @@
 import request from "superagent";
+import { baseUrl } from "../constants";
 
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
-
-const baseUrl = "http://localhost:4000";
 
 const signupSuccess = jwt => ({
   type: SIGNUP_SUCCESS,

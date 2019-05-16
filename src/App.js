@@ -21,11 +21,7 @@ function App() {
 
           <Route path="/shops" exact component={ShopList} />
           <Route path="/shops/:shopId" exact component={ShopDetails} />
-          <Route
-            path="/shops/:shopId/products/:productId"
-            exact
-            component={ProductDetails}
-          />
+          <Route path="/products/:productId" exact component={ProductDetails} />
           <Route path="/categories" exact component={CategoryList} />
         </div>
       </Provider>

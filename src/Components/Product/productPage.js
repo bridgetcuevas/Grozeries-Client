@@ -6,39 +6,39 @@ import LoadingModal from "../LoadingModal";
 
 class ProductDetails extends Component {
   componentDidMount() {
-    const { shopId, productId } = this.props.match.params;
-    this.props.getProductDetails(shopId, productId);
-    console.log('this.props', this.props)
+    const productId = this.props.match.params.productId;
+    this.props.getProductDetails(productId);
+    console.log("this.props", this.props);
   }
 
   render() {
-        return (
-          <div>
+    return (
+      <div>
         {this.props.loading ? (
           <LoadingModal />
         ) : (
           <div>
-            {this.props.products && (
-            <Product
-              key={this.props.match.params.id}
-              product={this.props.products}
-              detail={true}
-            />
+            {this.props.product && (
+              <Product
+                key={this.props.match.params.id}
+                product={this.props.product}
+                detail={true}
+              />
             )
             // : (
-            //   "no result"  
+            //   "no result"
             // )
             }
           </div>
         )}
-       </div>
-        );
-    }
+      </div>
+    );
   }
+}
 
 const mapStateToProps = state => {
   return {
-    products: state.products
+    product: state.product
   };
 };
 

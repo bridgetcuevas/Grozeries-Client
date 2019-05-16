@@ -15,11 +15,11 @@ export default props => {
     shopId
   } = props.product;
   const detail = props.detail;
-  
+
   if (!detail) {
-    const shopId = props.shopId
+    // const shopId = props.shopId
     return (
-      <Link to={`/shops/${shopId}/products/${props.product.id}`}>
+      <Link to={`/products/${props.product.id}`}>
         <p>{product_name} </p>
         <p>Description: {description}</p>
         <p>Price: {price}</p>
