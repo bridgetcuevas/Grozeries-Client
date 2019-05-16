@@ -1,10 +1,11 @@
-import { LOGIN_SUCCESS } from "../actions/login";
-
-export default function(state = { loggedIn: false, username: null }, action) {
-  if (action.type === LOGIN_SUCCESS)
-    return Object.assign(
-      {},
-      { jwt: action.jwt, loggedIn: action.loggedIn, username: action.username }
-    );
-  return state;
+import { USER_LOGIN_FAILED } from "../actions/users";
+export default function(state = {}, { type, payload }) {
+  switch (type) {
+    case USER_LOGIN_FAILED:
+      return {
+        error: payload
+      };
+    default:
+      return state;
+  }
 }

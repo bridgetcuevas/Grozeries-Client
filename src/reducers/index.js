@@ -6,6 +6,7 @@ import categories from "./categories";
 import { combineReducers } from "redux";
 import appStatus from "./appStatus";
 import product from "./product";
+import currentUser from "./currentUser";
 
 export default combineReducers({
   login,
@@ -14,5 +15,6 @@ export default combineReducers({
   shops,
   categories,
   appStatus,
-  product
+  product,
+  currentUser
 });
