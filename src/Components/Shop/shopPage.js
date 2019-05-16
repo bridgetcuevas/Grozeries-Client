@@ -14,10 +14,11 @@ class shopDetails extends Component {
   render() {
     console.log("THIS PROPS", this.props);
     const { shopId } = this.props.match.params;
-    //const {shopId}= this.props.id
+   
 
-    //const thisShop = shops && shops.find(shop => shopId == this.props.match.params.id);
-    //console.log("THIS SHOP", thisShop)
+
+
+
     return (
       <div>
         {this.props.loading ? (
@@ -47,11 +48,7 @@ class shopDetails extends Component {
                     })}
                 </ul>
               </div>
-            ) 
-            // : (
-            //   "no result"
-            // )
-            }
+            )};
           </div>
         )}
       </div>

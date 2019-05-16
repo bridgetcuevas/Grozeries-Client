@@ -22,7 +22,7 @@ export default props => {
         <img src={shop_image} alt="shop" width="300" />
         <p>{shop_name} </p>
       </Link>
-    );
+    )
   } else {
     return (
       <div>
