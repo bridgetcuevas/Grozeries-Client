@@ -1,4 +1,5 @@
 import request from "superagent";
+import { appLoaded, appLoading } from "./appStatus";
 
 export const SET_SHOPS = "SET_SHOPS";
 export const SET_SHOP_DETAILS = "SET_SHOP_DETAILS";
@@ -27,8 +28,16 @@ export const getShops = () => dispatch => {
 };
 
 export const getShopDetails = id => dispatch => {
+  dispatch(appLoading());
   request
     .get(`${baseUrl}/shops/${id}`)
-    .then(result => dispatch(setShopDetails(result.body)))
-    .catch(err => console.error(err));
+    .then(result => {
+      dispatch(setShopDetails(result.body));
+      dispatch(appLoaded());
+    })
+
+    .catch(err => {
+      console.error(err);
+      dispatch(appLoaded());
+    });
 };

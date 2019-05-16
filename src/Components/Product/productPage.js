@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Product from "./product";
 import { getProductDetails } from "../../actions/products";
 import { connect } from "react-redux";
+import LoadingModal from "../LoadingModal";
 
 class ProductDetails extends Component {
   componentDidMount() {
@@ -10,25 +11,27 @@ class ProductDetails extends Component {
   }
 
   render() {
-    if (!this.props.productDetails) {
-      return "...Loading";
-    } else {
-      if (this.props.ProductDetails) {
         return (
           <div>
+        {this.props.loading ? (
+          <LoadingModal />
+        ) : (
+          <div>
+            {this.props.productDetails ? (
             <Product
               key={this.props.match.params.shopId}
               product={this.props.productDetails}
               detail={true}
             />
+            ): (
+              "no result"  
+            )}
           </div>
+        )}
+       </div>
         );
-      } else {
-        return <p>Could not find any product details</p>;
-      }
     }
   }
-}
 
 const mapStateToProps = state => {
   return {

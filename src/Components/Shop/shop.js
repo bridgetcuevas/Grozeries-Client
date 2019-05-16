@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default props => {
+  console.log(props.shop);
   const {
     shop_image,
     shop_name,
@@ -26,12 +27,17 @@ export default props => {
   } else {
     return (
       <div>
-        <img src={shop_image} alt="shop" width="300"/>
+        <img src={shop_image} alt="shop" width="300" />
         <p>{shop_name} </p>
         <p>{description} </p>
         <p>{business_hours} </p>
-        <p>{street_name} {house_number}</p> 
-        <p>{zipcode}{city}</p>
+        <p>
+          {street_name} {house_number}
+        </p>
+        <p>
+          {zipcode}
+          {city}
+        </p>
         <p>{phonenumber}</p>
         <p>{email}</p>
         <br />

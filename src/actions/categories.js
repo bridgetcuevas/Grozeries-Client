@@ -13,7 +13,6 @@ export const setCategories = categories => {
 };
 
 
-
 export const getCategories = () => dispatch => {
 
   request
