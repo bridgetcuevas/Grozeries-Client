@@ -1,7 +1,8 @@
 import React from "react";
 import LoginForm from "./loginForm";
 import { connect } from "react-redux";
-import { login } from "../../actions/login";
+import { login } from "../../actions/users";
+import { Redirect } from "react-router-dom";
 
 class LoginContainer extends React.Component {
   state = { email: "", password: "" };
@@ -18,6 +19,7 @@ class LoginContainer extends React.Component {
   };
 
   render() {
+    if (this.props.currentUser) return <Redirect to="/" />;
     return (
       <LoginForm
         onSubmit={this.onSubmit}
@@ -29,7 +31,8 @@ class LoginContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  login: state.login
+  login: state.login,
+  currentUser: state.currentUser
 });
 
 export default connect(
