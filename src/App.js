@@ -11,6 +11,15 @@ const Navigation = props => (
       <li>
         <NavLink to="/shops">Shops</NavLink>
       </li>
+      <li>
+        <NavLink to="/logins">Login</NavLink>
+      </li>
+      <li>
+        <NavLink to="/register">Sign up</NavLink>
+      </li>
+      <li>
+        <NavLink to="/logout">Logout</NavLink>
+      </li>
     </ul>
   </nav>
 );
