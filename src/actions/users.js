@@ -109,28 +109,14 @@ export const getUsers = () => (dispatch, getState) => {
     .get(`${baseUrl}/register`)
     .set("Authorization", `Bearer ${jwt}`)
     .then(result => {
+      console.log('GETUSERS', result)
       dispatch(updateUsers(result.body));
     })
     .catch(err => console.error(err));
 };
 
-// export const getUser = id => (dispatch, getState) => {
-//   const state = getState();
-//   if (!state.currentUser) return null;
-//   const jwt = state.currentUser.jwt;
-
-//   if (isExpired(jwt)) return dispatch(logout());
-
-//   request
-//     .get(`${baseUrl}/users/${id}`)
-//     .set("Authorization", `Bearer ${jwt}`)
-//     .then(result => {
-//       console.log("RESULT USER", result);
-//       dispatch(updateUser(result.body));
-//     })
-//     .catch(err => console.error(err));
-// };
 export const getUser = id => (dispatch, getState) => {
+  console.log('getUserId', id)
   const state = getState();
   if (!state.currentUser) return null;
   const jwt = state.currentUser.jwt;
@@ -139,9 +125,9 @@ export const getUser = id => (dispatch, getState) => {
 
   dispatch(appLoading());
   request
-    .get(`${baseUrl}/products/${id}`)
+    .get(`${baseUrl}/users/${id}`)
     .then(result => {
-      console.log("result", result);
+      console.log("GETUSER", result);
       dispatch(updateUser(result.body));
       dispatch(appLoaded());
     })

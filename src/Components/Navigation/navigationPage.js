@@ -22,7 +22,7 @@ export default function Navigation(props) {
             <NavLink to="/logout">Logout</NavLink>
           </li>
           <li>
-            <NavLink to="/profile">Profile</NavLink>
+            <NavLink to="/users/:id">Profile</NavLink>
           </li>
         </ul>
       </nav>

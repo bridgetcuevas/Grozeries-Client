@@ -22,7 +22,7 @@ const Router = () => (
     <Route path="/shops/:shopId" exact component={ShopDetails} />
     <Route path="/products/:productId" exact component={ProductDetails} />
     <Route path="/categories" exact component={CategoryList} />
-    <Route path="/profile" exact component={ProfilePage} />
+    <Route path="/users/:id" exact component={ProfilePage} />
   </Switch>
 );
 

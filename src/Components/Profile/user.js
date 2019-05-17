@@ -12,13 +12,13 @@ export default props => {
     email,
     phonenumber
    
-  } = props.users;
+  } = props.currentUser;
 
 
     return (
       <div>
       
-        <h2>Hello {first_name}{last_name} </h2>
+        <h2>Hello {first_name} {last_name} </h2>
         <p>Street Name: {street_name}</p>
         <p>House Number: {house_number}</p>
         <p>Zipcode: {zipcode} </p>
