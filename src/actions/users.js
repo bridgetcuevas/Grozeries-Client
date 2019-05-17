@@ -1,6 +1,7 @@
 import * as request from "superagent";
 import { baseUrl } from "../constants";
 import { isExpired } from "../jwt";
+import { appLoaded, appLoading } from "./appStatus";
 
 export const ADD_USER = "ADD_USER";
 export const UPDATE_USER = "UPDATE_USER";
@@ -40,6 +41,11 @@ const userSignupSuccess = () => ({
 const updateUsers = users => ({
   type: UPDATE_USERS,
   payload: users
+});
+
+const updateUser = user => ({
+  type: UPDATE_USER,
+  payload: user
 });
 
 export const login = (email, password) => dispatch =>
@@ -102,6 +108,31 @@ export const getUsers = () => (dispatch, getState) => {
   request
     .get(`${baseUrl}/register`)
     .set("Authorization", `Bearer ${jwt}`)
-    .then(result => dispatch(updateUsers(result.body)))
+    .then(result => {
+      console.log('GETUSERS', result)
+      dispatch(updateUsers(result.body));
+    })
     .catch(err => console.error(err));
+};
+
+export const getUser = id => (dispatch, getState) => {
+  console.log('getUserId', id)
+  const state = getState();
+  if (!state.currentUser) return null;
+  const jwt = state.currentUser.jwt;
+
+  if (isExpired(jwt)) return dispatch(logout());
+
+  dispatch(appLoading());
+  request
+    .get(`${baseUrl}/users/${id}`)
+    .then(result => {
+      console.log("GETUSER", result);
+      dispatch(updateUser(result.body));
+      dispatch(appLoaded());
+    })
+    .catch(err => {
+      console.error(err);
+      dispatch(appLoaded());
+    });
 };
