@@ -1,5 +1,6 @@
 import { USER_LOGIN_SUCCESS, USER_LOGOUT } from "./actions/users";
 import { localStorageJwtKey } from "./constants";
+
 export const storeJwt = store => next => action => {
   try {
     if (action.type === USER_LOGIN_SUCCESS) {
@@ -11,15 +12,19 @@ export const storeJwt = store => next => action => {
   } catch (error) {
     console.log(`Interaction with LocalStorage went wrong`, error);
   }
+
   next(action);
 };
-export const socketIo = socketio => store => next => action => {
-  if (action.type === USER_LOGIN_SUCCESS) {
-    const jwt = action.payload.jwt;
-    socketio.connect(store.dispatch, jwt);
-  }
-  if (action.type === USER_LOGOUT) {
-    socketio.disconnect();
-  }
-  next(action);
-};
+
+
+// export const socketIo = socketio => store => next => action => {
+//   if (action.type === USER_LOGIN_SUCCESS) {
+//     const jwt = action.payload.jwt;
+//     socketio.connect(store.dispatch, jwt);
+//   }
+//   if (action.type === USER_LOGOUT) {
+//     socketio.disconnect();
+//   }
+
+//   next(action);
+// };

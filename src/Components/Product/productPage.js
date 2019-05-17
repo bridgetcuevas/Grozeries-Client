@@ -47,7 +47,11 @@ class ProductDetails extends Component {
 const mapStateToProps = state => {
   return {
     product: state.product,
+
     cart: state.cart
+
+    loading: state.appStatus.loading
+
   };
 };
 

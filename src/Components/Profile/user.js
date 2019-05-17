@@ -8,23 +8,24 @@ export default props => {
     house_number,
     zipcode,
     city,
-    phonenumber,
-    email
-  } = props.user;
+    email,
+    phonenumber
+  } = props.currentUser;
+
 
   return (
     <div>
       <h2>
-        Welcome {first_name} {last_name}{" "}
+
+        Hello {first_name}
       </h2>
+      <h3>Personal info</h3>
       <p>
-        Address :{street_name} {house_number}
+        Address: {street_name}, {house_number}, {zipcode}, {city}
       </p>
-      <p>
-        {zipcode} {city}
-      </p>
-      <p>Phone Number: {phonenumber}</p>
-      <p> Email: {email}</p>
+      <p>Phone: {phonenumber} </p>
+      <p>Email: {email}</p>
+
       <br />
     </div>
   );
