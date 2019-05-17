@@ -24,6 +24,9 @@ export default function Navigation(props) {
           <li>
             <NavLink to="/logout">Logout</NavLink>
           </li>
+          <li>
+            <NavLink to="/cart">Cart</NavLink>
+          </li>
         </ul>
       </nav>
     </div>

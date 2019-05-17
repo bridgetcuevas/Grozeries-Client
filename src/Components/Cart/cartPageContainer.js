@@ -1,38 +1,50 @@
 import React from "react";
-// import LoadingModal from "../LoadingModal";
+import { getCart } from "../../actions/cart";
+import { connect } from "react-redux";
+import LoadingModal from "../LoadingModal";
+import Cart from "./cartPage";
 
-export default class CartPageContainer extends React.Component {
-  render() {
-    return <h1>Cart</h1>;
+class CartPageContainer extends React.Component {
+  componentDidMount() {
+    const cartId = this.props.match.params.cartId;
+    this.props.getCart(cartId);
+    console.log("this.props", this.props);
+    console.log("cartPage.js ", this.props.cart);
   }
-}
-//   <div>
-//   {this.props.loading ? (
-//     <LoadingModal />
-//   ) : (
-//     <div>
-//       {this.props.shops && (
-//         <div>
+  render() {
+    return (     <div>
+      {this.props.loading ? (
+        <LoadingModal />
+      ) : (
+        <div>
+          <ul>
+            {this.props.cart &&
+              this.props.cart.length &&
+              this.props.cart.map(cart => {
+                return (
+                  <Cart
+                    key={cart.id}
+                    cart={cart}
+                    detail={false}
+                  />
+                );
+              })}
+          </ul>
+        </div>
+      )}
+      ;
+    </div>
+    )
+}}
+const mapStateToProps = state => {
+  return {
+    cart: state.cart,
+    // shops: state.shops,
+    loading: state.appStatus.loading
+  };
+};
 
-//           <ul>
-//             {this.props.shops.products &&
-//             this.props.shops.products.length &&
-//               this.props.shops.products.map(product => {
-//                 return (
-//                   <Product
-//                     key={product.id}
-//                     product={product}
-//                     detail={false}
-//                     shopId={shopId}
-//                   />
-//                 );
-//               })}
-//           </ul>
-//         </div>
-//       )};
-//     </div>
-//   )}
-// </div>
-
-// }
-// }
+export default connect(
+  mapStateToProps,
+  { getCart }
+)(CartPageContainer);
