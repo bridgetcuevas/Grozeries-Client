@@ -39,6 +39,7 @@ export default props => {
         <p>Ingriedients: {ingredients} </p>
         <p>Allergens: {allergens} </p>
         <p>Shop: {shopId}</p>
+
         <br />
       </div>
     );

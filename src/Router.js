@@ -9,7 +9,11 @@ import ProductDetails from "./Components/Product/productPage";
 import ShopList from "./Components/Shop/shopListPage";
 import ShopDetails from "./Components/Shop/shopPage";
 import CategoryList from "./Components/Category/categoryListPage";
+
+import CartPageContainer from "./Components/Cart/cartPageContainer";
+
 import ProfilePage from "./Components/Profile/profilePage";
+
 
 const Router = () => (
   <Switch>
@@ -22,6 +26,7 @@ const Router = () => (
     <Route path="/shops/:shopId" exact component={ShopDetails} />
     <Route path="/products/:productId" exact component={ProductDetails} />
     <Route path="/categories" exact component={CategoryList} />
+    <Route path="/cart" exact component={CartPageContainer} />
     <Route path="/users/:id" exact component={ProfilePage} />
   </Switch>
 );

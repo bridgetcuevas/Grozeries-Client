@@ -3,7 +3,7 @@ import React from "react";
 export default props => {
   const {
     first_name,
-    // last_name,
+    last_name,
     street_name,
     house_number,
     zipcode,
@@ -12,9 +12,11 @@ export default props => {
     phonenumber
   } = props.currentUser;
 
+
   return (
     <div>
       <h2>
+
         Hello {first_name}
       </h2>
       <h3>Personal info</h3>
@@ -23,6 +25,7 @@ export default props => {
       </p>
       <p>Phone: {phonenumber} </p>
       <p>Email: {email}</p>
+
       <br />
     </div>
   );
