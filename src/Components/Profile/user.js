@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default props => {
   const {
     first_name,
@@ -11,22 +10,20 @@ export default props => {
     city,
     email,
     phonenumber
-   
   } = props.currentUser;
 
-
-    return (
-      <div>
-      
-        <h2>Hello {first_name} {last_name} </h2>
-        <p>Street Name: {street_name}</p>
-        <p>House Number: {house_number}</p>
-        <p>Zipcode: {zipcode} </p>
-        <p>City: {city} </p>
-        <p>phonenumber: {phonenumber} </p>
-        <p>Email: {email}</p>
-        <br />
-      </div>
-    );
-  };
-
+  return (
+    <div>
+      <h2>
+        Hello {first_name}
+      </h2>
+      <h3>Personal info</h3>
+      <p>
+        Address: {street_name}, {house_number}, {zipcode}, {city}
+      </p>
+      <p>Phone: {phonenumber} </p>
+      <p>Email: {email}</p>
+      <br />
+    </div>
+  );
+};
