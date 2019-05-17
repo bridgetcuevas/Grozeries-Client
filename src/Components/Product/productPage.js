@@ -3,17 +3,19 @@ import Product from "./product";
 import { getProductDetails } from "../../actions/products";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
-import { addProductToCart } from "../../actions/cart";
+import { addToCart } from "../../actions/cart";
 
 class ProductDetails extends Component {
   componentDidMount() {
     const productId = this.props.match.params.productId;
     this.props.getProductDetails(productId);
     console.log("this.props", this.props);
+    console.log("productPage.js ", this.props.product);
   }
 
-  handleClick = () => {
-    this.props.addProductToCart();
+  handleClick = event => {
+    console.log(event, this.props.product);
+    this.props.addToCart(this.props.product);
   };
 
   render() {
@@ -31,7 +33,9 @@ class ProductDetails extends Component {
               />
             )}
             <div>
-              <button onClick={this.handleClick}>Add to cart</button>
+              <button value={"hello"} onClick={this.handleClick}>
+                Add to cart
+              </button>
             </div>
           </div>
         )}
@@ -49,5 +53,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getProductDetails, addProductToCart }
+  { getProductDetails, addToCart }
 )(ProductDetails);
