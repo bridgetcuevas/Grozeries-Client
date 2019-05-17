@@ -3,6 +3,7 @@ import Product from "./product";
 import { getProductDetails } from "../../actions/products";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
+import { addProductToCart } from "../../actions/cart";
 
 class ProductDetails extends Component {
   componentDidMount() {
@@ -10,6 +11,10 @@ class ProductDetails extends Component {
     this.props.getProductDetails(productId);
     console.log("this.props", this.props);
   }
+
+  handleClick = () => {
+    this.props.addProductToCart();
+  };
 
   render() {
     return (
@@ -24,11 +29,10 @@ class ProductDetails extends Component {
                 product={this.props.product}
                 detail={true}
               />
-            )
-            // : (
-            //   "no result"
-            // )
-            }
+            )}
+            <div>
+              <button onClick={this.handleClick}>Add to cart</button>
+            </div>
           </div>
         )}
       </div>
@@ -38,11 +42,12 @@ class ProductDetails extends Component {
 
 const mapStateToProps = state => {
   return {
-    product: state.product
+    product: state.product,
+    cart: state.cart
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getProductDetails }
+  { getProductDetails, addProductToCart }
 )(ProductDetails);
