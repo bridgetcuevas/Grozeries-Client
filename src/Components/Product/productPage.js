@@ -48,10 +48,9 @@ const mapStateToProps = state => {
   return {
     product: state.product,
 
-    cart: state.cart
+    cart: state.cart,
 
     loading: state.appStatus.loading
-
   };
 };
 
