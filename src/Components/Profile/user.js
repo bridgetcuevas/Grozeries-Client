@@ -3,7 +3,7 @@ import React from "react";
 export default props => {
   const {
     first_name,
-    last_name,
+    // last_name,
     street_name,
     house_number,
     zipcode,

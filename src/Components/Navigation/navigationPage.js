@@ -13,6 +13,9 @@ export default function Navigation(props) {
             <NavLink to="/shops">Shops</NavLink>
           </li>
           <li>
+            <NavLink to="/users/:id">Profile</NavLink>
+          </li>
+          <li>
             <NavLink to="/logins">Login</NavLink>
           </li>
           <li>
@@ -20,9 +23,6 @@ export default function Navigation(props) {
           </li>
           <li>
             <NavLink to="/logout">Logout</NavLink>
-          </li>
-          <li>
-            <NavLink to="/users/:id">Profile</NavLink>
           </li>
         </ul>
       </nav>
