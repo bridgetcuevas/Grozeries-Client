@@ -26,19 +26,15 @@ export default props => {
   } else {
     return (
       <div>
+        <h1>{shop_name} </h1>
         <img src={shop_image} alt="shop" width="300" />
-        <p>{shop_name} </p>
         <p>{description} </p>
-        <p>{business_hours} </p>
+        <p>Hours: {business_hours} </p>
         <p>
-          {street_name} {house_number}
+          Address: {street_name}, {house_number} <br/>{zipcode}, {city}
         </p>
-        <p>
-          {zipcode}
-          {city}
-        </p>
-        <p>{phonenumber}</p>
-        <p>{email}</p>
+        <p>Phone: {phonenumber}</p>
+        <p>E-mail: {email}</p>
         <br />
       </div>
     );
