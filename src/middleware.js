@@ -4,6 +4,7 @@ import { localStorageJwtKey } from "./constants";
 export const storeJwt = store => next => action => {
   try {
     if (action.type === USER_LOGIN_SUCCESS) {
+      console.log("loginnnnnnnnn");
       localStorage.setItem(localStorageJwtKey, action.payload.jwt);
     }
     if (action.type === USER_LOGOUT) {
@@ -15,7 +16,6 @@ export const storeJwt = store => next => action => {
 
   next(action);
 };
-
 
 // export const socketIo = socketio => store => next => action => {
 //   if (action.type === USER_LOGIN_SUCCESS) {
