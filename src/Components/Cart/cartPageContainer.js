@@ -12,30 +12,31 @@ class CartPageContainer extends React.Component {
     console.log("cartPage.js ", this.props.cart);
   }
   render() {
-    return (     <div>
-      {this.props.loading ? (
-        <LoadingModal />
-      ) : (
-        <div>
-          <ul>
-            {this.props.cart &&
-              this.props.cart.length &&
-              this.props.cart.map(cart => {
-                return (
-                  <Cart
-                    key={cart.id}
-                    cart={cart}
-                    detail={false}
-                  />
-                );
-              })}
-          </ul>
-        </div>
-      )}
-      ;
-    </div>
-    )
-}}
+    const total = this.props.cart.reduce((totalSoFar, current) => {
+      return totalSoFar + parseFloat(current.price);
+    }, 0);
+
+    return (
+      <div>
+        {this.props.loading ? (
+          <LoadingModal />
+        ) : (
+          <div>
+            {total > 0 && <h3>Total amount: € {total.toFixed(2)}</h3>}
+
+            <ul>
+              {this.props.cart &&
+                this.props.cart.length &&
+                this.props.cart.map(cart => {
+                  return <Cart key={cart.id} cart={cart} detail={false} />;
+                })}
+            </ul>
+          </div>
+        )}
+      </div>
+    );
+  }
+}
 const mapStateToProps = state => {
   return {
     cart: state.cart,

@@ -25,7 +25,7 @@ class ShopList extends Component {
             </ul>
           </div>
         )}
-        ;
+        
       </div>
     );
   }

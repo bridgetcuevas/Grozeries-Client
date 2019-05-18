@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Product from "./product";
 import { getProductDetails } from "../../actions/products";
+import { addToCart } from "../../actions/cart";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
-import { addToCart } from "../../actions/cart";
+
 
 class ProductDetails extends Component {
   componentDidMount() {
