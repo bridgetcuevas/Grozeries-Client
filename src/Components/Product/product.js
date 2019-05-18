@@ -15,17 +15,21 @@ export default props => {
     shopId
   } = props.product;
   const detail = props.detail;
-
+  console.log("props", props);
   if (!detail) {
     // const shopId = props.shopId
     return (
-      <Link to={`/products/${props.product.id}`}>
+      <div>
         <p>{product_name} </p>
         <p>Description: {description}</p>
         <p>Price: {price}</p>
-
-        <br />
-      </Link>
+        <Link to={`/products/${props.product.id}`}>
+          <button value={"hello"}>View Details</button>
+        </Link>
+        <button value={"hello"} onClick={props.handleClick}>
+          Add to cart
+        </button>
+      </div>
     );
   } else {
     return (
