@@ -12,12 +12,17 @@ class CartPageContainer extends React.Component {
     console.log("cartPage.js ", this.props.cart);
   }
   render() {
+    const total = this.props.cart.reduce((totalSoFar, current) => {
+      return totalSoFar + parseFloat(current.price);
+    }, 0);
+    
     return (
       <div>
         {this.props.loading ? (
           <LoadingModal />
         ) : (
           <div>
+            <h3>Total amount: € {total.toFixed(2)}</h3>
             <ul>
               {this.props.cart &&
                 this.props.cart.length &&
