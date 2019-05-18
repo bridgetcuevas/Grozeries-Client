@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+import logo from "./grozeriesLogo.png";
 import "./loadingModal.css";
 
 export default () => {

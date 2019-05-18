@@ -14,10 +14,6 @@ class shopDetails extends Component {
   render() {
     console.log("THIS PROPS", this.props);
     const { shopId } = this.props.match.params;
-   
-
-
-
 
     return (
       <div>
@@ -30,12 +26,11 @@ class shopDetails extends Component {
                 <Shop
                   key={this.props.match.params.id}
                   shop={this.props.shops}
-                  
                   detail={true}
                 />
                 <ul>
                   {this.props.shops.products &&
-                  this.props.shops.products.length &&
+                    this.props.shops.products.length &&
                     this.props.shops.products.map(product => {
                       return (
                         <Product
@@ -48,7 +43,7 @@ class shopDetails extends Component {
                     })}
                 </ul>
               </div>
-            )};
+            )}
           </div>
         )}
       </div>
