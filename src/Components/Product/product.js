@@ -34,6 +34,10 @@ export default props => {
   } else {
     return (
       <div>
+        <Link to={`/shops/${props.product.shopId}`}>
+          <button value={"hello"}>Back to shop</button>
+        </Link>
+        <br></br>
         <img src={image} alt="product" width="300" />
         <p>Product: {product_name} </p>
         <p>Description: {description} </p>
