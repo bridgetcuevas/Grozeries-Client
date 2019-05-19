@@ -17,23 +17,17 @@ export default props => {
 
   return (
     <div>
-      <Link to={`/shops/${props.product.shopId}`}>
-        <button className="btn btn-primary" value={"hello"}>
-          Back to shop
-        </button>
-      </Link>
-      <br />
-      <img src={image} alt="product" width="300" />
-      <p>Product: {product_name} </p>
-      <p>Description: {description} </p>
-      <p>Price: € {price}</p>
-      <p>Price by: {prices_by}</p>
-      <p>Quantity: {quantity} </p>
-      <p>Ingriedients: {ingredients} </p>
-      <p>Allergens: {allergens} </p>
-      <p>Shop: {shopId}</p>
-
-      <br />
+      <img src={image} alt="product" />
+      <div className="container mt-5 mb-5">
+        <h2>{product_name} </h2>
+        <p>{description} </p>
+        <p>Price: € {price}</p>
+        <p>Price by: {prices_by}</p>
+        <p>Quantity: {quantity} </p>
+        <p>Ingriedients: {ingredients} </p>
+        <p>Allergens: {allergens} </p>
+        <p>Shop: {shopId}</p>
+      </div>
     </div>
   );
 };

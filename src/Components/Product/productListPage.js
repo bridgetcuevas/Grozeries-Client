@@ -30,7 +30,6 @@ class ProductList extends Component {
                       product={product}
                       addToCart={this.addToCart}
                     />
-                    
                   );
                 })}
             </ul>

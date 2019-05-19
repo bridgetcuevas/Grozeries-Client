@@ -16,4 +16,8 @@ html {
   margin-bottom: 20px; 
  } 
 
-
+ @media only screen and (max-width: 700px) {
+  .list-item-image {
+    height: 300px;
+  }
+}

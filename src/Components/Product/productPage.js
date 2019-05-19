@@ -4,8 +4,7 @@ import { getProductDetails } from "../../actions/products";
 import { addToCart } from "../../actions/cart";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
-
-
+import { Link } from "react-router-dom";
 class ProductDetails extends Component {
   componentDidMount() {
     const productId = this.props.match.params.productId;
@@ -33,10 +32,22 @@ class ProductDetails extends Component {
                 detail={true}
               />
             )}
-            <div>
-              <button value={"hello"} onClick={this.handleClick}>
+            <div className="container mb-5">
+              <button
+                className="btn btn-outline-success"
+                value={"hello"}
+                onClick={this.handleClick}
+              >
                 Add to cart
               </button>
+              {this.props.product && (
+                <Link
+                  className="ml-2"
+                  to={`/shops/${this.props.product.shopId}`}
+                >
+                  <button className="btn btn-outline-secondary ">Back to shop</button>
+                </Link>
+              )}
             </div>
           </div>
         )}

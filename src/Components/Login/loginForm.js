@@ -22,7 +22,7 @@ export default function LoginForm(props) {
         value={props.values.password}
         onChange={props.onChange}
       />
-      <button className=" mt-3 btn btn-primary btn-block" type="submit">
+      <button className=" mt-3 btn btn-outline-secondary btn-block" type="submit">
         Log in
       </button>
     </form>

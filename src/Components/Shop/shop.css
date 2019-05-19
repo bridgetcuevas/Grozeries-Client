@@ -1,7 +1,19 @@
+.item-link {
+  text-decoration: none !important;
+  color: #555;
+}
+
+
 .list-item-image {
   height: 200px;
   width: 100%;
   object-fit: cover;
+}
+
+
+.item-link p:hover {
+  text-decoration: none !important;
+  color: rgb(23, 147, 19);
 }
 
 .shop-detail-header-image {
@@ -9,4 +21,10 @@
   width: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .list-item-image {
+    height: 300px;
+  }
 }

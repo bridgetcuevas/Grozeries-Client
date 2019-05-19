@@ -17,6 +17,14 @@
 
 .navBar_logo {
   margin-left: 1rem;
+  text-decoration: none;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+.navbar-brand:hover {
+  color: #555;
 }
 
 .navBar_logo a {
@@ -58,7 +66,7 @@
 
 .navBar_navigation-items a:hover,
 .navBar_navigation-items a:active {
-  border-bottom: 2px solid #555;
+  border-bottom: 2px solid rgb(23, 147, 19);
 }
 
 .menu-item {

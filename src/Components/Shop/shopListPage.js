@@ -21,8 +21,8 @@ class ShopList extends Component {
                 this.props.shops.length &&
                 this.props.shops.map(shop => {
                   return (
-                    <div className="col-lg-3 col-md-4 col-sm-6">
-                      <ShopListItem key={shop.id} shop={shop} />
+                    <div key={shop.id} className="col-lg-3 col-md-4">
+                      <ShopListItem shop={shop} />
                     </div>
                   );
                 })}

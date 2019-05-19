@@ -31,9 +31,8 @@ class shopDetails extends Component {
                       this.props.shops.products.length &&
                       this.props.shops.products.map(product => {
                         return (
-                          <div className="col-lg-3 col-md-4 col-sm-6">
+                          <div key={product.id} className="col-lg-4">
                             <ProductListItem
-                              key={product.id}
                               product={product}
                               detail={false}
                               shopId={shopId}

@@ -81,7 +81,7 @@ export default function SignupForm(props) {
           onChange={props.onChange}
         />
 
-      <button className=" mt-3 btn btn-primary btn-block" type="submit"> Sign up</button>
+      <button className=" mt-3 btn btn-outline-secondary btn-block" type="submit"> Sign up</button>
     </form>
   );
 }

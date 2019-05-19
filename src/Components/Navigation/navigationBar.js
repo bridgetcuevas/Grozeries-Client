@@ -13,19 +13,33 @@ export default class Navigation extends Component {
   render() {
     return (
       <header className="navBar">
-        <nav className="navBar_navigation">
+        <nav className="navbar navBar_navigation">
           <div className="navBar_logo">
-            <a href="/">Grozeries</a>
+            <a className="navbar-brand" href="/">
+              Grozeries
+            </a>
           </div>
           <div className="spacer" />
           <div className="navBar_navigation-items">
             <ul>
-              <li> <a href="/shops">Shops</a> </li>
-              <li> <a href="/cart">Cart</a> </li>
-              <li> <a href="/users">Profile</a> </li>
-              <li> <a href="/logins">Login</a> </li>
-              <li> <a href="/logout">Logout</a> </li>
-              <li ><a href="/register">Signup</a> </li>
+              <li>
+                <a href="/shops">Shops</a>{" "}
+              </li>
+              <li>
+                <a href="/cart">Cart</a>{" "}
+              </li>
+              <li>
+                <a href="/users">Profile</a>{" "}
+              </li>
+              <li>
+                <a href="/logins">Login</a>{" "}
+              </li>
+              <li>
+                <a href="/logout">Logout</a>{" "}
+              </li>
+              <li>
+                <a href="/register">Signup</a>{" "}
+              </li>
             </ul>
           </div>
         </nav>
@@ -50,7 +64,6 @@ export default class Navigation extends Component {
           </a>
         </Menu>
       </header>
-    )
-  };
-
+    );
+  }
 }
