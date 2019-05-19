@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+html {
+  color: #555;
+  font-family: 'Raleway', 'Arial', 'sans-serif';
+  text-rendering: optimizeLegibility;
+  }
+
+h2 {
+  text-align: center;
+  color: #555;
+  font-weight: 400;
+  font-size:150%;
+  font-style: italic;
+  word-spacing: 4px;
+  letter-spacing: 1px;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.shops ul {
+  flex-wrap:wrap;
+}

@@ -1,34 +1,27 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
-export default function Navigation(props) {
+import "./navigation.css";
+
+export default function Navigation (props) {
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/shops">Shops</NavLink>
-          </li>
-          <li>
-            <NavLink to="/users/:id">Profile</NavLink>
-          </li>
-          <li>
-            <NavLink to="/logins">Login</NavLink>
-          </li>
-          <li>
-            <NavLink to="/register">Sign up</NavLink>
-          </li>
-          <li>
-            <NavLink to="/logout">Logout</NavLink>
-          </li>
-          <li>
-            <NavLink to="/cart">Cart</NavLink>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  );
-}
+  <header className="navBar">
+    <nav className="navBar_navigation">
+      <div className="navBar_logo"> <a href="/">Grozeries</a></div>
+      <div className="spacer"/>
+      <div className="navBar_navigation-items"> 
+      <ul>
+        <li><a href="/shops">Shops</a></li>
+        <li><a href="/cart">My Cart</a></li>
+        <li><a href="/users">Profile</a></li>
+        <li><a href="/logins">Login</a></li>
+        <li><a href="/logout">Logout</a></li>
+        <li><a href="/register">Sign Up</a></li>
+      </ul>
+      </div>
+    </nav>
+  </header>
+)
+};
+
+
+
