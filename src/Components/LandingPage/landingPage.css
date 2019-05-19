@@ -1,16 +1,10 @@
-* {
-  /* margin: 0;
-  padding: 0;
-  box-sizing: border-box; */
-}
-
 html {
   color: #555;
   font-family: "Raleway", "Arial", "sans-serif";
   text-rendering: optimizeLegibility;
 }
 
-/* h2 {
+.h2-landingPage{
   text-align: center;
   color: #555;
   font-weight: 400;
@@ -19,13 +13,7 @@ html {
   word-spacing: 4px;
   letter-spacing: 1px;
   margin-top: 100px;
-  margin-bottom: 20px; */
-/* } */
+  margin-bottom: 20px; 
+ } 
 
-.shop-links ul {
-  /* list-style: none;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  flex-wrap: wrap; */
-}
+

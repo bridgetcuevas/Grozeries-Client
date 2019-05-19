@@ -16,15 +16,14 @@ class ShopList extends Component {
           <LoadingModal />
         ) : (
           <div className="container">
-            
             <div className="row">
               {this.props.shops &&
                 this.props.shops.length &&
                 this.props.shops.map(shop => {
                   return (
-                    <div className="col-lg-3">
-                    <ShopListItem key={shop.id} shop={shop} />
-                   </div>
+                    <div className="col-lg-3 col-md-4 col-sm-6">
+                      <ShopListItem key={shop.id} shop={shop} />
+                    </div>
                   );
                 })}
             </div>

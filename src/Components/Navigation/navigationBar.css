@@ -45,7 +45,6 @@
   display: block;
 }
 
-
 .navBar_navigation-items a:link,
 .navBar_navigation-items a:visited {
   padding: 8px 0;
@@ -56,7 +55,6 @@
   -webkit-transition: border-bottom 0.2s;
   transition: border-bottom 0.2s;
 }
-
 
 .navBar_navigation-items a:hover,
 .navBar_navigation-items a:active {
@@ -77,10 +75,18 @@
   .navBar_navigation-items li {
     display: none;
   }
+
+  .bm-burger-button {
+    display: block;
+  }
 }
 
 @media only screen and (min-width: 700px) {
   .navBar_navigation-items li {
     display: block;
+  }
+
+  .bm-burger-button {
+    display: none;
   }
 }

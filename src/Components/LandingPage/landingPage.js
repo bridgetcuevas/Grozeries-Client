@@ -18,13 +18,13 @@ class LandingPage extends Component {
           <LoadingModal />
         ) : (
           <div className="container">
-            <h2>Bestel online bij de winkeliers uit jouw buurt</h2>
+            <h2 className="h2-landingPage">Bestel online bij de winkeliers uit jouw buurt</h2>
             <div className="row">
               {this.props.shops &&
                 this.props.shops.length &&
                 this.props.shops.map(shop => {
                   return (
-                    <div className="col-lg-3">
+                    <div className="col-lg-3 col-md-4 col-sm-6">
                       <ShopListItem key={shop.id} shop={shop} detail={false} />
                     </div>
                   );

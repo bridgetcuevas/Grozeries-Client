@@ -10,7 +10,7 @@ class App extends Component {
         <nav>
           <Navigation />
         </nav>
-        <main style={{ marginTop: 75 }}>
+        <main style={{ marginTop: 60 }}>
           <Routing />
         </main>
       </div>

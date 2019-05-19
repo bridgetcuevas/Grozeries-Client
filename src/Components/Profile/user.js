@@ -17,7 +17,7 @@ export default props => {
     <div>
       <h2>
 
-        Hello {first_name}
+        Hello {first_name} {last_name}
       </h2>
       <h3>Personal info</h3>
       <p>
