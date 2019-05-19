@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Routing from "./Routing";
 
-import Navigation from "./Components/Navigation/navigationPage";
-
+import Navigation from "./Components/Navigation/navigationBar";
 
 class App extends Component {
   render() {
@@ -10,7 +9,6 @@ class App extends Component {
       <div style={{ height: "100%" }}>
         <nav>
           <Navigation />
-
         </nav>
         <main style={{ marginTop: 75 }}>
           <Routing />
@@ -21,5 +19,3 @@ class App extends Component {
 }
 
 export default App;
-
-

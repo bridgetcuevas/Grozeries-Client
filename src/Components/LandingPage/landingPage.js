@@ -17,8 +17,8 @@ class LandingPage extends Component {
           <LoadingModal />
         ) : (
           <div>
-               <h2>Bestel online bij de winkeliers uit jouw buurt</h2>
-            <ul className="shops">
+            <h2>Bestel online bij de winkeliers uit jouw buurt</h2>
+            <ul>
               {this.props.shops &&
                 this.props.shops.length &&
                 this.props.shops.map(shop => {
@@ -27,7 +27,6 @@ class LandingPage extends Component {
             </ul>
           </div>
         )}
-        
       </div>
     );
   }

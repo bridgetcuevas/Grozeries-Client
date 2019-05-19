@@ -7,11 +7,9 @@ import { combineReducers } from "redux";
 import appStatus from "./appStatus";
 import product from "./product";
 import currentUser from "./currentUser";
-
+import { reducer as burgerMenu } from "redux-burger-menu";
 import cart from "./cart";
-
 import users from "./users";
-
 
 export default combineReducers({
   login,
@@ -23,6 +21,6 @@ export default combineReducers({
   product,
   currentUser,
   cart,
-  users
-
+  users,
+  burgerMenu
 });
