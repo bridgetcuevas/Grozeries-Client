@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Shop from "./shop";
+import ShopListItem from "./shopListItem";
 import { getShops } from "../../actions/shops";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
@@ -15,17 +15,21 @@ class ShopList extends Component {
         {this.props.loading ? (
           <LoadingModal />
         ) : (
-          <div>
-            <ul>
+          <div className="container">
+            
+            <div className="row">
               {this.props.shops &&
                 this.props.shops.length &&
                 this.props.shops.map(shop => {
-                  return <Shop key={shop.id} shop={shop} detail={false} />;
+                  return (
+                    <div className="col-lg-3">
+                    <ShopListItem key={shop.id} shop={shop} />
+                   </div>
+                  );
                 })}
-            </ul>
+            </div>
           </div>
         )}
-        
       </div>
     );
   }

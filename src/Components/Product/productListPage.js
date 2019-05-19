@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Product from "./product";
+import ProductListItem from "./productListItem";
 import { getProducts } from "../../actions/products";
 import { addToCart } from "../../actions/cart";
 import { connect } from "react-redux";
@@ -25,10 +25,9 @@ class ProductList extends Component {
                 this.props.products.length &&
                 this.props.products.map(product => {
                   return (
-                    <Product
+                    <ProductListItem
                       key={product.id}
                       product={product}
-                      detail={false}
                       addToCart={this.addToCart}
                     />
                     

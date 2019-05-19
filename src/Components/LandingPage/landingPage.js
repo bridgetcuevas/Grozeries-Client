@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Shop from "../Shop/shop";
+import ShopListItem from "../Shop/shopListItem";
+import { Link } from "react-router-dom";
 import { getShops } from "../../actions/shops";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
@@ -16,15 +17,19 @@ class LandingPage extends Component {
         {this.props.loading ? (
           <LoadingModal />
         ) : (
-          <div>
+          <div className="container">
             <h2>Bestel online bij de winkeliers uit jouw buurt</h2>
-            <ul>
+            <div className="row">
               {this.props.shops &&
                 this.props.shops.length &&
                 this.props.shops.map(shop => {
-                  return <Shop key={shop.id} shop={shop} detail={false} />;
+                  return (
+                    <div className="col-lg-3">
+                      <ShopListItem key={shop.id} shop={shop} detail={false} />
+                    </div>
+                  );
                 })}
-            </ul>
+            </div>
           </div>
         )}
       </div>

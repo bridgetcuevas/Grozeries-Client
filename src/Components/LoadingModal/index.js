@@ -3,5 +3,11 @@ import logo from "./grozeriesLogo.png";
 import "./loadingModal.css";
 
 export default () => {
-  return <img src={logo} className="LoadingModal" alt="logo" />;
+  return (
+    <div className="loading-container">
+      <div className="loading-square">
+        <img src={logo} className="LoadingModal" alt="logo" />
+      </div>
+    </div>
+  );
 };
