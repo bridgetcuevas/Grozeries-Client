@@ -1,5 +1,6 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
+
 import LandingPage from "./Components/LandingPage/landingPage";
 import SignupFormContainer from "./Components/Signup/signupFormContainer";
 import LoginContainer from "./Components/Login/loginContainer";
@@ -9,11 +10,8 @@ import ProductDetails from "./Components/Product/productPage";
 import ShopList from "./Components/Shop/shopListPage";
 import ShopDetails from "./Components/Shop/shopPage";
 import CategoryList from "./Components/Category/categoryListPage";
-
 import CartPageContainer from "./Components/Cart/cartPageContainer";
-
 import ProfilePage from "./Components/Profile/profilePage";
-
 
 const Router = () => (
   <Switch>
@@ -28,6 +26,8 @@ const Router = () => (
     <Route path="/categories" exact component={CategoryList} />
     <Route path="/cart" exact component={CartPageContainer} />
     <Route path="/users/:id" exact component={ProfilePage} />
+
+    <Route exact path="/" render={() => <Redirect to="/" />} />
   </Switch>
 );
 

@@ -7,32 +7,33 @@ import { userId } from "../../jwt";
 
 class ProfilePage extends Component {
   componentDidMount() {
-    this.props.getUsers()
+    this.props.getUsers();
     // const userId = this.props.match.params.id;
-    console.log('userId in Profile', userId)
+    console.log("userId in Profile", userId);
     this.props.getUser(userId);
     console.log("Profile", this.props);
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         {this.props.loading ? (
           <LoadingModal />
         ) : (
-          <div> 
-          {/* {
+          <div>
+            {/* {
             // Object.values(
             this.props.currentUser.city
             // )
             } */}
             {this.props.currentUser && (
-            <User
-              key={this.props.match.params.id}
-              currentUser={this.props.currentUser}
-              detail={true}
-            />
-            )} 
+              <User
+                key={this.props.match.params.id}
+                currentUser={this.props.currentUser}
+                detail={true}
+              />
+            )}
           </div>
         )}
       </div>

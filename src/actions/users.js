@@ -49,6 +49,7 @@ const updateUser = user => ({
 });
 
 export const login = (email, password) => dispatch =>
+
   request
     .post(`${baseUrl}/logins`)
     .send({ email, password })

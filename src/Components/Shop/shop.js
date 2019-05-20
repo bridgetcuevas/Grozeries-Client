@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import "./shop.css";
 
 export default props => {
   const {
@@ -14,29 +14,28 @@ export default props => {
     phonenumber,
     email
   } = props.shop;
-  const detail = props.detail;
 
-  if (!detail) {
-    return (
-      <Link to={`/shops/${props.shop.id}`}>
-        <img src={shop_image} alt="shop" width="300" />
-        <p>{shop_name} </p>
-      </Link>
-    )
-  } else {
-    return (
-      <div>
-        <h1>{shop_name} </h1>
-        <img src={shop_image} alt="shop" width="300" />
-        <p>{description} </p>
-        <p>Hours: {business_hours} </p>
-        <p>
-          Address: {street_name}, {house_number} <br/>{zipcode}, {city}
-        </p>
-        <p>Phone: {phonenumber}</p>
-        <p>E-mail: {email}</p>
-        <br />
+
+  return (
+    <div>
+      <img className="shop-detail-header-image" src={shop_image} alt="shop" />
+      <div className="container">
+        <div className="mt-5 mb-5">
+          <h2>{shop_name} </h2>
+          <small>Opening:{business_hours} </small>
+          <p>{description} </p>
+
+          <p>
+            {street_name} {house_number}
+          </p>
+          <p>
+            {zipcode}
+            {city}
+          </p>
+          <p>{phonenumber}</p>
+          <p>{email}</p>
+        </div>
       </div>
-    );
-  }
+    </div>
+  );
 };
