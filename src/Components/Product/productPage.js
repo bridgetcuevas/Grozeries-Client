@@ -9,8 +9,7 @@ class ProductDetails extends Component {
   componentDidMount() {
     const productId = this.props.match.params.productId;
     this.props.getProductDetails(productId);
-    console.log("this.props", this.props);
-    console.log("productPage.js ", this.props.product);
+   
   }
 
   handleClick = event => {

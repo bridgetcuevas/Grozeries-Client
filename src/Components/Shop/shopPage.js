@@ -25,6 +25,7 @@ class shopDetails extends Component {
                   key={this.props.match.params.id}
                   shop={this.props.shops}
                 />
+
                 <div className="container">
                   <div className="row">
                     {this.props.shops.products &&
@@ -42,6 +43,7 @@ class shopDetails extends Component {
                       })}
                   </div>
                 </div>
+
               </div>
             )}
           </div>

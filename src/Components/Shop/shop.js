@@ -15,6 +15,7 @@ export default props => {
     email
   } = props.shop;
 
+
   return (
     <div>
       <img className="shop-detail-header-image" src={shop_image} alt="shop" />
