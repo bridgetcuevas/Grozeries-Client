@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { getCart } from "../../actions/cart";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
@@ -18,6 +19,8 @@ class CartPageContainer extends React.Component {
     const total = this.props.cart.reduce((totalSoFar, current) => {
       return totalSoFar + parseFloat(current.price);
     }, 0);
+    const id = this.props.cart.id
+    console.log('CART', this.props.cart)
 
     return (
       <div>
@@ -26,7 +29,7 @@ class CartPageContainer extends React.Component {
         ) : (
           <div>
             {total > 0 && <h3>Total amount: € {total.toFixed(2)}</h3>}
-            <button onClick={this.handleClick}>Checkout</button>
+            <Link to={`/orders/${id}/payments`}><button>Checkout</button></Link>
 
             <ul>
               {this.props.cart &&

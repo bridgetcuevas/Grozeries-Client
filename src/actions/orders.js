@@ -18,10 +18,26 @@ export const setOrder = order => {
   };
 };
 
-export const addToOrder = order => dispatch => {
-  console.log("order", order);
-  dispatch(addOrder(order));
+export const addToOrder = order => 
+(dispatch, getState) => {
+  console.log(order);
+  const state = getState();
+  const jwt = state.currentUser.jwt;
+
+  request
+    .post(`${baseUrl}/orderlines`)
+    .set("Authorization", `Bearer ${jwt}`)
+    .send(order)
+    .then(result => {
+      console.log(result.body);
+      dispatch(addOrder(result.body));
+    })
+    .catch(err => console.error(err));
 };
+// dispatch => {
+//   console.log("order", order);
+//   dispatch(addOrder(order));
+// };
 
 export const getOrder = () => dispatch => {
   request

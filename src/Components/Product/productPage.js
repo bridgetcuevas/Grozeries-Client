@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Product from "./product";
 import { getProductDetails } from "../../actions/products";
-import { addToCart } from "../../actions/cart";
+import { addToOrder } from "../../actions/orders";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 import { Link } from "react-router-dom";
@@ -11,10 +11,11 @@ class ProductDetails extends Component {
     this.props.getProductDetails(productId);
    
   }
+  
 
   handleClick = event => {
     console.log(event, this.props.product);
-    this.props.addToCart(this.props.product);
+    this.props.addToOrder(this.props.product);
   };
 
   render() {
@@ -59,7 +60,7 @@ const mapStateToProps = state => {
   return {
     product: state.product,
 
-    cart: state.cart,
+    order: state.order,
 
     loading: state.appStatus.loading
   };
@@ -67,5 +68,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getProductDetails, addToCart }
+  { getProductDetails, addToOrder }
 )(ProductDetails);
