@@ -1,28 +1,26 @@
-import login from "./login";
-import signup from "./signup";
-import products from "./products";
-import shops from "./shops";
-import categories from "./categories";
 import { combineReducers } from "redux";
 import appStatus from "./appStatus";
-import product from "./product";
-import currentUser from "./currentUser";
-
 import cart from "./cart";
-
+import categories from "./categories";
+import currentUser from "./currentUser";
+import login from "./login";
+import orders from "./orders";
+import product from "./product";
+import products from "./products";
+import shops from "./shops";
+import signup from "./signup";
 import users from "./users";
 
-
 export default combineReducers({
+  appStatus,
+  cart,
+  categories,
+  currentUser,
   login,
-  signup,
+  orders,
+  product,
   products,
   shops,
-  categories,
-  appStatus,
-  product,
-  currentUser,
-  cart,
+  signup,
   users
-
 });

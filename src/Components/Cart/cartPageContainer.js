@@ -8,9 +8,12 @@ class CartPageContainer extends React.Component {
   componentDidMount() {
     const cartId = this.props.match.params.cartId;
     this.props.getCart(cartId);
-    console.log("this.props", this.props);
-    console.log("cartPage.js ", this.props.cart);
   }
+  handleClick = event => {
+    console.log(event, this.props.cart);
+    this.props.addToOrder(this.props.cart);
+  };
+
   render() {
     const total = this.props.cart.reduce((totalSoFar, current) => {
       return totalSoFar + parseFloat(current.price);
@@ -23,6 +26,7 @@ class CartPageContainer extends React.Component {
         ) : (
           <div>
             {total > 0 && <h3>Total amount: € {total.toFixed(2)}</h3>}
+            <button onClick={this.handleClick}>Checkout</button>
 
             <ul>
               {this.props.cart &&
@@ -40,7 +44,7 @@ class CartPageContainer extends React.Component {
 const mapStateToProps = state => {
   return {
     cart: state.cart,
-    // shops: state.shops,
+    orders: state.orders,
     loading: state.appStatus.loading
   };
 };
