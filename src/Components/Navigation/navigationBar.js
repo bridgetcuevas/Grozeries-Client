@@ -59,21 +59,31 @@ class Navigation extends Component {
           <NavLink className="menu-item" to="/shops">
             Shops
           </NavLink>
-          <NavLink className="menu-item" to="/cart">
-            Cart
-          </NavLink>
-          <NavLink className="menu-item" to="/users">
-            Profile
-          </NavLink>
-          <NavLink className="menu-item" to="/logins">
-            Login
-          </NavLink>
-          <NavLink className="menu-item" to="/logout">
-            Logout
-          </NavLink>
-          <NavLink className="menu-item" to="/register">
-            Signup
-          </NavLink>
+          {this.props.currentUser && (
+            <NavLink className="menu-item" to="/cart">
+              Cart
+            </NavLink>
+          )}
+          {this.props.currentUser && (
+            <NavLink className="menu-item" to="/users">
+              Profile
+            </NavLink>
+          )}
+          {!this.props.currentUser && (
+            <NavLink className="menu-item" to="/logins">
+              Login
+            </NavLink>
+          )}
+          {this.props.currentUser && (
+            <NavLink className="menu-item" to="/logout">
+              Logout
+            </NavLink>
+          )}
+          {!this.props.currentUser && (
+            <NavLink className="menu-item" to="/register">
+              Signup
+            </NavLink>
+          )}
         </Menu>
       </header>
     );
