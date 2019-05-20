@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import appStatus from "./appStatus";
+import { reducer as burgerMenu } from "redux-burger-menu";
 import cart from "./cart";
 import categories from "./categories";
 import currentUser from "./currentUser";
@@ -12,7 +13,8 @@ import signup from "./signup";
 import users from "./users";
 
 export default combineReducers({
-  appStatus,
+ appStatus,
+  burgerMenu,
   cart,
   categories,
   currentUser,
@@ -23,4 +25,5 @@ export default combineReducers({
   shops,
   signup,
   users
+
 });

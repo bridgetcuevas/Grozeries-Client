@@ -1,6 +1,6 @@
 import request from "superagent";
 import { baseUrl } from "../constants";
-// import { appLoaded, appLoading } from "./appStatus";
+import { appLoaded, appLoading } from "./appStatus";
 // import { isExpired } from "../jwt";
 // import { logout } from "./users";
 
@@ -26,11 +26,14 @@ export const addToCart = cart => dispatch => {
 };
 
 export const getCart = () => dispatch => {
+  dispatch(appLoading());
   request
     .get(`${baseUrl}/cart`)
     .then(result => {
       console.log("result", result);
       dispatch(setCart(result.body));
+      dispatch(appLoaded());
     })
     .catch(err => console.error(err));
+    dispatch(appLoaded());
 };

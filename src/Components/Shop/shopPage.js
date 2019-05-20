@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Shop from "./shop";
-import Product from "../Product/product";
+import ProductListItem from "../Product/productListItem";
 import { getShopDetails } from "../../actions/shops";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
@@ -12,9 +12,7 @@ class shopDetails extends Component {
   }
 
   render() {
-    console.log("THIS PROPS", this.props);
     const { shopId } = this.props.match.params;
-
     return (
       <div>
         {this.props.loading ? (
@@ -26,25 +24,26 @@ class shopDetails extends Component {
                 <Shop
                   key={this.props.match.params.id}
                   shop={this.props.shops}
-                  detail={true}
                 />
-                <ul>
-                  {this.props.shops.products &&
-                    this.props.shops.products.length &&
-                    this.props.shops.products.map(product => {
-                      return (
-                        <div>
-                          <h2>Products</h2>
-                        <Product
-                          key={product.id}
-                          product={product}
-                          detail={false}
-                          shopId={shopId}
-                        />
-                        </div>
-                      );
-                    })}
-                </ul>
+
+                <div className="container">
+                  <div className="row">
+                    {this.props.shops.products &&
+                      this.props.shops.products.length &&
+                      this.props.shops.products.map(product => {
+                        return (
+                          <div key={product.id} className="col-lg-3 col-md-4">
+                            <ProductListItem
+                              product={product}
+                              detail={false}
+                              shopId={shopId}
+                            />
+                          </div>
+                        );
+                      })}
+                  </div>
+                </div>
+
               </div>
             )}
           </div>

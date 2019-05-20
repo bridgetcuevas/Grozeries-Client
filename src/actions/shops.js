@@ -20,6 +20,7 @@ export const setShopDetails = shopDetails => {
 };
 
 export const getShops = () => dispatch => {
+  dispatch(appLoading());
   request
     .get(`${baseUrl}/shops`)
     .then(result => {
