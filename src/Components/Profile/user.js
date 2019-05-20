@@ -19,9 +19,7 @@ export default props => {
       </h2>
       <h5>Personal Details</h5>
       <p>
-        Address: {street_name} {house_number}
-      </p>
-      <p> {zipcode}, {city}</p>
+        Address: {street_name} {house_number}, {zipcode}, {city}</p>
       <p>Email: {email}</p>
       <p>Phone Number: {phonenumber} </p>
 

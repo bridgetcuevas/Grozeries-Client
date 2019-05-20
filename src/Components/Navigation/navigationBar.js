@@ -2,6 +2,7 @@ import React from "react";
 import { Component } from "react";
 import "./navigationBar.css";
 import Menu from "../Menu/menu";
+import {NavLink} from "react-router-dom"
 
 export default class Navigation extends Component {
   componentDidMount() {}
@@ -15,53 +16,53 @@ export default class Navigation extends Component {
       <header className="navBar">
         <nav className="navbar navBar_navigation">
           <div className="navBar_logo">
-            <a className="navbar-brand" href="/">
+            <NavLink to="/"className="navbar-brand" >
               Grozeries
-            </a>
+            </NavLink>
           </div>
           <div className="spacer" />
           <div className="navBar_navigation-items">
             <ul>
               <li>
-                <a href="/shops">Shops</a>{" "}
+                <NavLink to="/shops">Shops</NavLink>{" "}
               </li>
               <li>
-                <a href="/cart">Cart</a>{" "}
+                <NavLink to="/cart">Cart</NavLink>{" "}
               </li>
               <li>
-                <a href="/users">Profile</a>{" "}
+                <NavLink to="/users/:id">Profile</NavLink>{" "}
               </li>
               <li>
-                <a href="/logins">Login</a>{" "}
+                <NavLink to="/logins">Login</NavLink>{" "}
               </li>
               <li>
-                <a href="/logout">Logout</a>{" "}
+                <NavLink to="/logout">Logout</NavLink>{" "}
               </li>
               <li>
-                <a href="/register">Signup</a>{" "}
+                <NavLink to="/register">Signup</NavLink>{" "}
               </li>
             </ul>
           </div>
         </nav>
         <Menu className="menu">
-          <a className="menu-item" href="/shops">
+          <NavLink className="menu-item" to="/shops">
             Shops
-          </a>
-          <a className="menu-item" href="/cart">
+          </NavLink>
+          <NavLink className="menu-item" to="/cart">
             Cart
-          </a>
-          <a className="menu-item" href="/users">
+          </NavLink>
+          <NavLink className="menu-item" to="/users">
             Profile
-          </a>
-          <a className="menu-item" href="/logins">
+          </NavLink>
+          <NavLink className="menu-item" to="/logins">
             Login
-          </a>
-          <a className="menu-item" href="/logout">
+          </NavLink>
+          <NavLink className="menu-item" to="/logout">
             Logout
-          </a>
-          <a className="menu-item" href="/register">
+          </NavLink>
+          <NavLink className="menu-item" to="/register">
             Signup
-          </a>
+          </NavLink>
         </Menu>
       </header>
     );

@@ -15,6 +15,7 @@ class ProfilePage extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         {this.props.loading ? (
@@ -30,6 +31,7 @@ class ProfilePage extends Component {
               <User
                 key={this.props.match.params.id}
                 currentUser={this.props.currentUser}
+                detail={true}
               />
             )}
           </div>

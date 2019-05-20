@@ -13,7 +13,6 @@ import CategoryList from "./Components/Category/categoryListPage";
 import CartPageContainer from "./Components/Cart/cartPageContainer";
 import ProfilePage from "./Components/Profile/profilePage";
 
-
 const Router = () => (
   <Switch>
     <Route exact path="/" component={LandingPage} />
@@ -26,7 +25,8 @@ const Router = () => (
     <Route path="/products/:productId" exact component={ProductDetails} />
     <Route path="/categories" exact component={CategoryList} />
     <Route path="/cart" exact component={CartPageContainer} />
-    <Route path="/users" exact component={ProfilePage} />
+    <Route path="/users/:id" exact component={ProfilePage} />
+
     <Route exact path="/" render={() => <Redirect to="/" />} />
   </Switch>
 );
