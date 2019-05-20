@@ -4,15 +4,21 @@ import ProductListItem from "../Product/productListItem";
 import { getShopDetails } from "../../actions/shops";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
+import { addToOrder } from "../../actions/orders";
 
 class shopDetails extends Component {
   componentDidMount() {
     const { shopId } = this.props.match.params;
     this.props.getShopDetails(shopId);
   }
-
+  handleClick = event => {
+    console.log(event, this.props.product);
+    this.props.addToOrder(this.props.product);
+  };
   render() {
-    const { shopId } = this.props.match.params;
+    console.log("SHOPPAGE", this.props);
+    const { ShopId } = this.props.match.params;
+    console.log(this.props)
     return (
       <div>
         {this.props.loading ? (
@@ -36,14 +42,15 @@ class shopDetails extends Component {
                             <ProductListItem
                               product={product}
                               detail={false}
-                              shopId={shopId}
+                              ShopId={ShopId}
+                              handleClick={this.handleClick}
+                              addToOrder={this.props.addToOrder}
                             />
                           </div>
                         );
                       })}
                   </div>
                 </div>
-
               </div>
             )}
           </div>
@@ -63,5 +70,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getShopDetails }
+  { getShopDetails, addToOrder }
 )(shopDetails);

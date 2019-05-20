@@ -12,7 +12,6 @@ class ProductDetails extends Component {
    
   }
   
-
   handleClick = event => {
     console.log(event, this.props.product);
     this.props.addToOrder(this.props.product);
