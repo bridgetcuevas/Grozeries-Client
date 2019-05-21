@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-
 import LandingPage from "./Components/LandingPage/landingPage";
 import SignupFormContainer from "./Components/Signup/signupFormContainer";
 import LoginContainer from "./Components/Login/loginContainer";
@@ -24,7 +23,7 @@ const Router = () => (
     <Route path="/shops/:shopId" exact component={ShopDetails} />
     <Route path="/products/:productId" exact component={ProductDetails} />
     <Route path="/categories" exact component={CategoryList} />
-    <Route path="/orderlines" exact component={OrderlinePageContainer} />
+    <Route path="/orders/1" exact component={OrderlinePageContainer} />
     <Route path="/users/:id" exact component={ProfilePage} />
 
     <Route exact path="/" render={() => <Redirect to="/" />} />

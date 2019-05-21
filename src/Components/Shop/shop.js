@@ -15,7 +15,6 @@ export default props => {
     email
   } = props.shop;
 
-
   return (
     <div>
       <img className="shop-detail-header-image" src={shop_image} alt="shop" />
@@ -26,12 +25,10 @@ export default props => {
           <p>{description} </p>
 
           <p>
-            {street_name} {house_number}
+            {street_name} {house_number}{" "}
           </p>
-          <p>
-            {zipcode}
-            {city}
-          </p>
+          <p>{zipcode}</p>
+          <p> {city}</p>
           <p>{phonenumber}</p>
           <p>{email}</p>
         </div>

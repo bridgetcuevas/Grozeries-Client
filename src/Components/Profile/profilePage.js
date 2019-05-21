@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import User from "./user";
-import { getUser, getUsers } from "../../actions/users";
+// import { getUser, getUsers } from "../../actions/users";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
-import { userId } from "../../jwt";
+// import { userId } from "../../jwt";
 
 class ProfilePage extends Component {
-  componentDidMount() {
-    this.props.getUsers();
-    // const userId = this.props.match.params.id;
-    // console.log("userId in Profile", userId);
-    // this.props.getUser(userId);
-    console.log("Profile", this.props);
-  }
+  // componentDidMount() {
+  //   this.props.getUsers();
+  //   // const userId = this.props.match.params.id;
+  //   // console.log("userId in Profile", userId);
+  //   // this.props.getUser(userId);
+  //   console.log("Profile", this.props);
+  // }
 
   render() {
     console.log(this.props);
@@ -44,15 +44,12 @@ class ProfilePage extends Component {
 const mapStateToProps = state => {
   return {
     currentUser: state.currentUser,
-    // === null
-    // ? null
-    // : Object.values(state.currentUser).sort((a, b) => b.id - a.id),
-    userId: state.currentUser && userId(state.currentUser.jwt),
+    // userId: state.currentUser && userId(state.currentUser.jwt),
     loading: state.appStatus.loading
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getUser, getUsers }
+  // { getUser, getUsers }
 )(ProfilePage);

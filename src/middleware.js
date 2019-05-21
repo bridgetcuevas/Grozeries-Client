@@ -1,5 +1,16 @@
 import { USER_LOGIN_SUCCESS, USER_LOGOUT } from "./actions/users";
-import { localStorageJwtKey, localStorageFirstName, localStorageLastName, localStorageCity, localStorageEmail, localStorageHouse, localStoragePhone, localStorageStreet, localStorageZip, localStorageUserId } from "./constants";
+import {
+  localStorageJwtKey,
+  localStorageFirstName,
+  localStorageLastName,
+  localStorageCity,
+  localStorageEmail,
+  localStorageHouse,
+  localStoragePhone,
+  localStorageStreet,
+  localStorageZip,
+  localStorageUserId
+} from "./constants";
 
 export const storeJwt = store => next => action => {
   try {
@@ -18,6 +29,15 @@ export const storeJwt = store => next => action => {
     }
     if (action.type === USER_LOGOUT) {
       localStorage.removeItem(localStorageJwtKey);
+      localStorage.removeItem(localStorageFirstName);
+      localStorage.removeItem(localStorageLastName);
+      localStorage.removeItem(localStorageStreet);
+      localStorage.removeItem(localStorageHouse);
+      localStorage.removeItem(localStorageZip);
+      localStorage.removeItem(localStorageCity);
+      localStorage.removeItem(localStoragePhone);
+      localStorage.removeItem(localStorageEmail);
+      localStorage.removeItem(localStorageUserId);
     }
   } catch (error) {
     console.log(`Interaction with LocalStorage went wrong`, error);

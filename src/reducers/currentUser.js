@@ -17,8 +17,6 @@ try {
   // const orders = localStorage.getItem(localStorageOrders);
   // (order)
 
-  
-
   if (jwt) {
     initialState = { jwt, first_name, last_name, street_name, house_number, zipcode, city, phonenumber, email, id };
   }

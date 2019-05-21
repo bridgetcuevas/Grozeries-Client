@@ -23,19 +23,15 @@ class ProductDetails extends Component {
 
   handleClick = (e, userId) => {
     const {id, price, quantity, shopId, orderId} = this.props.product;
-    // console.log(price, "price should be 10, not undefined");  
-    console.log(price, "this.props.product");  
-    // console.log(userId, "userId in handleclick");  
+    // console.log(price, "this.props.product");  
+    
     this.props.addToOrderline(id, price, quantity, shopId, orderId, userId);
     // this.props.getOrder(userId);
   };
 
 
   render() {
-    // const { id } = this.props.product;
     const userId = this.props.currentUser.id;
-    console.log(this.props, "this.props")
-    console.log(userId, "userId")
     return (
       <div>
         {this.props.loading ? (
@@ -49,7 +45,6 @@ class ProductDetails extends Component {
                 detail={true}
               />
             )}
-            <div><input type="number" name="quantity" min="1" max="10000"/></div>
             <div className="container mb-5">
               <button
                 className="btn btn-outline-success"
@@ -79,9 +74,7 @@ const mapStateToProps = state => {
     product: state.product,
     currentUser: state.currentUser,
     order: state.order,
-
     orderline: state.orderline,
-
     loading: state.appStatus.loading
   };
 };

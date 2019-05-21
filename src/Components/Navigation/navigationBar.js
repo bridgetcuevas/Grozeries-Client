@@ -44,7 +44,7 @@ class Navigation extends Component {
               )}
               {this.props.currentUser && (
                 <li>
-                  <NavLink to="/cart">Cart</NavLink>{" "}
+                  <NavLink to="/orders/1">Cart</NavLink>{" "}
                 </li>
               )}
               {this.props.currentUser && (
@@ -60,7 +60,7 @@ class Navigation extends Component {
             Shops
           </NavLink>
           {this.props.currentUser && (
-            <NavLink className="menu-item" to="/cart">
+            <NavLink className="menu-item" to="/orders/1">
               Cart
             </NavLink>
           )}

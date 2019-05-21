@@ -8,11 +8,11 @@ export default props => {
     description,
     price,
     prices_by,
-    quantity,
+    // quantity,
     ingredients,
     allergens,
     // in_stock,
-    shopId
+    // shopId
   } = props.product;
 
   return (
@@ -21,12 +21,13 @@ export default props => {
       <div className="container mt-5 mb-5">
         <h2>{product_name} </h2>
         <p>{description} </p>
-        <p>Price: € {price}</p>
-        <p>Price by: {prices_by}</p>
-        <p>Quantity: {quantity} </p>
+        <p>Price: € {price} by {prices_by}</p>
+        {/* <p>Price by: {prices_by}</p> */}
+        {/* <p>Quantity: {quantity} </p> */}
         <p>Ingriedients: {ingredients} </p>
         <p>Allergens: {allergens} </p>
-        <p>Shop: {shopId}</p>
+        <div>Select quantity: <input type="number" name="quantity" min="1" max="1000"/></div>
+        {/* <p>Shop: {shopId}</p> */}
       </div>
     </div>
   );
