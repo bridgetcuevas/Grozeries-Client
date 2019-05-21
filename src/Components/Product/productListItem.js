@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./product.css";
+import { MdAddShoppingCart } from "react-icons/md";
 
 export default props => {
   console.log(props)
@@ -20,7 +21,7 @@ export default props => {
           className="btn btn-outline-secondary"
           onClick={(event)=>props.handleClick(event)}
         >
-        + Add to cart
+        <MdAddShoppingCart/>
         </button>
       </div>
     </div>

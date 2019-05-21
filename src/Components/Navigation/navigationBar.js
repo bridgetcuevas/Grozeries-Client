@@ -4,6 +4,7 @@ import "./navigationBar.css";
 import Menu from "../Menu/menu";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
+import { MdShoppingCart } from "react-icons/md";
 
 class Navigation extends Component {
   componentDidMount() {}
@@ -29,7 +30,7 @@ class Navigation extends Component {
               </li>
               {this.props.currentUser && (
                 <li>
-                  <NavLink to="/users/:id">Profile</NavLink>{" "}
+                  <NavLink to="/profile">Profile</NavLink>{" "}
                 </li>
               )}
               {!this.props.currentUser && (
@@ -44,7 +45,9 @@ class Navigation extends Component {
               )}
               {this.props.currentUser && (
                 <li>
-                  <NavLink to="/cart">Cart</NavLink>{" "}
+                  <NavLink to="/cart">
+                    <MdShoppingCart />
+                  </NavLink>{" "}
                 </li>
               )}
               {this.props.currentUser && (
@@ -65,7 +68,7 @@ class Navigation extends Component {
             </NavLink>
           )}
           {this.props.currentUser && (
-            <NavLink className="menu-item" to="/users">
+            <NavLink className="menu-item" to="/profile">
               Profile
             </NavLink>
           )}
