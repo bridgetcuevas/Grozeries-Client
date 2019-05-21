@@ -10,7 +10,6 @@ export default props => {
       <img src={image} alt="product" />
       <div className="p-3">
         <b>{product_name} </b>
-        <p>Description: {description}</p>
         <p>Price: € {price}</p>
         <Link to={`/products/${props.product.id}`}>
           <button className="btn btn-outline-success" value={"hello"}>
@@ -18,10 +17,10 @@ export default props => {
           </button>
         </Link>
         <button
-          className="btn btn-outline-success"
+          className="btn btn-outline-secondary"
           onClick={(event)=>props.handleClick(event)}
         >
-          Add to cart
+        + Add to cart
         </button>
       </div>
     </div>
