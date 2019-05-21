@@ -10,10 +10,11 @@ html {
   position: relative;
 }
 
-.landing-header img {
+.landing-page-img {
   object-fit: cover;
   position: absolute;
   height: 100%;
+  width: 100%;
   top: 0;
   right: 0;
   bottom: 0;
@@ -40,8 +41,12 @@ html {
 }
 .h1-landingPage {
   margin-left: 10rem;
+  margin-bottom: 10rem;
+  font-size: 450%;
+
 }
 .p-landingPage {
+  color: #555;
   line-height: 145%;
   text-align: center;
   letter-spacing: 2px;

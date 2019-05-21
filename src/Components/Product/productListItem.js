@@ -4,11 +4,11 @@ import "./product.css";
 import { MdAddShoppingCart } from "react-icons/md";
 
 export default props => {
-  console.log(props)
+  console.log(props);
   const { image, product_name, description, price } = props.product;
   return (
     <div className="card mb-3">
-      <img src={image} alt="product" />
+      <img className="product-list-image" src={image} alt="product" />
       <div className="p-3">
         <b>{product_name} </b>
         <p>Price: € {price}</p>
@@ -19,9 +19,9 @@ export default props => {
         </Link>
         <button
           className="btn btn-outline-secondary"
-          onClick={(event)=>props.handleClick(event)}
+          onClick={event => props.handleClick(event)}
         >
-        <MdAddShoppingCart/>
+          <MdAddShoppingCart />
         </button>
       </div>
     </div>

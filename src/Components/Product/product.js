@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default props => {
   const {
     image,
@@ -17,9 +16,9 @@ export default props => {
 
   return (
     <div>
-      <img src={image} alt="product" />
+      <img className="product-page-image" src={image} alt="product" />
       <div className="container mt-5 mb-5">
-        <h2>{product_name} </h2>
+        <h2 className="text-capitalize">{product_name} </h2>
         <p>{description} </p>
         <p>€ {price}</p>
         <p>Price by: {prices_by}</p>
