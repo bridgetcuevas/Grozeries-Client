@@ -9,8 +9,8 @@ class ProfilePage extends Component {
   componentDidMount() {
     this.props.getUsers();
     // const userId = this.props.match.params.id;
-    console.log("userId in Profile", userId);
-    this.props.getUser(userId);
+    // console.log("userId in Profile", userId);
+    // this.props.getUser(userId);
     console.log("Profile", this.props);
   }
 

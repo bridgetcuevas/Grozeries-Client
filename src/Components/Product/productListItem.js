@@ -4,7 +4,8 @@ import "./product.css";
 
 export default props => {
   console.log(props)
-  const { image, product_name, description, price } = props.product;
+  const { image, product_name, description, price, id } = props.product;
+  const { userId } = props.userId;
   return (
     <div className="card mb-3">
       <img src={image} alt="product" />
@@ -12,14 +13,14 @@ export default props => {
         <b>{product_name} </b>
         <p>Description: {description}</p>
         <p>Price: € {price}</p>
-        <Link to={`/products/${props.product.id}`}>
+        <Link to={`/products/${id}`}>
           <button className="btn btn-outline-success" value={"hello"}>
             View Details
           </button>
         </Link>
         <button
           className="btn btn-outline-success"
-          onClick={(event)=>props.handleClick(event)}
+          onClick={(e)=> props.handleClick(e, id, userId) }
         >
           Add to cart
         </button>
