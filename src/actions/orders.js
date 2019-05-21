@@ -28,7 +28,7 @@ export const setOrder = order => {
 export const addToOrder = order => 
 (dispatch, getState) => {
 
-  console.log(order, "action creator");
+  // console.log(order, "action creator");
   const state = getState();
   const jwt = state.currentUser.jwt;
 
@@ -63,6 +63,7 @@ export const addToOrder = order =>
 
 
 export const getOrder = id => dispatch => {
+  console.log("id GetOrder", id);
   dispatch(appLoading());
   request
     .get(`${baseUrl}/orders/${id}`)

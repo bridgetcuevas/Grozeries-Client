@@ -12,10 +12,11 @@ class shopDetails extends Component {
     const { shopId } = this.props.match.params;
     this.props.getShopDetails(shopId);
   }
-  handleClick = (e, additemid, userId) => {
+  handleClick = (e, additemid, orders) => {
     const item = this.props.shops.products;
     this.props.addToOrder(item.find(item => item.id === additemid));
     this.props.getOrder(userId);
+    // this.props.getOrder(orders);
   };
   render() {
     console.log("SHOPPAGE", this.props);
@@ -69,6 +70,7 @@ const mapStateToProps = state => {
     loading: state.appStatus.loading,
     shops: state.shops,
     userId: state.currentUser && userId(state.currentUser.jwt),
+    // orders: state.currentUser.orders 
   };
 };
 

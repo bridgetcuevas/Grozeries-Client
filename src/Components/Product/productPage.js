@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Product from "./product";
 import { getProductDetails } from "../../actions/products";
-// import { addToOrderline } from "../../actions/orderlines";
-import { addToOrder, getOrder } from "../../actions/orders";
+import { addToOrderline } from "../../actions/orderlines";
+// import { addToOrder, getOrder } from "../../actions/orders";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 import { Link } from "react-router-dom";
@@ -22,10 +22,12 @@ class ProductDetails extends Component {
   // };
 
   handleClick = (e, userId) => {
-    const item = this.props.product;
-    console.log(userId, "userId in handleclick");  
-    this.props.addToOrder(item);
-    this.props.getOrder(userId);
+    const {id, price, quantity, shopId, orderId} = this.props.product;
+    // console.log(price, "price should be 10, not undefined");  
+    console.log(price, "this.props.product");  
+    // console.log(userId, "userId in handleclick");  
+    this.props.addToOrderline(id, price, quantity, shopId, orderId, userId);
+    // this.props.getOrder(userId);
   };
 
 
@@ -47,6 +49,7 @@ class ProductDetails extends Component {
                 detail={true}
               />
             )}
+            <div><input type="number" name="quantity" min="1" max="10000"/></div>
             <div className="container mb-5">
               <button
                 className="btn btn-outline-success"
@@ -85,5 +88,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getProductDetails, addToOrder, getOrder }
+  { getProductDetails, addToOrderline }
 )(ProductDetails);
