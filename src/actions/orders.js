@@ -4,6 +4,8 @@ import { appLoaded, appLoading } from "./appStatus";
 
 
 export const ADD_ORDER = "ADD_ORDER";
+
+
 export const SET_ORDER = "SET_ORDER";
 
 const addOrder = order => {
@@ -20,9 +22,9 @@ export const setOrder = order => {
 };
 
 
-
 export const addToOrder = order => 
 (dispatch, getState) => {
+
   console.log(order);
   const state = getState();
   const jwt = state.currentUser.jwt;
@@ -45,9 +47,11 @@ export const addToOrder = order =>
 export const getOrder = id => dispatch => {
   dispatch(appLoading());
   request
+
     .get(`${baseUrl}/orders/${id}`)
+
     .then(result => {
-      console.log("result", result);
+      console.log("ORDER result", result);
       dispatch(setOrder(result.body));
       dispatch(appLoaded());
     })
