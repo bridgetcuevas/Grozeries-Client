@@ -1,12 +1,21 @@
 import React from "react";
 
 export default props => {
-  const { id, image, price, product_name } = props.orderline;
+  const { id, price, quantity, orderId, shopId, productId } = props.orderline;
+  // const { image, product_name } = props.product;
+  // const { shop_name } = props.shop;
 
   return (
     <div key={id}>
+      <p>Your order number: {orderId}</p>
+      <p>{productId} </p>
+      {/* display product name and product image
       <p>{product_name} </p>
-      <img src={image} alt="product" width="300" />
+      <img src={image} alt="product" width="300" /> */}
+      <p>Quantity: {quantity}</p>
+      <p>From: {shopId}</p>
+      {/* display shop name
+      <p>From: {shop_name} </p> */}
       <p>Price: {price}</p>
     </div>
   );
