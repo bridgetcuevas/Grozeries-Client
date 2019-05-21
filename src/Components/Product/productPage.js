@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import Product from "./product";
 import { getProductDetails } from "../../actions/products";
+// import { addToOrderline } from "../../actions/orderlines";
 import { addToOrder } from "../../actions/orders";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 import { Link } from "react-router-dom";
+
 class ProductDetails extends Component {
   componentDidMount() {
     const productId = this.props.match.params.productId;
@@ -14,7 +16,8 @@ class ProductDetails extends Component {
   
   handleClick = event => {
     console.log(event, this.props.product);
-    this.props.addToOrder(this.props.product);
+    // this.props.addToOrderline(this.props.product);
+   this.props.addToOrder();
   };
 
   render() {
@@ -60,6 +63,8 @@ const mapStateToProps = state => {
     product: state.product,
 
     order: state.order,
+
+    orderline: state.orderline,
 
     loading: state.appStatus.loading
   };

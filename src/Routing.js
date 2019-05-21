@@ -10,7 +10,7 @@ import ProductDetails from "./Components/Product/productPage";
 import ShopList from "./Components/Shop/shopListPage";
 import ShopDetails from "./Components/Shop/shopPage";
 import CategoryList from "./Components/Category/categoryListPage";
-import CartPageContainer from "./Components/Cart/cartPageContainer";
+import OrderlinePageContainer from "./Components/Orderline/OrderlinePageContainer";
 import ProfilePage from "./Components/Profile/profilePage";
 
 const Router = () => (
@@ -24,7 +24,7 @@ const Router = () => (
     <Route path="/shops/:shopId" exact component={ShopDetails} />
     <Route path="/products/:productId" exact component={ProductDetails} />
     <Route path="/categories" exact component={CategoryList} />
-    <Route path="/cart" exact component={CartPageContainer} />
+    <Route path="/orderlines" exact component={OrderlinePageContainer} />
     <Route path="/users/:id" exact component={ProfilePage} />
 
     <Route exact path="/" render={() => <Redirect to="/" />} />

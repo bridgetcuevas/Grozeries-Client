@@ -1,12 +1,16 @@
 import request from "superagent";
 import { baseUrl } from "../constants";
+import { appLoaded, appLoading } from "./appStatus";
 
-export const ADD_CART_ORDER = "ADD_CART_ORDER";
+
+export const ADD_ORDER = "ADD_ORDER";
+
+
 export const SET_ORDER = "SET_ORDER";
 
 const addOrder = order => {
   return {
-    type: ADD_CART_ORDER,
+    type: ADD_ORDER,
     payload: order
   };
 };
@@ -17,7 +21,10 @@ export const setOrder = order => {
   };
 };
 
-export const addToOrder = order => (dispatch, getState) => {
+
+export const addToOrder = order => 
+(dispatch, getState) => {
+
   console.log(order);
   const state = getState();
   const jwt = state.currentUser.jwt;
@@ -37,12 +44,18 @@ export const addToOrder = order => (dispatch, getState) => {
 //   dispatch(addOrder(order));
 // };
 
-export const getOrder = () => dispatch => {
+export const getOrder = id => dispatch => {
+  dispatch(appLoading());
   request
-    .get(`${baseUrl}/orders`)
+
+    .get(`${baseUrl}/orders/${id}`)
+
     .then(result => {
       console.log("ORDER result", result);
       dispatch(setOrder(result.body));
+      dispatch(appLoaded());
     })
-    .catch(err => console.error(err));
+    .catch(err => 
+      console.error(err));
+      dispatch(appLoaded());
 };

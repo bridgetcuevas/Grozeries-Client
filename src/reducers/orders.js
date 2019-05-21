@@ -1,8 +1,8 @@
-import { ADD_CART_ORDER, SET_ORDER } from "../actions/orders";
+import { ADD_ORDER, SET_ORDER } from "../actions/orders";
 
 export default (state = [], action) => {
   switch (action.type) {
-    case ADD_CART_ORDER:
+    case ADD_ORDER:
       return [...state, action.payload];
     case SET_ORDER:
       return action.payload;
