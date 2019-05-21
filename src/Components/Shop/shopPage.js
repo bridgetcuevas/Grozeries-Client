@@ -19,9 +19,9 @@ class shopDetails extends Component {
     // this.props.getOrder(orders);
   };
   render() {
-    console.log("SHOPPAGE", this.props);
+    // console.log("SHOPPAGE", this.props);
     const { ShopId } = this.props.match.params;
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div>
         {this.props.loading ? (

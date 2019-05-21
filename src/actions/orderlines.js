@@ -23,21 +23,24 @@ export const setOrderline = orderline => {
 // export const addToOrderline = orderline => 
 // (dispatch, getState) => {
   export const addToOrderline = (
-    id, price, quantity, shopId, orderId, userId
+    id, price, quantity, shopId, orderid, userId
   ) => dispatch =>{
+    console.log("addToOrderLine - orderid ",orderid)
   // const {id, price, quantity, shopId, orderId, userId} = orderline
   // const state = getState();
+  // const orderId = orderid
+  // console.log(orderId)
   // const jwt = state.currentUser.jwt;
 
   request
-    .post(`${baseUrl}/orders/1/`)
+    .post(`${baseUrl}/orders/${orderid}/`)
     // .set("Authorization", `Bearer ${jwt}`)
     .send({
       productId: id,
       price,
       quantity,
       shopId,
-      orderId,
+      orderid: orderid,
       userId
     })
     .then(result => {
