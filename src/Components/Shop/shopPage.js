@@ -13,10 +13,11 @@ class shopDetails extends Component {
     const { shopId } = this.props.match.params;
     this.props.getShopDetails(shopId);
   }
-  handleClick = (e, additemid) => {
-    let item = this.props.shops.products;
-    const shopProduct = item.find(item => item.id === additemid);
+  handleClick = (e, item) => {
+    let product = this.props.shops.products;
+    const shopProduct = product.find(product => product.id === item);
     const userId = this.props.currentUser.id;
+    console.log("userId", userId);
     const { id, price, quantity, orderId, shopId } = shopProduct;
     console.log("shopProduct", shopProduct);
     this.props.addToOrderline(id, price, quantity, orderId, shopId, userId);
