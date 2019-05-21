@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ProductListItem from "./productListItem";
 import { getProducts } from "../../actions/products";
-import { addToCart } from "../../actions/cart";
+import { addToOrder } from "../../actions/orders";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 
@@ -11,7 +11,7 @@ class ProductList extends Component {
   }
   handleClick = event => {
     console.log(event, this.props.product);
-    this.props.addToCart(this.props.product);
+    this.props.addToOrder(this.props.product);
   };
   render() {
     return (
@@ -28,7 +28,7 @@ class ProductList extends Component {
                     <ProductListItem
                       key={product.id}
                       product={product}
-                      addToCart={this.addToCart}
+                      addToOrder={this.addToOrder}
                     />
                   );
                 })}
@@ -51,5 +51,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getProducts, addToCart }
+  { getProducts, addToOrder }
 )(ProductList);

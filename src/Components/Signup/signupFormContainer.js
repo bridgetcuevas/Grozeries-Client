@@ -2,6 +2,7 @@ import React from "react";
 import SignupForm from "./signupForm";
 import { connect } from "react-redux";
 import { signup } from "../../actions/users";
+import { Redirect } from "react-router-dom";
 
 class SignupFormContainer extends React.Component {
   state = {
@@ -40,6 +41,7 @@ class SignupFormContainer extends React.Component {
     console.log("user target name", user.target.value);
   };
   render() {
+    if (this.props.signup.success) return <Redirect to="/logins" />;
     return (
       <SignupForm
         onSubmit={this.onSubmit}
