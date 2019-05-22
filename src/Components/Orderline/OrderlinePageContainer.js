@@ -10,10 +10,10 @@ class OrderlinePageContainer extends React.Component {
     const orderlineId = this.props.match.params.orderlineId;
     this.props.getOrderline(orderlineId);
   }
-  handleClick = event => {
-    console.log(event, this.props.orderline);
-    this.props.addToOrderline(this.props.orderline);
-  };
+  // handleClick = event => {
+  //   console.log(event, this.props.orderline);
+  //   this.props.addToOrderline(this.props.orderline);
+  // };
 
   render() {
     const total = this.props.orderline.reduce((totalSoFar, current) => {

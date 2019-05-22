@@ -1,5 +1,5 @@
 import { USER_LOGIN_SUCCESS, USER_LOGOUT } from "../actions/users";
-import { localStorageJwtKey, localStorageFirstName, localStorageCity, localStorageEmail, localStorageHouse, localStorageLastName, localStoragePhone, localStorageStreet, localStorageZip, localStorageUserId } from "../constants";
+import { localStorageJwtKey, localStorageFirstName, localStorageCity, localStorageEmail, localStorageHouse, localStorageLastName, localStoragePhone, localStorageStreet, localStorageZip, localStorageUserId, localStorageOrderId } from "../constants";
 
 let initialState = null;
 try {
@@ -13,6 +13,8 @@ try {
   const phonenumber = localStorage.getItem(localStoragePhone);
   const email = localStorage.getItem(localStorageEmail);
   const id = localStorage.getItem(localStorageUserId);
+  const orderid = localStorage.getItem(localStorageOrderId);
+
   // to be done:
   // const orders = localStorage.getItem(localStorageOrders);
   // (order)
@@ -20,7 +22,8 @@ try {
   
 
   if (jwt) {
-    initialState = { jwt, first_name, last_name, street_name, house_number, zipcode, city, phonenumber, email, id };
+    // console.log(orderid)
+    initialState = { jwt, first_name, last_name, street_name, house_number, zipcode, city, phonenumber, email, id, orderid };
   }
 } catch (e) {
   console.log(`Error retrieving data from local storage`, e);

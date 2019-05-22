@@ -11,6 +11,7 @@ export let localStorageCity = "city";
 export let localStoragePhone = "phone";
 export let localStorageEmail = "email";
 export let localStorageUserId = "userid";
+export let localStorageOrderId = "orderid";
 
 
-console.log("localStorageFirstName", localStorageFirstName)
+console.log("localStorageOrderId", localStorageOrderId)
