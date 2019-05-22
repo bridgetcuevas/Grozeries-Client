@@ -14,7 +14,7 @@ export default props => {
       <p>From: {shopId}</p>
       {/* display shop name
       <p>From: {shop_name} </p> */}
-      <p>Price: € {price}</p>
+      <p>Price: €{price}</p>
     </div>
   );
 };
