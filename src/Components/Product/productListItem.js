@@ -5,11 +5,10 @@ import { MdAddShoppingCart } from "react-icons/md";
 
 export default props => {
 
-  console.log(props);
+  
   const { image, product_name, id, price } = props.product;
 
 
-  const { image, product_name, description, price, id } = props.product;
   const userId = props.userId;
   const orderid = props.orderid;
  
