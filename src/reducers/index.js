@@ -25,5 +25,4 @@ export default combineReducers({
   shops,
   signup,
   users
-
 });
