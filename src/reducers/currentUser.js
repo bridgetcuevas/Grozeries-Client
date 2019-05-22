@@ -22,7 +22,7 @@ try {
   
 
   if (jwt) {
-    console.log(orderid)
+    // console.log(orderid)
     initialState = { jwt, first_name, last_name, street_name, house_number, zipcode, city, phonenumber, email, id, orderid };
   }
 } catch (e) {

@@ -20,11 +20,11 @@ class ProductDetails extends Component {
   //  this.props.addToOrder();
   // };
 
-  handleClick = (e, userId, order) => {
+  handleClick = (e, userId, orderId) => {
     const {id, price, quantity, shopId} = this.props.product;
     // console.log(this.props.currentUser, "this.props.currentUser")
-    // console.log(orderid, "orderid should be 3, not undefined");
-    this.props.addToOrderline(id, price, quantity, shopId, userId, order);
+    console.log(orderId, "orderId should be 3, not undefined");
+    this.props.addToOrderline(id, price, quantity, shopId, userId, orderId);
     // this.props.getOrder(userId);
   };
 
@@ -32,9 +32,9 @@ class ProductDetails extends Component {
   render() {
     // const { id } = this.props.product;
     const userId = this.props.currentUser.id;
-    const orderid = this.props.currentUser.orderid;
-    // console.log(this.props.currentUser.orderid, "this.props.currentUser.orderid")
-    console.log(orderid, "orderid")
+    const orderId = this.props.currentUser.orderid;
+    // console.log(this.props.currentUser.orderId, "this.props.currentUser.orderId")
+    console.log(orderId, "orderId")
     // console.log(userId, "userId")
     return (
       <div>
@@ -54,7 +54,7 @@ class ProductDetails extends Component {
               <button
                 className="btn btn-outline-success"
                 value={"hello"}
-                onClick={(e)=> this.handleClick(e, userId, orderid) }
+                onClick={(e)=> this.handleClick(e, userId, orderId) }
               >
                 Add to cart
               </button>
