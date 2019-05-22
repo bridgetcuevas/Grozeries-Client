@@ -48,7 +48,7 @@ class Navigation extends Component {
               {this.props.currentUser && (
                 <li>
 
-                  <NavLink to={`/orders/${this.props.currentUser.orderid}/orderlines`}>Cart</NavLink>{" "}
+                  <NavLink to={`/orders/${this.props.currentUser.orderid}/orderlines`}><MdShoppingCart/></NavLink>{" "}
 
 
                 </li>
