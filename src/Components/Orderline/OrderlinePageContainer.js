@@ -5,6 +5,7 @@ import { orderCheckout } from "../../actions/orders";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 import Orderline from "./orderlinePage";
+import "./orderline.css"
 
 class OrderlinePageContainer extends React.Component {
   componentDidMount() {
@@ -13,6 +14,7 @@ class OrderlinePageContainer extends React.Component {
     console.log(orderid, "orderid");
   }
 
+
   handleClick = (e, orderId) => {
     this.props.orderCheckout(orderId);
   };
@@ -20,6 +22,7 @@ class OrderlinePageContainer extends React.Component {
   callback = url => {
     return <a href={url} />;
   };
+
 
   render() {
     const url = this.props.url;
@@ -34,36 +37,38 @@ class OrderlinePageContainer extends React.Component {
     const orderid = this.props.currentUser.orderid;
     const orderlines = this.props.orderlines;
 
+
     return (
       <div>
         {this.props.loading ? (
           <LoadingModal />
         ) : (
           <div>
-            {total > 0 && <h3>Total amount: € {total.toFixed(2)}</h3>}
-            <button
-              className="btn btn-outline-success"
-              value={"Checkout"}
-              onClick={e => this.handleClick(e, orderid)}
-            >
-              Checkout
-            </button>
-            {PAYBUTTON}
-            {/* <button onClick={(e)=> this.call(e,orderId)} */}
 
-            <ul>
-              {orderlines &&
-                orderlines.length &&
-                orderlines.map(orderline => {
-                  return (
-                    <Orderline
-                      key={orderline.id}
-                      orderline={orderline}
-                      detail={false}
-                    />
-                  );
-                })}
-            </ul>
+
+            <div className="container">
+            <h1 className="h2-CartPage font-weight-700">
+              Your Cart
+              </h1>
+              <div className="row">
+                {orderlines &&
+                  orderlines.length &&
+                  orderlines.map(orderline => {
+                    return (
+                      <div key={orderline.id} className="col-lg-3 col-md-4">
+                        <Orderline orderline={orderline} detail={false} />
+                      </div>
+                    );
+                  })}
+                  
+              </div>
+        {total > 0 && <h3>Total € {total.toFixed(2)}</h3>}
+            <Link to={`/orders/${orderid}/payments`}>
+              <button className="btn btn-outline-success">Checkout</button>
+            </Link>
+            {PAYBUTTON}
+            </div>
+
           </div>
         )}
       </div>

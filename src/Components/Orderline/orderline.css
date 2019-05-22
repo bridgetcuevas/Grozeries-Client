@@ -1,5 +1,11 @@
-.h2-shopPage {
+.h2-cartPage {
   text-align: center;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.h2-CartPage {
   margin-top: 6rem;
   margin-bottom: 2rem;
   color: #555;
@@ -27,11 +33,16 @@
   color: rgb(23, 147, 19);
 }
 
-.shop-detail-header-image {
-  height: 350px;
+.cart-detail-header-image {
   width: 100%;
+  height: 200px;
   object-fit: cover;
-  object-position: center;
+}
+
+.btn-outline-success,
+.btn-outline-secondary {
+  margin-bottom: 3px;
+  margin-left: 3px;
 }
 
 @media only screen and (max-width: 700px) {
