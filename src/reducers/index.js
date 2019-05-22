@@ -11,6 +11,7 @@ import products from "./products";
 import shops from "./shops";
 import signup from "./signup";
 import users from "./users";
+import payments from "./payments";
 
 export default combineReducers({
  appStatus,
@@ -24,5 +25,6 @@ export default combineReducers({
   products,
   shops,
   signup,
-  users
+  users,
+  payments
 });

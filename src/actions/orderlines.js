@@ -46,7 +46,6 @@ export const getOrderline = (id) => dispatch => {
   request
     .get(`${baseUrl}/orders/${id}/orderlines`)
     .then(result => {
-      console.log("result", result);
       dispatch(setOrderline(result.body));
     })
     .catch(err => console.error(err));
