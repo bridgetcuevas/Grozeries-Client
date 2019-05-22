@@ -29,9 +29,7 @@ export default props => {
             {street_name} {house_number}
           </p>
           <p>
-            {zipcode}
-            {city}
-          </p>
+            {zipcode} {city} </p>
           <p>{phonenumber}</p>
           <p>{email}</p>
         </div>

@@ -1,3 +1,14 @@
+.h2-shopPage {
+  text-align: center;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.p-landingPage{
+
+}
+
 .item-link {
   text-decoration: none !important;
   color: #555;
