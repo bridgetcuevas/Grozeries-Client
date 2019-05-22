@@ -25,7 +25,7 @@
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #bdc3c7;
+  background: #b8b7ad;
 }
 
 /*
@@ -50,10 +50,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 /* Wrapper for item list */
-/* .bm-item-list {
-  /* color: #b8b7ad; */
-/* padding: 0.8em;
-} */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
 
 .bm-items {
   outline: none;
@@ -63,17 +63,27 @@ Individual item */ .bm-item {
   color: #b8b7ad;
   padding: 0.8em;
   display: inline-block;
+
+}
+
+.menu-item:hover {
+  color: #b8b7ad;
+  padding: 0.8em;
+  display: inline-block;
+  text-decoration: none;
+  
 }
 
 /* Styling of overlay */
 .bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.098);
 }
 
 @media only screen and (max-width: 700px) {
   .menu {
     display: block;
   }
+
 
   .bm-burger-bars {
     display: block;
