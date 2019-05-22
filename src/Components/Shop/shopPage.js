@@ -25,8 +25,6 @@ class shopDetails extends Component {
     const orderid = this.props.currentUser.orderid;
     const userId = this.props.currentUser.id;
 
-
-
     return (
       <div>
         {this.props.loading ? (
