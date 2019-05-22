@@ -9,10 +9,7 @@ export default props => {
   const { image, product_name, id, price } = props.product;
 
 
-<<<<<<< HEAD
-  // const { image, product_name, description, price, id } = props.product;
-=======
->>>>>>> 9a739a9cfbfc29c319a3163ee6671f196da349aa
+
   const userId = props.userId;
   const orderid = props.orderid;
  
