@@ -5,9 +5,10 @@ import { appLoaded, appLoading } from "./appStatus";
 
 
 export const ADD_ORDER = "ADD_ORDER";
-
-
 export const SET_ORDER = "SET_ORDER";
+export const SET_URL = "SET_URL";
+
+
 
 const addOrder = order => {
   console.log("yes, incoming addOrder Dispatched")
@@ -21,6 +22,13 @@ export const setOrder = order => {
   return {
     type: SET_ORDER,
     payload: order
+  };
+};
+
+export const checkoutUrl = url => {
+  return {
+    type: SET_URL,
+    payload: url
   };
 };
 
@@ -76,3 +84,18 @@ export const getOrder = id => dispatch => {
       console.error(err));
       dispatch(appLoaded());
 };
+
+export const orderCheckout = (id) => dispatch => {
+  dispatch(appLoading());
+  request
+    .post(`${baseUrl}/orders/${id}/payments`)
+    .then(result => {
+      console.log("payment result URL", result.text);
+      dispatch(checkoutUrl(result.text));
+      // dispatch(appLoaded());
+    })
+    .catch(err => 
+      console.error(err));
+      dispatch(appLoaded());
+};
+
