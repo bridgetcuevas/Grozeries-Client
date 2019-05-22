@@ -4,8 +4,6 @@ import { localStorageJwtKey, localStorageFirstName, localStorageLastName, localS
 export const storeJwt = store => next => action => {
   try {
     if (action.type === USER_LOGIN_SUCCESS) {
-      console.log("loginnnnnnnnn", action.payload);
-      console.log("orderId", action.payload.orderId);
       localStorage.setItem(localStorageJwtKey, action.payload.jwt);
       localStorage.setItem(localStorageFirstName, action.payload.first_name);
       localStorage.setItem(localStorageLastName, action.payload.last_name);
@@ -20,6 +18,15 @@ export const storeJwt = store => next => action => {
     }
     if (action.type === USER_LOGOUT) {
       localStorage.removeItem(localStorageJwtKey);
+      localStorage.removeItem(localStorageFirstName);
+      localStorage.removeItem(localStorageLastName);
+      localStorage.removeItem(localStorageStreet);
+      localStorage.removeItem(localStorageHouse);
+      localStorage.removeItem(localStorageZip);
+      localStorage.removeItem(localStorageCity);
+      localStorage.removeItem(localStoragePhone);
+      localStorage.removeItem(localStorageEmail);
+      localStorage.removeItem(localStorageUserId);
     }
   } catch (error) {
     console.log(`Interaction with LocalStorage went wrong`, error);
