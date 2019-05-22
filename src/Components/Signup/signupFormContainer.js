@@ -41,7 +41,7 @@ class SignupFormContainer extends React.Component {
     console.log("user target name", user.target.value);
   };
   render() {
-    if (this.props.signup.success) return <Redirect to="/logins" />;
+    if (this.props.signup.success === true) return <Redirect to="/logins" />;
     return (
       <SignupForm
         onSubmit={this.onSubmit}

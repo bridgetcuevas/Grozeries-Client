@@ -1,0 +1,14 @@
+.p-footer {
+  margin-top: 50px;
+  color: #555;
+  line-height: 145%;
+  text-align: center;
+  letter-spacing: 2px;
+  word-spacing: 4px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.contact-div {
+  padding: 30px;
+}

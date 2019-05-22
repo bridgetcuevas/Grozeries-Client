@@ -4,16 +4,19 @@ import ProductListItem from "../Product/productListItem";
 import { getShopDetails } from "../../actions/shops";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
-import { addToOrder } from "../../actions/orders";
+import { addToOrder, getOrder } from "../../actions/orders";
+import { userId } from "../../jwt";
 
 class shopDetails extends Component {
   componentDidMount() {
     const { shopId } = this.props.match.params;
     this.props.getShopDetails(shopId);
   }
-  handleClick = event => {
-    console.log(event, this.props.product);
-    this.props.addToOrder(this.props.product);
+  handleClick = (e, additemid, orders) => {
+    const item = this.props.shops.products;
+    this.props.addToOrder(item.find(item => item.id === additemid));
+    this.props.getOrder(userId);
+    // this.props.getOrder(orders);
   };
   render() {
     console.log("SHOPPAGE", this.props);
@@ -41,10 +44,11 @@ class shopDetails extends Component {
                           <div key={product.id} className="col-lg-3 col-md-4">
                             <ProductListItem
                               product={product}
+                              userId={userId}
                               detail={false}
                               ShopId={ShopId}
                               handleClick={this.handleClick}
-                              addToOrder={this.props.addToOrder}
+                              // addToOrder={this.props.addToOrder}
                             />
                           </div>
                         );
@@ -64,11 +68,13 @@ const mapStateToProps = state => {
   return {
     shopDetails: state.shopDetails,
     loading: state.appStatus.loading,
-    shops: state.shops
+    shops: state.shops,
+    userId: state.currentUser && userId(state.currentUser.jwt),
+    // orders: state.currentUser.orders 
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getShopDetails, addToOrder }
+  { getShopDetails, addToOrder, getOrder }
 )(shopDetails);

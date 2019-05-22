@@ -1,5 +1,5 @@
 import { USER_LOGIN_SUCCESS, USER_LOGOUT } from "./actions/users";
-import { localStorageJwtKey, localStorageFirstName, localStorageLastName, localStorageCity, localStorageEmail, localStorageHouse, localStoragePhone, localStorageStreet, localStorageZip } from "./constants";
+import { localStorageJwtKey, localStorageFirstName, localStorageLastName, localStorageCity, localStorageEmail, localStorageHouse, localStoragePhone, localStorageStreet, localStorageZip, localStorageUserId } from "./constants";
 
 export const storeJwt = store => next => action => {
   try {
@@ -14,6 +14,7 @@ export const storeJwt = store => next => action => {
       localStorage.setItem(localStorageCity, action.payload.city);
       localStorage.setItem(localStoragePhone, action.payload.phonenumber);
       localStorage.setItem(localStorageEmail, action.payload.email);
+      localStorage.setItem(localStorageUserId, action.payload.id);
     }
     if (action.type === USER_LOGOUT) {
       localStorage.removeItem(localStorageJwtKey);

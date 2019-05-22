@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Routing from "./Routing";
+import FooterPage from "./Components/Footer/footerPage";
 
 import Navigation from "./Components/Navigation/navigationBar";
 
@@ -10,9 +11,12 @@ class App extends Component {
         <nav>
           <Navigation />
         </nav>
-        <main style={{ marginTop: 60 }}>
-          <Routing />
-        </main>
+        <div className="app-body">
+          <main style={{ marginTop: 60 }}>
+            <Routing />
+          </main>
+        </div>
+        <FooterPage />
       </div>
     );
   }

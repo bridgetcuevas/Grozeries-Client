@@ -12,6 +12,7 @@ import ShopDetails from "./Components/Shop/shopPage";
 import CategoryList from "./Components/Category/categoryListPage";
 import OrderlinePageContainer from "./Components/Orderline/OrderlinePageContainer";
 import ProfilePage from "./Components/Profile/profilePage";
+import ContactPage from "./Components/ContactForm/ContactPage";
 
 const Router = () => (
   <Switch>
@@ -26,6 +27,7 @@ const Router = () => (
     <Route path="/categories" exact component={CategoryList} />
     <Route path="/orderlines" exact component={OrderlinePageContainer} />
     <Route path="/profile" exact component={ProfilePage} />
+    <Route path="/contact" exact component={ContactPage} />
 
     <Route exact path="/" render={() => <Redirect to="/" />} />
   </Switch>
