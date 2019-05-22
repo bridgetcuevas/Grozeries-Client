@@ -14,4 +14,3 @@ export let localStorageUserId = "userid";
 export let localStorageOrderId = "orderid";
 
 
-console.log("localStorageOrderId", localStorageOrderId)

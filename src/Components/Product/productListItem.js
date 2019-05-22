@@ -5,6 +5,9 @@ import { MdAddShoppingCart } from "react-icons/md";
 
 export default props => {
 
+  console.log(props);
+  const { image, product_name, id, price } = props.product;
+
 
   const { image, product_name, description, price, id } = props.product;
   const userId = props.userId;
@@ -23,7 +26,12 @@ export default props => {
         </Link>
         <button
 
-          className="btn btn-outline-success"
+          className="btn btn-outline-secondary"
+         
+
+
+
+
           onClick={(event)=>props.handleClick(event, id, userId, orderid )}
 
         >

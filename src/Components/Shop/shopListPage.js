@@ -16,6 +16,10 @@ class ShopList extends Component {
           <LoadingModal />
         ) : (
           <div className="container">
+             <h1 className="h2-shopPage font-weight-700">
+              Browse Shops in Your Neighborhood
+              </h1>
+              <p className="p-landingPage mb-4">Grozeries brings a world full of vibrant local communities online offering access to a network of local shops and the stories behind their products.</p>
             <div className="row">
               {this.props.shops &&
                 this.props.shops.length &&

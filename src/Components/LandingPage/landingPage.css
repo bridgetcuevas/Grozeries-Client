@@ -44,6 +44,7 @@ html {
   margin-bottom: 10rem;
   font-size: 450%;
 
+
 }
 .p-landingPage {
   color: #555;
@@ -57,5 +58,21 @@ html {
 @media only screen and (max-width: 700px) {
   .list-item-image {
     height: 300px;
+  }
+
+  .h1-landingPage {
+    margin-left: 5rem;
+    margin-bottom: 5rem;
+    font-size: 200%;
+  }
+
+  .h2-landingPage {
+    text-align: center;
+    color: #555;
+    font-weight: 400;
+    font-size: 130%;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
   }
 }
