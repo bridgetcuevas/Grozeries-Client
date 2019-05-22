@@ -68,9 +68,7 @@ class Navigation extends Component {
             </NavLink>
           )}
           {this.props.currentUser && (
-
             <NavLink className="menu-item" to="/profile">
-
               Profile
             </NavLink>
           )}
@@ -89,6 +87,10 @@ class Navigation extends Component {
               Signup
             </NavLink>
           )}
+            <NavLink className="menu-item" to="/contact">
+              Contact
+            </NavLink>
+          
         </Menu>
       </header>
     );

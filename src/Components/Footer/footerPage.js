@@ -1,17 +1,12 @@
 import React from "react";
 import "./footerPage.css";
-import { NavLink } from "react-router-dom";
+
 
 export default function Footer(props) {
   return (
-    <div className="footer">
+    <div className="bottom-footer container pb-2">
       <footer>
-        <p>
-          <NavLink to="/contact" className="navlink">
-            Contact us
-          </NavLink>
-        </p>
-        <p> © Grozeries 2019</p>
+        <small className="© ml-1"> © Grozeries 2019</small>
       </footer>
     </div>
   );

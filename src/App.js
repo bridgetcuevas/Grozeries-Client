@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Routing from "./Routing";
-import FooterPage from "./Components/Footer/footerPage";
+// import FooterPage from "./Components/Footer/footerPage";
 
 import Navigation from "./Components/Navigation/navigationBar";
 
@@ -16,7 +16,9 @@ class App extends Component {
             <Routing />
           </main>
         </div>
+        {/* <footer>
         <FooterPage />
+        </footer> */}
       </div>
     );
   }
