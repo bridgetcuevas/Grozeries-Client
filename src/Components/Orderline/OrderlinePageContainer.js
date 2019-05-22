@@ -13,8 +13,6 @@ class OrderlinePageContainer extends React.Component {
     this.props.getOrderline(orderid);
     console.log(orderid, "orderid");
   }
-<<<<<<< HEAD
-=======
 
   handleClick = (e, orderId) => {
     this.props.orderCheckout(orderId);
@@ -23,7 +21,6 @@ class OrderlinePageContainer extends React.Component {
   callback = url => {
     return <a href={url} />;
   };
->>>>>>> 9a739a9cfbfc29c319a3163ee6671f196da349aa
 
   render() {
     const url = this.props.url;
@@ -37,10 +34,7 @@ class OrderlinePageContainer extends React.Component {
     }, 0);
     const orderid = this.props.currentUser.orderid;
     const orderlines = this.props.orderlines;
-<<<<<<< HEAD
-    console.log("orderline", this.props.orderlines);
-=======
->>>>>>> 9a739a9cfbfc29c319a3163ee6671f196da349aa
+
 
     return (
       <div>
@@ -48,7 +42,6 @@ class OrderlinePageContainer extends React.Component {
           <LoadingModal />
         ) : (
           <div>
-<<<<<<< HEAD
 
             <div className="container">
             <h1 className="h2-CartPage font-weight-700">
@@ -67,36 +60,13 @@ class OrderlinePageContainer extends React.Component {
                   
               </div>
         {total > 0 && <h3>Total € {total.toFixed(2)}</h3>}
-            <Link to={`/orders/${orderid}/payments`}>
-              <button className="btn btn-outline-success">Checkout</button>
-            </Link>
-            </div>
-=======
-            {total > 0 && <h3>Total amount: € {total.toFixed(2)}</h3>}
-            <button
-              className="btn btn-outline-success"
-              value={"Checkout"}
-              onClick={e => this.handleClick(e, orderid)}
-            >
-              Checkout
-            </button>
+        <button
+                className="btn btn-outline-success"
+                value={"Checkout"}
+                onClick={(e)=> this.handleClick(e,orderid)}
+                >Checkout</button>   
             {PAYBUTTON}
-            {/* <button onClick={(e)=> this.call(e,orderId)} */}
-
-            <ul>
-              {orderlines &&
-                orderlines.length &&
-                orderlines.map(orderline => {
-                  return (
-                    <Orderline
-                      key={orderline.id}
-                      orderline={orderline}
-                      detail={false}
-                    />
-                  );
-                })}
-            </ul>
->>>>>>> 9a739a9cfbfc29c319a3163ee6671f196da349aa
+            </div>
           </div>
         )}
       </div>

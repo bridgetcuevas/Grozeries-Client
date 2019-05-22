@@ -17,22 +17,16 @@ class shopDetails extends Component {
     let product = this.props.shops.products;
     const shopProduct = product.find(product => product.id === id);
     const { price, quantity, shopId } = shopProduct;
-<<<<<<< HEAD
 
-=======
->>>>>>> 9a739a9cfbfc29c319a3163ee6671f196da349aa
     this.props.addToOrderline(shopProduct.id, price, quantity, shopId, userId, orderid);
   };
   render() {
     const { shopId } = this.props.match.params;
     const orderid = this.props.currentUser.orderid;
     const userId = this.props.currentUser.id;
-<<<<<<< HEAD
 
-=======
-    // console.log(orderid, "render OrderID")
-    // console.log(userId, "render userId")
->>>>>>> 9a739a9cfbfc29c319a3163ee6671f196da349aa
+
+
     return (
       <div>
         {this.props.loading ? (
