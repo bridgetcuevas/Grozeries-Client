@@ -6,7 +6,6 @@ export default (state = [], action) => {
       return [...state, action.payload];
     case SET_ORDER:
       return action.payload;
-
     default:
       return state;
   }
