@@ -20,7 +20,7 @@ class OrderlinePageContainer extends React.Component {
     // const total = this.props.orderline.reduce((totalSoFar, current) => {
     //   return totalSoFar + parseFloat(current.price);
     // }, 0);
-    const id = this.props.orderlines.id
+    const orderid = this.props.currentUser.orderid
     console.log('orderline', this.props.orderline)
 
     return (
@@ -30,7 +30,7 @@ class OrderlinePageContainer extends React.Component {
         ) : (
           <div>
             {/* {total > 0 && <h3>Total amount: € {total.toFixed(2)}</h3>} */}
-            <Link to={`/orders/${id}/payments`}><button>Checkout</button></Link>
+            <Link to={`/orders/${orderid}/payments`}><button>Checkout</button></Link>
 
             <ul>
               {this.props.orderline &&
