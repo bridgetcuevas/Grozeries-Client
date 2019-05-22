@@ -1,7 +1,7 @@
 .loading-container {
   position: absolute;
   z-index: 20000000;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: transparent;
   top: 0;
   right: 0;
   bottom: 0;
@@ -13,8 +13,8 @@
   position: absolute;
   width: 120px;
   height: 120px;
-  top: 50%;
-  left: 50%;
+  top: 40%;
+  left: 45%;
   transform: translate3d(-50%, -50%);
   animation: Loading-modal-spin infinite 1.5s linear;
 }
@@ -25,11 +25,22 @@
   transform: translate3d(-50%, -50%);
 }
 
+.loading-modal{
+  background-color: transparent;
+}
+
 @keyframes Loading-modal-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .loading-square {
+    top: 40%;
+    left: 38%;
   }
 }

@@ -15,9 +15,7 @@ try {
   const id = localStorage.getItem(localStorageUserId);
   const orderid = localStorage.getItem(localStorageOrderId);
 
-  // to be done:
-  // const orders = localStorage.getItem(localStorageOrders);
-  // (order)
+
 
   
 

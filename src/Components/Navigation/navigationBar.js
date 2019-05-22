@@ -66,14 +66,12 @@ class Navigation extends Component {
             Shops
           </NavLink>
           {this.props.currentUser && (
-            <NavLink className="menu-item" to="/cart">
+            <NavLink className="menu-item" to={`/orders/${this.props.currentUser.orderid}/orderlines`}>
               Cart
             </NavLink>
           )}
           {this.props.currentUser && (
-
             <NavLink className="menu-item" to="/profile">
-
               Profile
             </NavLink>
           )}
@@ -92,6 +90,10 @@ class Navigation extends Component {
               Signup
             </NavLink>
           )}
+            <NavLink className="menu-item" to="/contact">
+              Contact
+            </NavLink>
+          
         </Menu>
       </header>
     );

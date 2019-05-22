@@ -24,10 +24,10 @@ class LandingPage extends Component {
               </div>
             </div>
             <div className="container pt-5">
-              <h1 className="h2-landingPage font-weight-700 mb-3">
+              <h1 className="h2-landingPage font-weight-700">
               shop local . shop easy . shop fresh
               </h1>
-              <p className="p-landingPage">Grozeries brings a world full of vibrant local communities online and offline access to a network of local shops and to the storiesbehind the products</p>
+              <p className="p-landingPage">Grozeries brings a world full of vibrant local communities online offering access to a network of local shops and the stories behind their products.</p>
               <div className="row pt-4">
                 {this.props.shops &&
                   this.props.shops.length &&

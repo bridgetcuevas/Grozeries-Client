@@ -22,26 +22,25 @@ class OrderlinePageContainer extends React.Component {
   }
 
   render() {
-    
-    // const total = this.props.orderline.reduce((totalSoFar, current) => {
-      //   return totalSoFar + parseFloat(current.price);
-      // }, 0);
-    const orderId = this.props.currentUser.orderid
-    const orderlines = this.props.orderlines.orderlines
-    console.log('orderlines', orderlines)
+ 
     const url = this.props.url 
-    console.log('URL', url)
     const PAYBUTTON =
       url &&
       <a href={url}><h4>Pay with Mollie</h4></a>
-    
+    const total = this.props.orderlines.reduce((totalSoFar, current) => {
+      return totalSoFar + parseFloat(current.price);
+    }, 0);
+    const orderid = this.props.currentUser.orderid
+    const orderlines = this.props.orderlines
+
+
     return (
       <div>
         {this.props.loading ? (
           <LoadingModal />
           ) : (
             <div>
-            {/* {total > 0 && <h3>Total amount: € {total.toFixed(2)}</h3>} */}
+            {{total > 0 && <h3>Total amount: € {total.toFixed(2)}</h3>}}
             <button
                 className="btn btn-outline-success"
                 value={"Checkout"}
@@ -49,6 +48,7 @@ class OrderlinePageContainer extends React.Component {
                 >Checkout</button>   
                 {PAYBUTTON}
                 {/* <button onClick={(e)=> this.call(e,orderId)} */}
+
             <ul>
               {orderlines &&
                 orderlines.length &&
