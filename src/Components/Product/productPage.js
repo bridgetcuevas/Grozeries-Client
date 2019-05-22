@@ -1,26 +1,41 @@
 import React, { Component } from "react";
 import Product from "./product";
 import { getProductDetails } from "../../actions/products";
-// import { addToOrderline } from "../../actions/orderlines";
-import { addToOrder } from "../../actions/orders";
+import { addToOrderline } from "../../actions/orderlines";
+// import { addToOrder, getOrder } from "../../actions/orders";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 import { Link } from "react-router-dom";
 
 class ProductDetails extends Component {
+  
   componentDidMount() {
     const productId = this.props.match.params.productId;
     this.props.getProductDetails(productId);
    
   }
   
-  handleClick = event => {
-    console.log(event, this.props.product);
-    // this.props.addToOrderline(this.props.product);
-   this.props.addToOrder();
+  // handleClick = event => {
+  //   console.log(event, this.props.product);
+  //   // this.props.addToOrderline(this.props.product);
+  //  this.props.addToOrder();
+  // };
+
+  handleClick = (e, userId) => {
+    const {id, price, quantity, shopId, orderId} = this.props.product;
+    // console.log(price, "price should be 10, not undefined");  
+    console.log(price, "this.props.product");  
+    // console.log(userId, "userId in handleclick");  
+    this.props.addToOrderline(id, price, quantity, shopId, orderId, userId);
+    // this.props.getOrder(userId);
   };
 
+
   render() {
+    // const { id } = this.props.product;
+    const userId = this.props.currentUser.id;
+    console.log(this.props, "this.props")
+    console.log(userId, "userId")
     return (
       <div>
         {this.props.loading ? (
@@ -34,11 +49,12 @@ class ProductDetails extends Component {
                 detail={true}
               />
             )}
+            <div><input type="number" name="quantity" min="1" max="10000"/></div>
             <div className="container mb-5">
               <button
                 className="btn btn-outline-success"
                 value={"hello"}
-                onClick={this.handleClick}
+                onClick={(e)=> this.handleClick(e, userId) }
               >
                 Add to cart
               </button>
@@ -61,7 +77,7 @@ class ProductDetails extends Component {
 const mapStateToProps = state => {
   return {
     product: state.product,
-
+    currentUser: state.currentUser,
     order: state.order,
 
     orderline: state.orderline,
@@ -72,5 +88,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getProductDetails, addToOrder }
+  { getProductDetails, addToOrderline }
 )(ProductDetails);
