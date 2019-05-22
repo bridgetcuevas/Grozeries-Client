@@ -21,7 +21,8 @@ class OrderlinePageContainer extends React.Component {
     //   return totalSoFar + parseFloat(current.price);
     // }, 0);
     const orderid = this.props.currentUser.orderid
-    console.log('orderline', this.props.orderline)
+    const orderlines = this.props.orderlines.orderlines
+    console.log('orderline', this.props.orderlines)
 
     return (
       <div>
@@ -33,9 +34,9 @@ class OrderlinePageContainer extends React.Component {
             <Link to={`/orders/${orderid}/payments`}><button>Checkout</button></Link>
 
             <ul>
-              {this.props.orderline &&
-                this.props.orderline.length &&
-                this.props.orderline.map(orderline => {
+              {orderlines &&
+                orderlines.length &&
+                orderlines.map(orderline => {
                   return <Orderline key={orderline.id} orderline={orderline} detail={false} />;
                 })}
             </ul>
