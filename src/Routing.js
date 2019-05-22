@@ -25,7 +25,7 @@ const Router = () => (
     <Route path="/products/:productId" exact component={ProductDetails} />
     <Route path="/categories" exact component={CategoryList} />
     <Route path="/orderlines" exact component={OrderlinePageContainer} />
-    <Route path="/users/:id" exact component={ProfilePage} />
+    <Route path="/profile" exact component={ProfilePage} />
 
     <Route exact path="/" render={() => <Redirect to="/" />} />
   </Switch>
