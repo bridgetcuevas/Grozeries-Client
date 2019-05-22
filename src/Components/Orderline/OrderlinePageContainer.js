@@ -7,8 +7,9 @@ import Orderline from "./orderlinePage";
 
 class OrderlinePageContainer extends React.Component {
   componentDidMount() {
-    const orderlineId = this.props.match.params.orderlineId;
-    this.props.getOrderline(orderlineId);
+    const orderid = this.props.currentUser.orderid
+    this.props.getOrderline(orderid);
+    console.log(orderid, "orderid")
   }
   // handleClick = event => {
   //   console.log(event, this.props.orderline);
@@ -16,10 +17,10 @@ class OrderlinePageContainer extends React.Component {
   // };
 
   render() {
-    const total = this.props.orderline.reduce((totalSoFar, current) => {
-      return totalSoFar + parseFloat(current.price);
-    }, 0);
-    const id = this.props.orderline.id
+    // const total = this.props.orderline.reduce((totalSoFar, current) => {
+    //   return totalSoFar + parseFloat(current.price);
+    // }, 0);
+    const orderid = this.props.currentUser.orderid
     console.log('orderline', this.props.orderline)
 
     return (
@@ -28,8 +29,8 @@ class OrderlinePageContainer extends React.Component {
           <LoadingModal />
         ) : (
           <div>
-            {total > 0 && <h3>Total amount: € {total.toFixed(2)}</h3>}
-            <Link to={`/orders/${id}/payments`}><button>Checkout</button></Link>
+            {/* {total > 0 && <h3>Total amount: € {total.toFixed(2)}</h3>} */}
+            <Link to={`/orders/${orderid}/payments`}><button>Checkout</button></Link>
 
             <ul>
               {this.props.orderline &&
@@ -46,9 +47,10 @@ class OrderlinePageContainer extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    orderline: state.orderline,
+    orderlines: state.orderlines,
     orders: state.orders,
-    loading: state.appStatus.loading
+    loading: state.appStatus.loading,
+    currentUser: state.currentUser
   };
 };
 

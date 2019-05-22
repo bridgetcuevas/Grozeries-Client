@@ -14,7 +14,8 @@ export const storeJwt = store => next => action => {
       localStorage.setItem(localStoragePhone, action.payload.phonenumber);
       localStorage.setItem(localStorageEmail, action.payload.email);
       localStorage.setItem(localStorageUserId, action.payload.id);
-      localStorage.setItem(localStorageOrderId, action.payload.orderId);
+      localStorage.setItem(localStorageOrderId, action.payload.orderid);
+      console.log(action.payload.orderid)
     }
     if (action.type === USER_LOGOUT) {
       localStorage.removeItem(localStorageJwtKey);

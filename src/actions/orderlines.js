@@ -42,9 +42,9 @@ export const setOrderline = orderline => {
     .catch(err => console.error(err));
 };
 
-export const getOrderline = () => dispatch => {
+export const getOrderline = (id) => dispatch => {
   request
-    .get(`${baseUrl}/order`)
+    .get(`${baseUrl}/orders/${id}/orderlines`)
     .then(result => {
       console.log("result", result);
       dispatch(setOrderline(result.body));
