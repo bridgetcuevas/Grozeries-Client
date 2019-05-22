@@ -12,7 +12,6 @@ class ProductDetails extends Component {
   componentDidMount() {
     const productId = this.props.match.params.productId;
     this.props.getProductDetails(productId);
-   
   }
   
   // handleClick = event => {
@@ -21,12 +20,11 @@ class ProductDetails extends Component {
   //  this.props.addToOrder();
   // };
 
-  handleClick = (e, userId) => {
-    const {id, price, quantity, shopId, orderId} = this.props.product;
-    // console.log(price, "price should be 10, not undefined");  
-    console.log(price, "this.props.product");  
-    // console.log(userId, "userId in handleclick");  
-    this.props.addToOrderline(id, price, quantity, shopId, orderId, userId);
+  handleClick = (e, userId, orderId) => {
+    const {id, price, quantity, shopId} = this.props.product;
+    // console.log(this.props.currentUser, "this.props.currentUser")
+    console.log(orderId, "orderId should be 3, not undefined");
+    this.props.addToOrderline(id, price, quantity, shopId, userId, orderId);
     // this.props.getOrder(userId);
   };
 
@@ -34,8 +32,10 @@ class ProductDetails extends Component {
   render() {
     // const { id } = this.props.product;
     const userId = this.props.currentUser.id;
-    console.log(this.props, "this.props")
-    console.log(userId, "userId")
+    const orderId = this.props.currentUser.orderid;
+    // console.log(this.props.currentUser.orderId, "this.props.currentUser.orderId")
+    console.log(orderId, "orderId")
+    // console.log(userId, "userId")
     return (
       <div>
         {this.props.loading ? (
@@ -54,7 +54,7 @@ class ProductDetails extends Component {
               <button
                 className="btn btn-outline-success"
                 value={"hello"}
-                onClick={(e)=> this.handleClick(e, userId) }
+                onClick={(e)=> this.handleClick(e, userId, orderId) }
               >
                 Add to cart
               </button>
@@ -79,9 +79,7 @@ const mapStateToProps = state => {
     product: state.product,
     currentUser: state.currentUser,
     order: state.order,
-
     orderline: state.orderline,
-
     loading: state.appStatus.loading
   };
 };

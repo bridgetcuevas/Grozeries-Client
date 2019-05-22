@@ -20,25 +20,20 @@ export const setOrderline = orderline => {
 
 
 
-// export const addToOrderline = orderline => 
-// (dispatch, getState) => {
+
   export const addToOrderline = (
-    id, price, quantity, shopId, orderId, userId
+    id, price, quantity, shopId, userId, orderId
   ) => dispatch =>{
-  // const {id, price, quantity, shopId, orderId, userId} = orderline
-  // const state = getState();
-  // const jwt = state.currentUser.jwt;
 
   request
-    .post(`${baseUrl}/orders/1/`)
-    // .set("Authorization", `Bearer ${jwt}`)
+    .post(`${baseUrl}/orders/${orderId}/`)
     .send({
       productId: id,
       price,
       quantity,
       shopId,
-      orderId,
-      userId
+      userId,
+      orderId
     })
     .then(result => {
       console.log("RESULT-BODY", result.body);
@@ -46,14 +41,10 @@ export const setOrderline = orderline => {
     })
     .catch(err => console.error(err));
 };
-// dispatch => {
-//   console.log("order", order);
-//   dispatch(addOrder(order));
-// };
 
-export const getOrderline = () => dispatch => {
+export const getOrderline = (id) => dispatch => {
   request
-    .get(`${baseUrl}/order`)
+    .get(`${baseUrl}/orders/${id}/orderlines`)
     .then(result => {
       console.log("result", result);
       dispatch(setOrderline(result.body));
