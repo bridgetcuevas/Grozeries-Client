@@ -23,7 +23,6 @@ class OrderlinePageContainer extends React.Component {
     return <a href={url} />;
   };
 
-
   render() {
     const url = this.props.url;
     const PAYBUTTON = url && (
@@ -45,7 +44,6 @@ class OrderlinePageContainer extends React.Component {
         ) : (
           <div>
 
-
             <div className="container">
             <h1 className="h2-CartPage font-weight-700">
               Your Cart
@@ -63,12 +61,13 @@ class OrderlinePageContainer extends React.Component {
                   
               </div>
         {total > 0 && <h3>Total € {total.toFixed(2)}</h3>}
-            <Link to={`/orders/${orderid}/payments`}>
-              <button className="btn btn-outline-success">Checkout</button>
-            </Link>
+        <button
+                className="btn btn-outline-success"
+                value={"Checkout"}
+                onClick={(e)=> this.handleClick(e,orderid)}
+                >Checkout</button>   
             {PAYBUTTON}
             </div>
-
           </div>
         )}
       </div>
