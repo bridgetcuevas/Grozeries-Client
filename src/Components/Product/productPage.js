@@ -13,7 +13,6 @@ class ProductDetails extends Component {
 
   onChange = (event) => {
     console.log(this.state.setQuantity, "this.state.setQuantity")
-    console.log(this.state, "this.state")
     this.setState({
       setQuantity: {
         ...this.state.setQuantity,
@@ -37,6 +36,7 @@ class ProductDetails extends Component {
     const userId = this.props.currentUser.id;
     const orderId = this.props.currentUser.orderid;
     const instock = this.props.product && this.props.product.in_stock === true
+    const quantity = this.state.setQuantity && this.state.setQuantity.quantity
     return (
       <div>
         {this.props.loading ? (
