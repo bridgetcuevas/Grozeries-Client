@@ -8,7 +8,20 @@ import LoadingModal from "../LoadingModal";
 import { Link } from "react-router-dom";
 
 class ProductDetails extends Component {
-  
+
+  state = { }
+
+  onChange = (event) => {
+    console.log(this.state.setQuantity, "this.state.setQuantity")
+    console.log(this.state, "this.state")
+    this.setState({
+      setQuantity: {
+        ...this.state.setQuantity,
+        [event.target.name]: event.target.value
+      }
+    })
+  }
+
   componentDidMount() {
     const productId = this.props.match.params.productId;
     this.props.getProductDetails(productId);
@@ -38,13 +51,21 @@ class ProductDetails extends Component {
               />
             )}
             <div className="container mb-5">
-            {instock && (<button
+            
+            {this.props.product && this.props.product.prices_by === "gram" && (
+              <div><input type="number" name="quantity" min="50" max="5000" value={this.state.setQuantity} onChange={this.onChange}/>{this.props.product.prices_by}</div>)}
+              
+            {this.props.product && this.props.product.prices_by === "piece" && (
+             <div><input type="number" name="quantity" min="1" max="50" value={this.state.setQuantity} onChange={this.onChange}/>{this.props.product.prices_by}</div>)}
+              
+            {this.props.product && instock && (<button
                 className="btn btn-outline-success"
                 value={"hello"}
-                onClick={(e)=> this.handleClick(e, userId, orderId) }
+                onClick={(e)=> this.handleClick(e, userId, orderId, quantity)}
               >
                 Add to cart
-            </button>)}
+            </button>)
+            }
               {this.props.product && (
                 <Link
                   className="ml-2"
@@ -52,6 +73,7 @@ class ProductDetails extends Component {
                 >
                   <button className="btn btn-outline-secondary ">Back to shop</button>
                 </Link>
+                
               )}
             </div>
           </div>
