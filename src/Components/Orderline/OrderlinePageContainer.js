@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 import Orderline from "./orderlinePage";
 import "./orderline.css"
+import { MdPayment } from "react-icons/md";
 
 class OrderlinePageContainer extends React.Component {
   componentDidMount() {
@@ -27,7 +28,9 @@ class OrderlinePageContainer extends React.Component {
     const url = this.props.url;
     const PAYBUTTON = url && (
       <a href={url}>
-        <h4>Pay with Mollie</h4>
+         <button
+                className="btn btn-outline-secondary"
+                value={"Checkout"}><MdPayment/> Pay with Mollie</button>
       </a>
     );
     const total = this.props.orderlines.reduce((totalSoFar, current) => {
@@ -59,14 +62,14 @@ class OrderlinePageContainer extends React.Component {
                     );
                   })}
                   
-              </div>
-        {total > 0 && <h3>Total € {total.toFixed(2)}</h3>}
+              </div >
+        {total > 0 && <h3 className="mt-2 ml-1">Total € {total.toFixed(2)}</h3>}
         <button
                 className="btn btn-outline-success"
                 value={"Checkout"}
                 onClick={(e)=> this.handleClick(e,orderid)}
                 >Checkout</button>   
-            {PAYBUTTON}
+           {PAYBUTTON}  
             </div>
           </div>
         )}
