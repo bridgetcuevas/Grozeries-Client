@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 // import { addToOrder, getOrder } from "../../actions/orders";
 import { addToOrderline } from "../../actions/orderlines";
-// import { userId } from "../../jwt";
+
 
 class shopDetails extends Component {
   componentDidMount() {
@@ -24,6 +24,9 @@ class shopDetails extends Component {
     const { shopId } = this.props.match.params;
     const orderid = this.props.currentUser.orderid;
     const userId = this.props.currentUser.id;
+    const shops = this.props.shops
+    console.log('shops', shops)
+    
 
     return (
       <div>
@@ -40,7 +43,7 @@ class shopDetails extends Component {
 
                 <div className="container">
                   <div className="row">
-                    {this.props.shops.products &&
+                    {this.props.shops.products && 
                       this.props.shops.products.length &&
                       this.props.shops.products.map(product => {
                         return (
