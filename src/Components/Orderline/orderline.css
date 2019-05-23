@@ -39,8 +39,11 @@
   object-fit: cover;
 }
 
+
+
 .btn-outline-success,
 .btn-outline-secondary {
+  margin-top: 3px;
   margin-bottom: 3px;
   margin-left: 3px;
 }
