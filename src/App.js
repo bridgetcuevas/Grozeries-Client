@@ -17,7 +17,9 @@ class App extends Component {
             <Routing />
           </main>
         </div>
+        <div className="footer">
         <FooterPage className="mt-auto" />
+        </div>
       </div>
     );
   }
