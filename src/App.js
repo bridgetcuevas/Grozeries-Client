@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Routing from "./Routing";
-// import FooterPage from "./Components/Footer/footerPage";
+import "./App.css";
+import FooterPage from "./Components/Footer/footerPage";
 
 import Navigation from "./Components/Navigation/navigationBar";
 
 class App extends Component {
   render() {
     return (
-      <div style={{ height: "100%" }}>
+      <div className="main" style={{ height: "100%" }}>
         <nav>
           <Navigation />
         </nav>
@@ -16,9 +17,7 @@ class App extends Component {
             <Routing />
           </main>
         </div>
-        {/* <footer>
-        <FooterPage />
-        </footer> */}
+        <FooterPage className="mt-auto" />
       </div>
     );
   }
