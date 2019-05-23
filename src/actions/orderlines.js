@@ -1,7 +1,6 @@
 import request from "superagent";
 import { baseUrl } from "../constants";
 
-
 export const ADD_CART_ORDERLINE = "ADD_CART_ORDERLINE";
 export const SET_ORDERLINE = "SET_ORDERLINE";
 
@@ -18,15 +17,21 @@ export const setOrderline = orderline => {
   };
 };
 
-
-
-
-  export const addToOrderline = (
-    id, price, quantity, shopId, userId, orderId
-  ) => dispatch =>{
+export const addToOrderline = (
+  id,
+  price,
+  quantity,
+  shopId,
+  userId,
+  orderId
+) => (dispatch, getState) => {
+  const state = getState();
+  if (!state.currentUser) return null;
+  const jwt = state.currentUser.jwt;
 
   request
     .post(`${baseUrl}/orders/${orderId}/`)
+    .set("Authorization", `Bearer ${jwt}`)
     .send({
       productId: id,
       price,
@@ -42,9 +47,13 @@ export const setOrderline = orderline => {
     .catch(err => console.error(err));
 };
 
-export const getOrderline = (id) => dispatch => {
+export const getOrderline = id => (dispatch, getState) => {
+  const state = getState();
+  if (!state.currentUser) return null;
+  const jwt = state.currentUser.jwt;
   request
     .get(`${baseUrl}/orders/${id}/orderlines`)
+    .set("Authorization", `Bearer ${jwt}`)
     .then(result => {
       dispatch(setOrderline(result.body));
     })
