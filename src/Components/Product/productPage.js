@@ -8,14 +8,27 @@ import LoadingModal from "../LoadingModal";
 import { Link } from "react-router-dom";
 
 class ProductDetails extends Component {
-  
+
+  state = { }
+
+  onChange = (event) => {
+    this.setState({
+      setQuantity: {
+        ...this.state.setQuantity,
+        [event.target.name]: event.target.value
+      }
+    })
+  }
+
   componentDidMount() {
     const productId = this.props.match.params.productId;
     this.props.getProductDetails(productId);
   }
 
   handleClick = (e, userId, orderId) => {
-    const {id, price, quantity, shopId} = this.props.product;
+    const {id, price, shopId} = this.props.product;
+    const quantity = this.state.setQuantity.quantity;
+    console.log(quantity, "Q")
     this.props.addToOrderline(id, price, quantity, shopId, userId, orderId);
   };
 
@@ -24,6 +37,7 @@ class ProductDetails extends Component {
     const userId = this.props.currentUser.id;
     const orderId = this.props.currentUser.orderid;
     const instock = this.props.product && this.props.product.in_stock === true
+    const inputQuantity = this.state.setQuantity && this.state.setQuantity.quantity
     return (
       <div>
         {this.props.loading ? (
@@ -38,13 +52,21 @@ class ProductDetails extends Component {
               />
             )}
             <div className="container mb-5">
-            {instock && (<button
+            
+            {this.props.product && this.props.product.prices_by === "gram" && (
+              <div><input type="number" name="quantity" min="50" max="5000" value={inputQuantity} onChange={this.onChange}/>{this.props.product.prices_by}</div>)}
+              
+            {this.props.product && this.props.product.prices_by === "piece" && (
+             <div><input type="number" name="quantity" min="1" max="50" value={inputQuantity} onChange={this.onChange}/>{this.props.product.prices_by}</div>)}
+              
+            {this.props.product && instock && (<button
                 className="btn btn-outline-success"
                 value={"hello"}
-                onClick={(e)=> this.handleClick(e, userId, orderId) }
+                onClick={(e)=> this.handleClick(e, userId, orderId, inputQuantity)}
               >
                 Add to cart
-            </button>)}
+            </button>)
+            }
               {this.props.product && (
                 <Link
                   className="ml-2"
@@ -52,6 +74,7 @@ class ProductDetails extends Component {
                 >
                   <button className="btn btn-outline-secondary ">Back to shop</button>
                 </Link>
+                
               )}
             </div>
           </div>
