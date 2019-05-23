@@ -1,5 +1,6 @@
+ .h1-contact,
  .p-contact {
-  margin-top: 50px;
+  padding-top: 5rem;
   color: #555;
   line-height: 145%;
   text-align: center;
@@ -7,8 +8,19 @@
   word-spacing: 4px;
   padding-left: 2rem;
   padding-right: 2rem;
+ 
   height: 100%;
 }
+
+.p-contact {
+padding-bottom: 5rem;
+}
+
+.pre-contact {
+  text-align: center;
+  
+}
+
 .contact-page {
   position: absolute;
   padding: 5rem 0;
