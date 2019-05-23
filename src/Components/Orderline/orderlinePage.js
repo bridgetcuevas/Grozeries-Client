@@ -1,7 +1,7 @@
 import React from "react";
 
 export default props => {
-  const { id, price, quantity, orderId, shopId, productId } = props.orderline;
+  const { id, price, quantity } = props.orderline;
   const { image, product_name } = props.orderline.product;
 
   return (
