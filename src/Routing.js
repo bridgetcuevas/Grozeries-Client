@@ -13,6 +13,7 @@ import CategoryList from "./Components/Category/categoryListPage";
 import OrderlinePageContainer from "./Components/Orderline/OrderlinePageContainer";
 import ProfilePage from "./Components/Profile/profilePage";
 import ContactPage from "./Components/ContactForm/ContactPage";
+import ThanksPage from "./Components/Checkout/thanksPage";
 
 const Router = () => (
   <Switch>
@@ -30,6 +31,7 @@ const Router = () => (
 
     <Route path="/profile" exact component={ProfilePage} />
     <Route path="/contact" exact component={ContactPage} />
+    <Route path="/orders/thank-you" exact component={ThanksPage} />
 
 
     <Route exact path="/" render={() => <Redirect to="/" />} />

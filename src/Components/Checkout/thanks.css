@@ -1,0 +1,20 @@
+.thank-you {
+  text-align: center;
+}
+
+.h1-thanks,
+.p-thanks {
+    margin-top: 50px;
+    color: #555;
+    line-height: 145%;
+    text-align: center;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    height: 100%;
+}
+
+
+ 
+  
