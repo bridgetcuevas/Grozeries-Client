@@ -11,7 +11,7 @@ export default props => {
     ingredients,
     allergens,
     // in_stock,
-    shopId
+    // shopId
   } = props.product;
 
   return (

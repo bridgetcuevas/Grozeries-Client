@@ -18,7 +18,7 @@ class LandingPage extends Component {
         ) : (
           <div>
             <div className="landing-header">
-              <img className="landing-page-img" src="https://media.architecturaldigest.com/photos/56bbbb64d33292707c63319c/4:3/w_3076,h_2307,c_limit/how-to-cheese-platter-01.jpg" />
+              <img className="landing-page-img" src="https://media.architecturaldigest.com/photos/56bbbb64d33292707c63319c/4:3/w_3076,h_2307,c_limit/how-to-cheese-platter-01.jpg" alt="logo" />
               <div className="container header-content">
                 <h1 className="h1-landingPage text-white font-weight-900 mt-5">Welcome Home</h1>
               </div>

@@ -6,7 +6,7 @@ export default () => {
   return (
     <div className="loading-container">
       <div className="loading-square">
-        <img className="loading-modal" src={logo} className="LoadingModal" alt="logo" />
+        <img className="loading-modal" src={logo} alt="logo" />
       </div>
     </div>
   );
