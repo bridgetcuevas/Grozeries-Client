@@ -90,6 +90,7 @@ export const orderCheckout = (id) => dispatch => {
   request
     .post(`${baseUrl}/orders/${id}/payments`)
     .then(result => {
+      console.log("payment result URL", result);
       console.log("payment result URL", result.text);
       dispatch(checkoutUrl(result.text));
       // dispatch(appLoaded());
