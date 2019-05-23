@@ -13,29 +13,17 @@ class ProductDetails extends Component {
     const productId = this.props.match.params.productId;
     this.props.getProductDetails(productId);
   }
-  
-  // handleClick = event => {
-  //   console.log(event, this.props.product);
-  //   // this.props.addToOrderline(this.props.product);
-  //  this.props.addToOrder();
-  // };
 
   handleClick = (e, userId, orderId) => {
     const {id, price, quantity, shopId} = this.props.product;
-    // console.log(this.props.currentUser, "this.props.currentUser")
-    console.log(orderId, "orderId should be 3, not undefined");
     this.props.addToOrderline(id, price, quantity, shopId, userId, orderId);
-    // this.props.getOrder(userId);
   };
 
 
   render() {
-    // const { id } = this.props.product;
     const userId = this.props.currentUser.id;
     const orderId = this.props.currentUser.orderid;
-    // console.log(this.props.currentUser.orderId, "this.props.currentUser.orderId")
-    console.log(orderId, "orderId")
-    // console.log(userId, "userId")
+    const instock = this.props.product && this.props.product.in_stock === true
     return (
       <div>
         {this.props.loading ? (
@@ -49,15 +37,14 @@ class ProductDetails extends Component {
                 detail={true}
               />
             )}
-            <div><input type="number" name="quantity" min="1" max="10000"/></div>
             <div className="container mb-5">
-              <button
+            {instock && (<button
                 className="btn btn-outline-success"
                 value={"hello"}
                 onClick={(e)=> this.handleClick(e, userId, orderId) }
               >
                 Add to cart
-              </button>
+            </button>)}
               {this.props.product && (
                 <Link
                   className="ml-2"
