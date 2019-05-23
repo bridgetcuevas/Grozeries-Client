@@ -12,7 +12,6 @@ class ProductDetails extends Component {
   state = { }
 
   onChange = (event) => {
-    console.log(this.state.setQuantity, "this.state.setQuantity")
     this.setState({
       setQuantity: {
         ...this.state.setQuantity,

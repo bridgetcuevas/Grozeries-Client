@@ -1,9 +1,9 @@
 import React from "react";
 
-class Product extends React.Component {
+export default props => {
 
-  render (){
-    const {image,
+  const 
+    {image,
       product_name,
       description,
       price,
@@ -13,7 +13,7 @@ class Product extends React.Component {
       allergens,
       in_stock,
       // shopId
-    } = this.props.product;
+    } = props.product;
 
     const OUTOFSTOCK = in_stock === false && (
       <div>
@@ -35,7 +35,3 @@ class Product extends React.Component {
     </div>
   );
 }
-}
-
-
-export default (Product);
