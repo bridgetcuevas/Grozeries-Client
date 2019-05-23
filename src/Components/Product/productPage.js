@@ -27,7 +27,9 @@ class ProductDetails extends Component {
   }
 
   handleClick = (e, userId, orderId) => {
-    const {id, price, quantity, shopId} = this.props.product;
+    const {id, price, shopId} = this.props.product;
+    const quantity = this.state.setQuantity.quantity;
+    console.log(quantity, "Q")
     this.props.addToOrderline(id, price, quantity, shopId, userId, orderId);
   };
 
@@ -36,7 +38,7 @@ class ProductDetails extends Component {
     const userId = this.props.currentUser.id;
     const orderId = this.props.currentUser.orderid;
     const instock = this.props.product && this.props.product.in_stock === true
-    const quantity = this.state.setQuantity && this.state.setQuantity.quantity
+    const inputQuantity = this.state.setQuantity && this.state.setQuantity.quantity
     return (
       <div>
         {this.props.loading ? (
@@ -53,15 +55,15 @@ class ProductDetails extends Component {
             <div className="container mb-5">
             
             {this.props.product && this.props.product.prices_by === "gram" && (
-              <div><input type="number" name="quantity" min="50" max="5000" value={this.state.setQuantity} onChange={this.onChange}/>{this.props.product.prices_by}</div>)}
+              <div><input type="number" name="quantity" min="50" max="5000" value={inputQuantity} onChange={this.onChange}/>{this.props.product.prices_by}</div>)}
               
             {this.props.product && this.props.product.prices_by === "piece" && (
-             <div><input type="number" name="quantity" min="1" max="50" value={this.state.setQuantity} onChange={this.onChange}/>{this.props.product.prices_by}</div>)}
+             <div><input type="number" name="quantity" min="1" max="50" value={inputQuantity} onChange={this.onChange}/>{this.props.product.prices_by}</div>)}
               
             {this.props.product && instock && (<button
                 className="btn btn-outline-success"
                 value={"hello"}
-                onClick={(e)=> this.handleClick(e, userId, orderId, quantity)}
+                onClick={(e)=> this.handleClick(e, userId, orderId, inputQuantity)}
               >
                 Add to cart
             </button>)
