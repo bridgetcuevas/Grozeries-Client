@@ -12,14 +12,10 @@ class App extends Component {
         <nav>
           <Navigation />
         </nav>
-        <div className="app-body">
-          <main style={{ marginTop: 60 }}>
-            <Routing />
-          </main>
-        </div>
-        <div className="footer">
+        <main style={{ marginTop: 60 }}>
+          <Routing />
+        </main>
         <FooterPage className="mt-auto" />
-        </div>
       </div>
     );
   }
