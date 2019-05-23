@@ -10,6 +10,7 @@
 
 .footer {
   position: fixed;
+  margin-left: 1rem;
   bottom: 0;
   left: 0;
 }
