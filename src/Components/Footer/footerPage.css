@@ -1,6 +1,5 @@
- .bottom-footer {
-  left: 0;
-  bottom: 0;
+.bottom-footer {
+  display: block;
   width: 100%;
   color: #555;
   padding-top: 60px;
@@ -9,15 +8,10 @@
 .navlink {
   text-decoration: none;
   color: #555;
-  margin-right:40px;
-} 
-
+  margin-right: 40px;
+}
 
 .© {
   text-decoration: none;
   color: #555;
-
 }
-
-
-
