@@ -10,47 +10,49 @@ export default props => {
   const orderid = props.orderid;
   // const inStock = in_stock === true;
 
-  const INSTOCK = 
-  in_stock === true && (
-<div className="card mb-3">
+  const INSTOCK = in_stock === true && (
+    <div className="card mb-3">
       <img className="product-list-image" src={image} alt="product" />
       <div className="p-3">
         <b>{product_name} </b>
         <p>Price: € {price}</p>
         {/* {in_stock === true(
           <div> */}
-            <Link to={`/products/${props.product.id}`}>
-              <button className="btn btn-outline-success" value={"hello"}>
-                View Details
-              </button>
-            </Link>
-            <button
-              className="btn btn-outline-secondary"
-              onClick={event => props.handleClick(event, id, userId, orderid)}
-            >
-              <MdAddShoppingCart />
-            </button>
-          </div>
-    </div>)
+        <Link to={`/products/${props.product.id}`}>
+          <button className="btn btn-outline-success" value={"hello"}>
+            View Details
+          </button>
+        </Link>
+        <button
+          className="btn btn-outline-secondary"
+          onClick={event => props.handleClick(event, id, userId, orderid)}
+        >
+          <MdAddShoppingCart />
+        </button>
+      </div>
+    </div>
+  );
 
-const OUTOFSTOCK = 
-in_stock === false && (
-  <div className="card mb-3">
-        <img className="product-list-image" src={image} alt="product" />
-        <div className="p-3">
-          <b>{product_name} </b>
-          {/* <p>Price: € {price}</p> */}
-          <p style={{color:"red"}}>OUT OF STOCK</p>
-              <Link to={`/products/${props.product.id}`}>
-                <button className="btn btn-outline-success" value={"hello"}>
-                  View Details
-                </button>
-              </Link>
-            </div>
-      </div>)
-
+  const OUTOFSTOCK = in_stock === false && (
+    <div className="card mb-3">
+      <img className="product-list-image" src={image} alt="product" />
+      <div className="p-3">
+        <b>{product_name} </b>
+        {/* <p>Price: € {price}</p> */}
+        <p style={{ color: "red" }}>OUT OF STOCK</p>
+        <Link to={`/products/${props.product.id}`}>
+          <button className="btn btn-outline-success" value={"hello"}>
+            View Details
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
 
   return (
-    <div>{INSTOCK}{OUTOFSTOCK}</div>
-  )
+    <div>
+      {INSTOCK}
+      {OUTOFSTOCK}
+    </div>
+  );
 };
