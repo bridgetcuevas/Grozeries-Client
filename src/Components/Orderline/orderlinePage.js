@@ -13,11 +13,11 @@ export default props => {
         width="300"
       />
       <div className="container p-2">
-        <b >{product_name} </b>
+        <b>{product_name} </b>
         <p>€ {price}</p>
         <p>Quantity: {quantity}</p>
-        {/* <p>Your order number: {orderId}</p> */}
       </div>
+      <button onClick={props.onDelete}>Delete</button>
     </div>
   );
 };

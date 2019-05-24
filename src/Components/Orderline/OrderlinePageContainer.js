@@ -1,6 +1,6 @@
 import React from "react";
 // import { Route, Link, Redirect } from "react-router-dom";
-import { getOrderline } from "../../actions/orderlines";
+import { getOrderline, deleteOrderline } from "../../actions/orderlines";
 import { orderCheckout } from "../../actions/orders";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
@@ -12,9 +12,14 @@ class OrderlinePageContainer extends React.Component {
   componentDidMount() {
     const orderid = this.props.currentUser.orderid;
     this.props.getOrderline(orderid);
-    console.log(orderid, "orderid");
+    console.log("ORDERID", orderid);
+    console.log('this.props', this.props)
   }
-
+  onDelete = () => {
+    const orderid = this.props.currentUser.orderid;
+    this.props.deleteOrderline(orderid, this.props.orderlines.id);
+    this.props.history.push("/");
+  };
 
   handleClick = (e, orderId) => {
     this.props.orderCheckout(orderId);
@@ -26,6 +31,7 @@ class OrderlinePageContainer extends React.Component {
 
   render() {
     const url = this.props.url;
+    console.log('this.props.orderlines.id', this.props.orderlines)
     
     const PAYBUTTON = url && (
       <a href={url}>
@@ -66,7 +72,7 @@ class OrderlinePageContainer extends React.Component {
                   orderlines.map(orderline => {
                     return (
                       <div key={orderline.id} className="col-lg-3 col-md-4">
-                        <Orderline orderline={orderline} detail={false} />
+                        <Orderline orderline={orderline} detail={false} onDelete={this.onDelete}/>
                       </div>
                     );
                   })}
@@ -95,5 +101,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getOrderline, orderCheckout }
+  { getOrderline, orderCheckout, deleteOrderline }
 )(OrderlinePageContainer);

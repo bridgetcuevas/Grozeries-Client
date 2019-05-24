@@ -3,6 +3,7 @@ import { baseUrl } from "../constants";
 
 export const ADD_CART_ORDERLINE = "ADD_CART_ORDERLINE";
 export const SET_ORDERLINE = "SET_ORDERLINE";
+export const ORDERLINE_DELETE_SUCCESS = "ORDERLINE_DELETE_SUCCESS";
 
 
 const addOrderline = orderline => {
@@ -18,6 +19,10 @@ export const setOrderline = orderline => {
   };
 };
 
+export const orderlineDeleteSuccess = orderlines => ({
+  type: ORDERLINE_DELETE_SUCCESS,
+  orderlines
+});
 
 export const addToOrderline = (
   id,
@@ -60,4 +65,13 @@ export const getOrderline = id => (dispatch, getState) => {
       dispatch(setOrderline(result.body));
     })
     .catch(err => console.error(err));
+};
+
+export const deleteOrderline = (orderid, id) => dispatch => {
+  request
+    .delete(`${baseUrl}/orders/${orderid}/orderlines/${id}`)
+    .then(response => {
+      dispatch(orderlineDeleteSuccess(id));
+    })
+    .catch(console.error);
 };
