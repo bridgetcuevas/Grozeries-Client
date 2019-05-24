@@ -26,36 +26,35 @@ class Navigation extends Component {
           <div className="navBar_navigation-items">
             <ul>
               <li>
-                <NavLink to="/shops">Shops</NavLink>{" "}
+                <NavLink to="/shops">Shops</NavLink>
               </li>
               {this.props.currentUser && (
                 <li>
-
-                  <NavLink to="/profile">Profile</NavLink>{" "}
-
+                  <NavLink to="/profile">Profile</NavLink>
                 </li>
               )}
               {!this.props.currentUser && (
                 <li>
-                  <NavLink to="/logins">Login</NavLink>{" "}
+                  <NavLink to="/logins">Login</NavLink>
                 </li>
               )}
               {!this.props.currentUser && (
                 <li>
-                  <NavLink to="/register">Signup</NavLink>{" "}
+                  <NavLink to="/register">Signup</NavLink>
                 </li>
               )}
               {this.props.currentUser && (
                 <li>
-
-                  <NavLink to={`/orders/${this.props.currentUser.orderid}/orderlines`}><MdShoppingCart/></NavLink>{" "}
-
-
+                  <NavLink
+                    to={`/orders/${this.props.currentUser.orderid}/orderlines`}
+                  >
+                    <MdShoppingCart />
+                  </NavLink>
                 </li>
               )}
               {this.props.currentUser && (
                 <li>
-                  <NavLink to="/logout">Logout</NavLink>{" "}
+                  <NavLink to="/logout">Logout</NavLink>
                 </li>
               )}
             </ul>
@@ -66,7 +65,10 @@ class Navigation extends Component {
             Shops
           </NavLink>
           {this.props.currentUser && (
-            <NavLink className="menu-item" to={`/orders/${this.props.currentUser.orderid}/orderlines`}>
+            <NavLink
+              className="menu-item"
+              to={`/orders/${this.props.currentUser.orderid}/orderlines`}
+            >
               Cart
             </NavLink>
           )}
@@ -90,10 +92,9 @@ class Navigation extends Component {
               Signup
             </NavLink>
           )}
-            <NavLink className="menu-item" to="/contact">
-              Contact
-            </NavLink>
-          
+          <NavLink className="menu-item" to="/contact">
+            Contact
+          </NavLink>
         </Menu>
       </header>
     );

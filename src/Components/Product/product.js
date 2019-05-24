@@ -7,7 +7,7 @@ export default props => {
       product_name,
       description,
       price,
-      prices_by,
+      // prices_by,
       // quantity,
       ingredients,
       allergens,

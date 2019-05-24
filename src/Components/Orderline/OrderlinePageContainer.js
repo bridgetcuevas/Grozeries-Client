@@ -1,5 +1,4 @@
 import React from "react";
-// import { Route, Link, Redirect } from "react-router-dom";
 import { getOrderline, deleteOrderline } from "../../actions/orderlines";
 import { orderCheckout } from "../../actions/orders";
 import { connect } from "react-redux";
@@ -12,16 +11,15 @@ class OrderlinePageContainer extends React.Component {
   componentDidMount() {
     const orderid = this.props.currentUser.orderid;
     this.props.getOrderline(orderid);
-    console.log("ORDERID", orderid);
-    console.log('this.props', this.props)
+    
   }
   onDelete = () => {
-    const orderid = this.props.currentUser.orderid;
-    this.props.deleteOrderline(orderid, this.props.orderlines.id);
-    this.props.history.push("/");
+    // const orderid = this.props.currentUser.orderid;
+    this.props.deleteOrderline(this.props.orderlines.id);
   };
 
   handleClick = (e, orderId) => {
+    console.log('orderId', orderId)
     this.props.orderCheckout(orderId);
   };
 
@@ -31,8 +29,8 @@ class OrderlinePageContainer extends React.Component {
 
   render() {
     const url = this.props.url;
-    console.log('this.props.orderlines.id', this.props.orderlines)
-    
+    console.log("this.props.orderlines.id", this.props.orderlines);
+
     const PAYBUTTON = url && (
       <a href={url}>
         <button className="btn btn-outline-secondary" value={"Checkout"}>
@@ -72,7 +70,11 @@ class OrderlinePageContainer extends React.Component {
                   orderlines.map(orderline => {
                     return (
                       <div key={orderline.id} className="col-lg-3 col-md-4">
-                        <Orderline orderline={orderline} detail={false} onDelete={this.onDelete}/>
+                        <Orderline
+                          orderline={orderline}
+                          detail={false}
+                          onDelete={this.onDelete}
+                        />
                       </div>
                     );
                   })}

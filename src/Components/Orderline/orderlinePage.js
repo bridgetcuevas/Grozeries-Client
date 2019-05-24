@@ -17,7 +17,7 @@ export default props => {
         <p>€ {price}</p>
         <p>Quantity: {quantity}</p>
       </div>
-      <button onClick={props.onDelete}>Delete</button>
+      <button onClick={(e) => props.onDelete()}>Delete</button>
     </div>
   );
 };

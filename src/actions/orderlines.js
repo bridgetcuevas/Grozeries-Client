@@ -5,7 +5,6 @@ export const ADD_CART_ORDERLINE = "ADD_CART_ORDERLINE";
 export const SET_ORDERLINE = "SET_ORDERLINE";
 export const ORDERLINE_DELETE_SUCCESS = "ORDERLINE_DELETE_SUCCESS";
 
-
 const addOrderline = orderline => {
   return {
     type: ADD_CART_ORDERLINE,
@@ -67,10 +66,16 @@ export const getOrderline = id => (dispatch, getState) => {
     .catch(err => console.error(err));
 };
 
-export const deleteOrderline = (orderid, id) => dispatch => {
+export const deleteOrderline = id => (dispatch, getState) => {
+  console.log("id", id);
+  const state = getState();
+  if (!state.currentUser) return null;
+  const jwt = state.currentUser.jwt;
   request
-    .delete(`${baseUrl}/orders/${orderid}/orderlines/${id}`)
+    .delete(`${baseUrl}/orderlines/${id}`)
+    .set("Authorization", `Bearer ${jwt}`)
     .then(response => {
+      console.log("ACTION DELETE ORDERLINE", response);
       dispatch(orderlineDeleteSuccess(id));
     })
     .catch(console.error);
