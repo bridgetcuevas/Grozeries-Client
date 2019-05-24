@@ -54,10 +54,11 @@ class ProductDetails extends Component {
             <div className="container mb-5">
             
             {this.props.product && this.props.product.prices_by === "gram" && (
-              <div><input type="number" name="quantity" min="50" max="5000" value={inputQuantity} onChange={this.onChange}/>{this.props.product.prices_by}</div>)}
+              <div><input className="mb-2" style={{width:"4rem",textAlign:"right"}} type="number" name="quantity" min="50" max="5000" placeholder={this.props.product.prices_by}
+              value={inputQuantity} onChange={this.onChange}/></div>)}
               
             {this.props.product && this.props.product.prices_by === "piece" && (
-             <div><input type="number" name="quantity" min="1" max="50" value={inputQuantity} onChange={this.onChange}/>{this.props.product.prices_by}</div>)}
+             <div><input className="mb-2" style={{width:"4rem",textAlign:"right"}} type="number" name="quantity" min="1" max="50" placeholder={this.props.product.prices_by} value={inputQuantity} onChange={this.onChange}/></div>)}
               
             {this.props.product && instock && (<button
                 className="btn btn-outline-success"
