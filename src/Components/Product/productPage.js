@@ -35,7 +35,7 @@ class ProductDetails extends Component {
 
   render() {
     const userId = this.props.currentUser.id;
-    const orderId = this.props.currentUser.orderid;
+    const userId = this.props.currentUser.userId;
     const instock = this.props.product && this.props.product.in_stock === true
     const inputQuantity = this.state.setQuantity && this.state.setQuantity.quantity
     return (
@@ -62,7 +62,7 @@ class ProductDetails extends Component {
             {this.props.product && instock && (<button
                 className="btn btn-outline-success"
                 value={"hello"}
-                onClick={(e)=> this.handleClick(e, userId, orderId, inputQuantity)}
+                onClick={(e)=> this.handleClick(e, userId, inputQuantity)}
               >
                 Add to cart
             </button>)
