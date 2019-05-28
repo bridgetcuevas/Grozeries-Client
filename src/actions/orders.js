@@ -69,6 +69,19 @@ export const addToOrder = order =>
 //       dispatch(appLoaded());
 // };
 
+export const findOrCreateOrder = (userId) => (dispatch, getState) => {
+  const state = getState();
+  if (!state.currentUser) return null;
+  const jwt = state.currentUser.jwt;
+  request
+    .post(`${baseUrl}/orders/${userId}`)
+    .set("Authorization", `Bearer ${jwt}`)
+    .then(result => {
+      dispatch(setOrder(result.body));
+    })
+    .catch(err => console.error(err));
+};
+
 
 export const getOrder = id => dispatch => {
   console.log("id GetOrder", id);
