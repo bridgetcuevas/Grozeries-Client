@@ -47,7 +47,7 @@ class OrderlinePageContainer extends React.Component {
     );
 
     const total = this.props.orderlines.reduce((totalSoFar, current) => {
-      return totalSoFar + parseFloat(current.price);
+      return totalSoFar + parseFloat(current.total_price);
     }, 0);
     const userId = this.props.currentUser.id;
     const orderlines = this.props.orderlines;

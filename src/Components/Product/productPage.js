@@ -28,7 +28,7 @@ class ProductDetails extends Component {
   handleClick = (e, userId) => {
     const {id, price, shopId} = this.props.product;
     const quantity = this.state.setQuantity.quantity;
-    console.log(quantity, "Q")
+    // console.log(quantity, "Q")
     this.props.addToOrderline(id, price, quantity, shopId, userId);
   };
 
