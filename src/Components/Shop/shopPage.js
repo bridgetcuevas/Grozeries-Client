@@ -13,19 +13,19 @@ class shopDetails extends Component {
     const { shopId } = this.props.match.params;
     this.props.getShopDetails(shopId);
   }
-  handleClick = (e, id, userId, orderid ) => {
+  handleClick = (e, id, userId ) => {
     let product = this.props.shops.products;
     const shopProduct = product.find(product => product.id === id);
     const { price, quantity, shopId } = shopProduct;
 
-    this.props.addToOrderline(shopProduct.id, price, quantity, shopId, userId, orderid);
+    this.props.addToOrderline(shopProduct.id, price, quantity, shopId, userId);
   };
   render() {
     const { shopId } = this.props.match.params;
-    const orderid = this.props.currentUser.orderid;
-    const userId = this.props.currentUser.id;
+    const userId = this.props.currentUser && this.props.currentUser.id;
+    console.log(userId, "USERID")
     const shops = this.props.shops
-    console.log('shops', shops)
+    // console.log('shops', shops)
     
 
     return (
@@ -53,7 +53,7 @@ class shopDetails extends Component {
                               userId={userId}
                               detail={false}
                               shopId={shopId}
-                              orderid={orderid}
+                              // orderid={orderid}
                               handleClick={this.handleClick}
                             />
                           </div>

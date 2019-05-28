@@ -25,17 +25,16 @@ class ProductDetails extends Component {
     this.props.getProductDetails(productId);
   }
 
-  handleClick = (e, userId, orderId) => {
+  handleClick = (e, userId) => {
     const {id, price, shopId} = this.props.product;
     const quantity = this.state.setQuantity.quantity;
     console.log(quantity, "Q")
-    this.props.addToOrderline(id, price, quantity, shopId, userId, orderId);
+    this.props.addToOrderline(id, price, quantity, shopId, userId);
   };
 
 
   render() {
-    const userId = this.props.currentUser.id;
-    const userId = this.props.currentUser.userId;
+    const userId = this.props.currentUser && this.props.currentUser.id;
     const instock = this.props.product && this.props.product.in_stock === true
     const inputQuantity = this.state.setQuantity && this.state.setQuantity.quantity
     return (
