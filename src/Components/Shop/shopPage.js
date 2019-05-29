@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 // import { addToOrder, getOrder } from "../../actions/orders";
 import { addToOrderline } from "../../actions/orderlines";
+import toastr from "toastr";
 
 
 class shopDetails extends Component {
@@ -13,20 +14,28 @@ class shopDetails extends Component {
     const { shopId } = this.props.match.params;
     this.props.getShopDetails(shopId);
   }
-  handleClick = (e, id, userId, orderid ) => {
+  handleClick = (e, id, userId, orderid) => {
     let product = this.props.shops.products;
     const shopProduct = product.find(product => product.id === id);
     const { price, quantity, shopId } = shopProduct;
 
-    this.props.addToOrderline(shopProduct.id, price, quantity, shopId, userId, orderid);
+  
+    toastr.success("✓ Item successfuly added to Cart." );
+    this.props.addToOrderline(
+      shopProduct.id,
+      price,
+      quantity,
+      shopId,
+      userId,
+      orderid
+    );
   };
   render() {
     const { shopId } = this.props.match.params;
     const orderid = this.props.currentUser.orderid;
     const userId = this.props.currentUser.id;
-    const shops = this.props.shops
-    console.log('shops', shops)
-    
+    const shops = this.props.shops;
+    console.log("shops", shops);
 
     return (
       <div>
@@ -43,7 +52,7 @@ class shopDetails extends Component {
 
                 <div className="container">
                   <div className="row">
-                    {this.props.shops.products && 
+                    {this.props.shops.products &&
                       this.props.shops.products.length &&
                       this.props.shops.products.map(product => {
                         return (
