@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Product from "./product";
 import { getProductDetails } from "../../actions/products";
 import { addToOrderline } from "../../actions/orderlines";
-// import { addToOrder, getOrder } from "../../actions/orders";
+import toastr from "toastr";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 import { Link } from "react-router-dom";
@@ -28,7 +28,7 @@ class ProductDetails extends Component {
   handleClick = (e, userId) => {
     const {id, price, shopId} = this.props.product;
     const quantity = this.state.setQuantity.quantity;
-    // console.log(quantity, "Q")
+    toastr.success("✓ Item successfuly added to Cart." );
     this.props.addToOrderline(id, price, quantity, shopId, userId);
   };
 

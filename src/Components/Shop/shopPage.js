@@ -5,6 +5,7 @@ import { getShopDetails } from "../../actions/shops";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 import { addToOrderline } from "../../actions/orderlines";
+import toastr from "toastr";
 
 
 class shopDetails extends Component {
@@ -16,7 +17,7 @@ class shopDetails extends Component {
     let product = this.props.shops.products;
     const shopProduct = product.find(product => product.id === id);
     const { price, quantity, shopId } = shopProduct;
-
+    toastr.success("✓ Item successfuly added to Cart." );
     this.props.addToOrderline(shopProduct.id, price, quantity, shopId, userId);
   };
   render() {
