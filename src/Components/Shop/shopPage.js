@@ -4,7 +4,6 @@ import ProductListItem from "../Product/productListItem";
 import { getShopDetails } from "../../actions/shops";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
-// import { addToOrder, getOrder } from "../../actions/orders";
 import { addToOrderline } from "../../actions/orderlines";
 
 
@@ -24,8 +23,6 @@ class shopDetails extends Component {
     const { shopId } = this.props.match.params;
     const userId = this.props.currentUser && this.props.currentUser.id;
     console.log(userId, "USERID")
-    const shops = this.props.shops
-    // console.log('shops', shops)
     
 
     return (
@@ -53,7 +50,6 @@ class shopDetails extends Component {
                               userId={userId}
                               detail={false}
                               shopId={shopId}
-                              // orderid={orderid}
                               handleClick={this.handleClick}
                             />
                           </div>

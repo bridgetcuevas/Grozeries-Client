@@ -36,7 +36,6 @@ export const checkoutUrl = url => {
 export const addToOrder = order => 
 (dispatch, getState) => {
 
-  // console.log(order, "action creator");
   const state = getState();
   const jwt = state.currentUser.jwt;
 
@@ -50,24 +49,6 @@ export const addToOrder = order =>
     })
     .catch(err => console.error(err));
 };
-// dispatch => {
-//   console.log("order", order);
-//   dispatch(addOrder(order));
-// };
-
-// export const findOrder = id => dispatch => {
-//   dispatch(appLoading());
-//   request
-//     .get(`${baseUrl}/orders/`)
-//     .then(orders => orders.find(order => order.userId === id))
-//     .then(result => console.log(result))
-//       // dispatch(setOrder(result.body));
-//       // dispatch(appLoaded());
-//     // })
-//     .catch(err => 
-//       console.error(err));
-//       dispatch(appLoaded());
-// };
 
 export const findOrCreateOrder = (userId) => (dispatch, getState) => {
   const state = getState();
@@ -91,7 +72,6 @@ export const getOrder = id => dispatch => {
     .then(result => {
       console.log("ORDER result", result);
       dispatch(setOrder(result.body));
-      // dispatch(appLoaded());
     })
     .catch(err => 
       console.error(err));
@@ -105,7 +85,6 @@ export const orderCheckout = (id) => dispatch => {
     .then(result => {
       console.log("payment result URL", result.text);
       dispatch(checkoutUrl(result.text));
-      // dispatch(appLoaded());
     })
     .catch(err => 
       console.error(err));

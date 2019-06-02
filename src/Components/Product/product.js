@@ -8,11 +8,9 @@ export default props => {
       description,
       price,
       prices_by,
-      // quantity,
       ingredients,
       allergens,
       in_stock,
-      // shopId
     } = props.product;
 
     const OUTOFSTOCK = in_stock === false && (

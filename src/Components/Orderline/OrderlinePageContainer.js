@@ -1,5 +1,4 @@
 import React from "react";
-// import { Route, Link, Redirect } from "react-router-dom";
 import { getOrderline } from "../../actions/orderlines";
 import { orderCheckout } from "../../actions/orders";
 import { connect } from "react-redux";
@@ -12,7 +11,6 @@ class OrderlinePageContainer extends React.Component {
   componentDidMount() {
     const userId = this.props.currentUser.id;
     this.props.getOrderline(userId);
-    // console.log(userId, "userId");
   }
 
 
