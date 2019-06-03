@@ -13,18 +13,30 @@ class shopDetails extends Component {
     const { shopId } = this.props.match.params;
     this.props.getShopDetails(shopId);
   }
-  handleClick = (e, id, userId ) => {
+
+  handleClick = (e, id, userId, orderid) => {
     let product = this.props.shops.products;
     const shopProduct = product.find(product => product.id === id);
     const { price, quantity, shopId } = shopProduct;
+
+  
     toastr.success("✓ Item successfuly added to Cart." );
-    this.props.addToOrderline(shopProduct.id, price, quantity, shopId, userId);
+    this.props.addToOrderline(
+      shopProduct.id,
+      price,
+      quantity,
+      shopId,
+      userId,
+      orderid
+    );
   };
+
   render() {
     const { shopId } = this.props.match.params;
-    const userId = this.props.currentUser && this.props.currentUser.id;
-    console.log(userId, "USERID")
-    
+    const orderid = this.props.currentUser.orderid;
+    const userId = this.props.currentUser.id;
+    const shops = this.props.shops;
+    console.log("shops", shops);
 
     return (
       <div>
@@ -41,7 +53,7 @@ class shopDetails extends Component {
 
                 <div className="container">
                   <div className="row">
-                    {this.props.shops.products && 
+                    {this.props.shops.products &&
                       this.props.shops.products.length &&
                       this.props.shops.products.map(product => {
                         return (
