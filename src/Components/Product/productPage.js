@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Product from "./product";
 import { getProductDetails } from "../../actions/products";
 import { addToOrderline } from "../../actions/orderlines";
+
+import toastr from "toastr";
+
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 import { Link } from "react-router-dom";
@@ -23,19 +26,21 @@ class ProductDetails extends Component {
     this.props.getProductDetails(productId);
   }
 
-  handleClick = (e, userId, orderId) => {
-    const { id, price, shopId } = this.props.product;
-    const quantity = this.state.setQuantity.quantity;
 
-    this.props.addToOrderline(id, price, quantity, shopId, userId, orderId);
+  handleClick = (e, userId) => {
+    const {id, price, shopId} = this.props.product;
+    const quantity = this.state.setQuantity.quantity;
+    toastr.success("✓ Item successfuly added to Cart." );
+    this.props.addToOrderline(id, price, quantity, shopId, userId);
+
   };
 
   render() {
-    const userId = this.props.currentUser.id;
-    const orderId = this.props.currentUser.orderid;
-    const instock = this.props.product && this.props.product.in_stock === true;
-    const inputQuantity =
-      this.state.setQuantity && this.state.setQuantity.quantity;
+
+    const userId = this.props.currentUser && this.props.currentUser.id;
+    const instock = this.props.product && this.props.product.in_stock === true
+    const inputQuantity = this.state.setQuantity && this.state.setQuantity.quantity
+
     return (
       <div>
         {this.props.loading ? (
@@ -50,45 +55,23 @@ class ProductDetails extends Component {
               />
             )}
             <div className="container mb-5">
-              {this.props.product && this.props.product.prices_by === "gram" && (
-                <div>
-                  <input
-                    type="number"
-                    name="quantity"
-                    min="50"
-                    max="5000"
-                    value={inputQuantity}
-                    onChange={this.onChange}
-                  />
-                  {this.props.product.prices_by}
-                </div>
-              )}
 
-              {this.props.product && this.props.product.prices_by === "piece" && (
-                <div>
-                  <input
-                    type="number"
-                    name="quantity"
-                    min="1"
-                    max="50"
-                    value={inputQuantity}
-                    onChange={this.onChange}
-                  />
-                  {this.props.product.prices_by}
-                </div>
-              )}
+            
+            {this.props.product && this.props.product.prices_by === "gram" && (
+              <div><input type="number" name="quantity" min="50" max="5000" value={inputQuantity} onChange={this.onChange}/>{this.props.product.prices_by}</div>)}
+              
+            {this.props.product && this.props.product.prices_by === "piece" && (
+             <div><input type="number" name="quantity" min="1" max="50" value={inputQuantity} onChange={this.onChange}/>{this.props.product.prices_by}</div>)}
+              
+            {this.props.product && instock && (<button
+                className="btn btn-outline-success"
+                value={"hello"}
+                onClick={(e)=> this.handleClick(e, userId, inputQuantity)}
+              >
+                Add to cart
+            </button>)
+            }
 
-              {this.props.product && instock && (
-                <button
-                  className="btn btn-outline-success"
-                  value={"hello"}
-                  onClick={e =>
-                    this.handleClick(e, userId, orderId, inputQuantity)
-                  }
-                >
-                  Add to cart
-                </button>
-              )}
               {this.props.product && (
                 <Link
                   className="ml-2"

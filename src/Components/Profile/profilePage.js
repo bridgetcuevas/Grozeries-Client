@@ -8,6 +8,7 @@ import { userId } from "../../jwt";
 class ProfilePage extends Component {
   componentDidMount() {
     this.props.getUsers();
+
   }
 
   render() {

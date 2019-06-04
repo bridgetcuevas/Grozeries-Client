@@ -28,19 +28,9 @@ try {
   const orderid = localStorage.getItem(localStorageOrderId);
 
   if (jwt) {
-    initialState = {
-      jwt,
-      first_name,
-      last_name,
-      street_name,
-      house_number,
-      zipcode,
-      city,
-      phonenumber,
-      email,
-      id,
-      orderid
-    };
+
+    initialState = { jwt, first_name, last_name, street_name, house_number, zipcode, city, phonenumber, email, id, orderid };
+
   }
 } catch (e) {
   console.log(`Error retrieving data from local storage`, e);

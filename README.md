@@ -1,21 +1,22 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# VERSION 1.0 (BÈTA) - Client side of Grozeries platform #
 
-In the project directory, you can run:
+The Development Team "Grozeries" of Class 25 welcomes you: may your coding adventure be a good one!
+
+## Startup
+1. Install required dependencies using 'npm install'
+2. Check if you wish to run the client side on your local Grozeries server, or using the deployed version (in this version, deployed on Heroku) => this can easily be changed with the the baseUrl used, in the constants.js file (comment switch the baseUrl of line 1 or 2).
+
+After which you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br>
+This runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -36,6 +37,22 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Built With
+
+* react
+* redux
+* redux-thunk
+
+
+## Authors
+
+* **Angela Bacic** - [angbacic](https://github.com/angbacic)
+* **Bridget Cuevas** - [bridgetcuevas](https://github.com/bridgetcuevas)
+* **Ottavia Vignani** - [Vgnttv](https://github.com/Vgnttv)
+* **Robert Langereis** - [robertlangereis](https://github.com/robertlangereis)
+
+See also the list of [contributors](https://github.com/AlbertSmit/Grozeries-Client/graphs/contributors) who participated in this project.
 
 ## Learn More
 

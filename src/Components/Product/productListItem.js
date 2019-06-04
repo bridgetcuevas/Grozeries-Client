@@ -16,35 +16,37 @@ export default props => {
         <b>{product_name} </b>
         <p>Price: € {price}</p>
 
-        <Link to={`/products/${props.product.id}`}>
-          <button className="btn btn-outline-success" value={"hello"}>
-            View Details
-          </button>
-        </Link>
-        <button
-          className="btn btn-outline-secondary"
-          onClick={event => props.handleClick(event, id, userId, orderid)}
-        >
-          <MdAddShoppingCart />
-        </button>
-      </div>
-    </div>
-  );
+            <Link to={`/products/${props.product.id}`}>
+              <button className="btn btn-outline-success" value={"hello"}>
+                View Details
+              </button>
+            </Link>
+            <button
+              className="btn btn-outline-secondary"
+              onClick={event => props.handleClick(event, id, userId, orderid)}
+            >
+              <MdAddShoppingCart />
+            </button>
+          </div>
+    </div>)
 
-  const OUTOFSTOCK = in_stock === false && (
-    <div className="card mb-3">
-      <img className="product-list-image" src={image} alt="product" />
-      <div className="p-3">
-        <b>{product_name} </b>
-        <p style={{ color: "red" }}>OUT OF STOCK</p>
-        <Link to={`/products/${props.product.id}`}>
-          <button className="btn btn-outline-success" value={"hello"}>
-            View Details
-          </button>
-        </Link>
-      </div>
-    </div>
-  );
+const OUTOFSTOCK = 
+in_stock === false && (
+  <div className="card mb-3">
+        <img className="product-list-image" src={image} alt="product" />
+        <div className="p-3">
+          <b>{product_name} </b>
+          <p style={{color:"red"}}>OUT OF STOCK</p>
+              <Link to={`/products/${props.product.id}`}>
+                <button className="btn btn-outline-success" value={"hello"}>
+                  View Details
+                </button>
+              </Link>
+            </div>
+      </div>)
+
+
+    
 
   return (
     <div>

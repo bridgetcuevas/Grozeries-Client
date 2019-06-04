@@ -1,4 +1,6 @@
-import { SET_ORDERLINE } from "../actions/orderlines";
+
+import {  SET_ORDERLINE } from "../actions/orderlines";
+
 
 export default (state = [], action) => {
   switch (action.type) {

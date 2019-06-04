@@ -26,7 +26,12 @@ export const checkoutUrl = url => {
   };
 };
 
-export const addToOrder = order => (dispatch, getState) => {
+
+
+export const addToOrder = order => 
+(dispatch, getState) => {
+
+
   const state = getState();
   const jwt = state.currentUser.jwt;
 
@@ -39,6 +44,21 @@ export const addToOrder = order => (dispatch, getState) => {
     })
     .catch(err => console.error(err));
 };
+
+export const findOrCreateOrder = (userId) => (dispatch, getState) => {
+  const state = getState();
+  if (!state.currentUser) return null;
+  const jwt = state.currentUser.jwt;
+  request
+    .post(`${baseUrl}/orders/${userId}`)
+    .set("Authorization", `Bearer ${jwt}`)
+    .then(result => {
+      dispatch(setOrder(result.body));
+    })
+    .catch(err => console.error(err));
+};
+
+
 
 export const getOrder = id => dispatch => {
   dispatch(appLoading());

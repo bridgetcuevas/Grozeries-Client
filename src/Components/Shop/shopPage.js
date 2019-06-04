@@ -5,16 +5,22 @@ import { getShopDetails } from "../../actions/shops";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 import { addToOrderline } from "../../actions/orderlines";
+import toastr from "toastr";
 
 class shopDetails extends Component {
   componentDidMount() {
     const { shopId } = this.props.match.params;
     this.props.getShopDetails(shopId);
   }
+
   handleClick = (e, id, userId, orderid) => {
     let product = this.props.shops.products;
     const shopProduct = product.find(product => product.id === id);
     const { price, quantity, shopId } = shopProduct;
+
+
+  
+    toastr.success("✓ Item successfuly added to Cart." );
 
     this.props.addToOrderline(
       shopProduct.id,
@@ -25,11 +31,13 @@ class shopDetails extends Component {
       orderid
     );
   };
+
   render() {
     const { shopId } = this.props.match.params;
     const orderid = this.props.currentUser.orderid;
     const userId = this.props.currentUser.id;
     const shops = this.props.shops;
+
 
     return (
       <div>
@@ -56,7 +64,6 @@ class shopDetails extends Component {
                               userId={userId}
                               detail={false}
                               shopId={shopId}
-                              orderid={orderid}
                               handleClick={this.handleClick}
                             />
                           </div>

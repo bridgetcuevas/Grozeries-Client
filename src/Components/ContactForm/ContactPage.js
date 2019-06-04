@@ -12,13 +12,13 @@ export default function ContactForm(props) {
    
         </p>
         <pre className= "pre-contact pt-4">
-        <span className="text-success"><MdEmail/></span><a> Email: grozeries@gmail.com</a>
+        <span className="text-success"><MdEmail/></span><a href="mailto:grozeries@gmail.com"> Email: grozeries@gmail.com</a>
         </pre>
         <pre className= "pre-contact">
-        <span className="text-success"><MdBusiness/></span> <a> Address: Burgerweeshuispad 201, 1076 GR Amsterdam</a>
+        <span className="text-success"><MdBusiness/></span> <a href="http://maps.google.com/?q=Burgerweeshuispad 201, 1076 GR Amsterdam"> Address: Burgerweeshuispad 201, 1076 GR Amsterdam</a>
         </pre>
         <pre className= "pre-contact">
-        <span className="text-success"><MdCall/></span><a> Phone Number: 020 261 5197</a>
+        <span className="text-success"><MdCall/></span><a href="tel:+31202615197"> Phone Number: 020 261 5197</a>
         </pre>
       </div>
   
