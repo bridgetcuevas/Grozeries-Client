@@ -8,9 +8,6 @@ import { userId } from "../../jwt";
 class ProfilePage extends Component {
   componentDidMount() {
     this.props.getUsers();
-    // const userId = this.props.match.params.id;
-    // console.log("userId in Profile", userId);
-    // this.props.getUser(userId);
   }
 
   render() {
@@ -20,11 +17,6 @@ class ProfilePage extends Component {
           <LoadingModal />
         ) : (
           <div>
-            {/* {
-            // Object.values(
-            this.props.currentUser.city
-            // )
-            } */}
             {this.props.currentUser && (
               <User
                 key={this.props.match.params.id}
@@ -42,9 +34,7 @@ class ProfilePage extends Component {
 const mapStateToProps = state => {
   return {
     currentUser: state.currentUser,
-    // === null
-    // ? null
-    // : Object.values(state.currentUser).sort((a, b) => b.id - a.id),
+
     userId: state.currentUser && userId(state.currentUser.jwt),
     loading: state.appStatus.loading
   };

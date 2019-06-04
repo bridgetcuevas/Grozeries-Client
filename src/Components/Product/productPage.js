@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Product from "./product";
 import { getProductDetails } from "../../actions/products";
 import { addToOrderline } from "../../actions/orderlines";
-// import { addToOrder, getOrder } from "../../actions/orders";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 import { Link } from "react-router-dom";

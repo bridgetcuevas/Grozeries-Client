@@ -4,7 +4,6 @@ import ProductListItem from "../Product/productListItem";
 import { getShopDetails } from "../../actions/shops";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
-// import { addToOrder, getOrder } from "../../actions/orders";
 import { addToOrderline } from "../../actions/orderlines";
 
 class shopDetails extends Component {

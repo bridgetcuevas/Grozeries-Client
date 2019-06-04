@@ -1,5 +1,4 @@
 import React from "react";
-// import { Route, Link, Redirect } from "react-router-dom";
 import { getOrderline } from "../../actions/orderlines";
 import { orderCheckout } from "../../actions/orders";
 import { connect } from "react-redux";
