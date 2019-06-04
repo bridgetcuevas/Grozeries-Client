@@ -1,17 +1,18 @@
 import React from "react";
 
 export default props => {
+  const {
+    image,
+    product_name,
+    description,
+    price,
+    prices_by,
+    ingredients,
+    allergens,
+    in_stock
+  } = props.product;
 
-  const 
-    {image,
-      product_name,
-      description,
-      price,
-      prices_by,
-      ingredients,
-      allergens,
-      in_stock,
-    } = props.product;
+
 
     const OUTOFSTOCK = in_stock === false && (
       <div>
@@ -19,8 +20,10 @@ export default props => {
       </div>
     );
 
-  return(
+
+  return (
     <div>
+
         <img className="product-page-image" src={image} alt="product" />
         <div className="container mt-5 mb-5">
           <h2 className="text-capitalize">{product_name} </h2>
@@ -30,6 +33,7 @@ export default props => {
           <p>Ingriedients: {ingredients} </p>
           <p>Allergens: {allergens} </p>
         </div>
+
     </div>
   );
-}
+};

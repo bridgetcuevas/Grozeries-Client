@@ -5,15 +5,13 @@ import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 import { userId } from "../../jwt";
 
-
 class ProfilePage extends Component {
   componentDidMount() {
     this.props.getUsers();
-    console.log("Profile", this.props);
+
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         {this.props.loading ? (
@@ -37,6 +35,7 @@ class ProfilePage extends Component {
 const mapStateToProps = state => {
   return {
     currentUser: state.currentUser,
+
     userId: state.currentUser && userId(state.currentUser.jwt),
     loading: state.appStatus.loading
   };

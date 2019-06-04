@@ -9,6 +9,7 @@ import { MdPayment } from "react-icons/md";
 
 class OrderlinePageContainer extends React.Component {
   componentDidMount() {
+
     const userId = this.props.currentUser.id;
     this.props.getOrderline(userId);
   }
@@ -16,6 +17,7 @@ class OrderlinePageContainer extends React.Component {
 
   handleClick = (e, userId) => {
     this.props.orderCheckout(userId);
+
   };
 
   callback = url => {
@@ -24,7 +26,7 @@ class OrderlinePageContainer extends React.Component {
 
   render() {
     const url = this.props.url;
-    
+
     const PAYBUTTON = url && (
       <a href={url}>
         <button className="btn btn-outline-secondary" value={"Checkout"}>

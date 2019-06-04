@@ -7,7 +7,6 @@ import LoadingModal from "../LoadingModal";
 import { addToOrderline } from "../../actions/orderlines";
 import toastr from "toastr";
 
-
 class shopDetails extends Component {
   componentDidMount() {
     const { shopId } = this.props.match.params;
@@ -19,8 +18,10 @@ class shopDetails extends Component {
     const shopProduct = product.find(product => product.id === id);
     const { price, quantity, shopId } = shopProduct;
 
+
   
     toastr.success("✓ Item successfuly added to Cart." );
+
     this.props.addToOrderline(
       shopProduct.id,
       price,
@@ -36,7 +37,7 @@ class shopDetails extends Component {
     const orderid = this.props.currentUser.orderid;
     const userId = this.props.currentUser.id;
     const shops = this.props.shops;
-    console.log("shops", shops);
+
 
     return (
       <div>

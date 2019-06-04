@@ -1,5 +1,17 @@
 import { USER_LOGIN_SUCCESS, USER_LOGOUT } from "./actions/users";
-import { localStorageJwtKey, localStorageFirstName, localStorageLastName, localStorageCity, localStorageEmail, localStorageHouse, localStoragePhone, localStorageStreet, localStorageZip, localStorageUserId, localStorageOrderId } from "./constants";
+import {
+  localStorageJwtKey,
+  localStorageFirstName,
+  localStorageLastName,
+  localStorageCity,
+  localStorageEmail,
+  localStorageHouse,
+  localStoragePhone,
+  localStorageStreet,
+  localStorageZip,
+  localStorageUserId,
+  localStorageOrderId
+} from "./constants";
 
 export const storeJwt = store => next => action => {
   try {

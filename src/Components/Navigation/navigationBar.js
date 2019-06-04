@@ -30,9 +30,7 @@ class Navigation extends Component {
               </li>
               {this.props.currentUser && (
                 <li>
-
                   <NavLink to="/profile">Profile</NavLink>{" "}
-
                 </li>
               )}
               {!this.props.currentUser && (
@@ -48,7 +46,9 @@ class Navigation extends Component {
               {this.props.currentUser && (
                 <li>
 
+
                   <NavLink to={`/orders/${this.props.currentUser.id}/orderlines`}><MdShoppingCart/></NavLink>{" "}
+
 
 
                 </li>
@@ -66,6 +66,7 @@ class Navigation extends Component {
             Shops
           </NavLink>
           {this.props.currentUser && (
+
             <NavLink className="menu-item" to={`/orders/${this.props.currentUser.id}/orderlines`}>
               Cart
             </NavLink>
@@ -90,10 +91,9 @@ class Navigation extends Component {
               Signup
             </NavLink>
           )}
-            <NavLink className="menu-item" to="/contact">
-              Contact
-            </NavLink>
-          
+          <NavLink className="menu-item" to="/contact">
+            Contact
+          </NavLink>
         </Menu>
       </header>
     );
