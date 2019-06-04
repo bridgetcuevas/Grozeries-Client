@@ -34,7 +34,6 @@ export const getProductDetails = id => dispatch => {
   request
     .get(`${baseUrl}/products/${id}`)
     .then(result => {
-      // console.log("result", result);
       dispatch(setProductDetails(result.body));
       dispatch(appLoaded());
     })

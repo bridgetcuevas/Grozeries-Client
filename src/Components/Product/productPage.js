@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Product from "./product";
 import { getProductDetails } from "../../actions/products";
 import { addToOrderline } from "../../actions/orderlines";
-// import { addToOrder, getOrder } from "../../actions/orders";
+import toastr from "toastr";
 import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 import { Link } from "react-router-dom";
@@ -25,17 +25,16 @@ class ProductDetails extends Component {
     this.props.getProductDetails(productId);
   }
 
-  handleClick = (e, userId, orderId) => {
+  handleClick = (e, userId) => {
     const {id, price, shopId} = this.props.product;
     const quantity = this.state.setQuantity.quantity;
-    console.log(quantity, "Q")
-    this.props.addToOrderline(id, price, quantity, shopId, userId, orderId);
+    toastr.success("✓ Item successfuly added to Cart." );
+    this.props.addToOrderline(id, price, quantity, shopId, userId);
   };
 
 
   render() {
-    const userId = this.props.currentUser.id;
-    const orderId = this.props.currentUser.orderid;
+    const userId = this.props.currentUser && this.props.currentUser.id;
     const instock = this.props.product && this.props.product.in_stock === true
     const inputQuantity = this.state.setQuantity && this.state.setQuantity.quantity
     return (
@@ -62,7 +61,7 @@ class ProductDetails extends Component {
             {this.props.product && instock && (<button
                 className="btn btn-outline-success"
                 value={"hello"}
-                onClick={(e)=> this.handleClick(e, userId, orderId, inputQuantity)}
+                onClick={(e)=> this.handleClick(e, userId, inputQuantity)}
               >
                 Add to cart
             </button>)

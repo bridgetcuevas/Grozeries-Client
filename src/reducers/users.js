@@ -14,9 +14,6 @@ export default (state = null, { type, payload }) => {
 
       };
 
-
-
-
     case UPDATE_USER:
       return {
         ...state,

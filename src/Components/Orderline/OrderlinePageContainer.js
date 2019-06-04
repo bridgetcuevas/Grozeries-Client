@@ -1,5 +1,4 @@
 import React from "react";
-// import { Route, Link, Redirect } from "react-router-dom";
 import { getOrderline } from "../../actions/orderlines";
 import { orderCheckout } from "../../actions/orders";
 import { connect } from "react-redux";
@@ -10,14 +9,13 @@ import { MdPayment } from "react-icons/md";
 
 class OrderlinePageContainer extends React.Component {
   componentDidMount() {
-    const orderid = this.props.currentUser.orderid;
-    this.props.getOrderline(orderid);
-    console.log(orderid, "orderid");
+    const userId = this.props.currentUser.id;
+    this.props.getOrderline(userId);
   }
 
 
-  handleClick = (e, orderId) => {
-    this.props.orderCheckout(orderId);
+  handleClick = (e, userId) => {
+    this.props.orderCheckout(userId);
   };
 
   callback = url => {
@@ -39,7 +37,7 @@ class OrderlinePageContainer extends React.Component {
       <button
         className="btn btn-outline-success"
         value={"Checkout"}
-        onClick={e => this.handleClick(e, orderid)}
+        onClick={e => this.handleClick(e, userId)}
       >
         {" "}
         Checkout
@@ -47,9 +45,9 @@ class OrderlinePageContainer extends React.Component {
     );
 
     const total = this.props.orderlines.reduce((totalSoFar, current) => {
-      return totalSoFar + parseFloat(current.price);
+      return totalSoFar + parseFloat(current.total_price);
     }, 0);
-    const orderid = this.props.currentUser.orderid;
+    const userId = this.props.currentUser.id;
     const orderlines = this.props.orderlines;
 
     return (

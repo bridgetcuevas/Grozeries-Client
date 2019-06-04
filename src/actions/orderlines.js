@@ -25,7 +25,6 @@ export const addToOrderline = (
   quantity,
   shopId,
   userId,
-  // orderId
 ) => (dispatch, getState) => {
   const state = getState();
   if (!state.currentUser) return null;
@@ -33,23 +32,18 @@ export const addToOrderline = (
 
   request
     .post(`${baseUrl}/orders/${userId}/`)
-    // .then (order =>{
-      // console.log("ORDER??", order.body[0].id)
-      // return request.post(`${baseUrl}/orderlines/${order.body[0].id}/`)
       .set("Authorization", `Bearer ${jwt}`)
       .send({
         productId: id,
         price,
         quantity,
         shopId,
-        userId,
-        // orderId
+        userId
       })
       .then(result => {
         console.log("RESULT-BODY", result.body[0])
         dispatch(addOrderline(result.body[0]));
       })
-    // })
     .catch(err => console.error(err));
 };
 

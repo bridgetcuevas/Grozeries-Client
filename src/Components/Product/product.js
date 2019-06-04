@@ -8,11 +8,9 @@ export default props => {
       description,
       price,
       prices_by,
-      // quantity,
       ingredients,
       allergens,
       in_stock,
-      // shopId
     } = props.product;
 
     const OUTOFSTOCK = in_stock === false && (
@@ -28,7 +26,7 @@ export default props => {
           <h2 className="text-capitalize">{product_name} </h2>
           <p>{description} </p>
           {OUTOFSTOCK}
-          <p>€ {price}</p>
+          <p>€ {price} per {prices_by}</p>
           <p>Ingriedients: {ingredients} </p>
           <p>Allergens: {allergens} </p>
         </div>
