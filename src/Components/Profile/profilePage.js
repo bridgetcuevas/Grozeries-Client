@@ -5,18 +5,15 @@ import { connect } from "react-redux";
 import LoadingModal from "../LoadingModal";
 import { userId } from "../../jwt";
 
-
 class ProfilePage extends Component {
   componentDidMount() {
     this.props.getUsers();
     // const userId = this.props.match.params.id;
     // console.log("userId in Profile", userId);
     // this.props.getUser(userId);
-    console.log("Profile", this.props);
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         {this.props.loading ? (

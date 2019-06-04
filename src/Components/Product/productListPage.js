@@ -10,7 +10,6 @@ class ProductList extends Component {
     this.props.getProducts();
   }
   handleClick = event => {
-    console.log(event, this.props.product);
     this.props.addToOrderline(this.props.product);
   };
   render() {

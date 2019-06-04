@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
+//Needs to be implemented
 export default props => {
-
   const { type } = props.product;
   const detail = props.detail;
 
@@ -16,7 +15,7 @@ export default props => {
   } else {
     return (
       <div>
-     <p>Type: {type} </p>
+        <p>Type: {type} </p>
       </div>
     );
   }

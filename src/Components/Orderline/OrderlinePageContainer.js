@@ -12,9 +12,7 @@ class OrderlinePageContainer extends React.Component {
   componentDidMount() {
     const orderid = this.props.currentUser.orderid;
     this.props.getOrderline(orderid);
-    console.log(orderid, "orderid");
   }
-
 
   handleClick = (e, orderId) => {
     this.props.orderCheckout(orderId);
@@ -26,7 +24,7 @@ class OrderlinePageContainer extends React.Component {
 
   render() {
     const url = this.props.url;
-    
+
     const PAYBUTTON = url && (
       <a href={url}>
         <button className="btn btn-outline-secondary" value={"Checkout"}>

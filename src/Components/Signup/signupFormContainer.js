@@ -38,7 +38,6 @@ class SignupFormContainer extends React.Component {
     this.setState({
       [user.target.name]: user.target.value
     });
-    console.log("user target name", user.target.value);
   };
   render() {
     if (this.props.signup.success === true) return <Redirect to="/logins" />;

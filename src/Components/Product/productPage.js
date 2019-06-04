@@ -8,17 +8,16 @@ import LoadingModal from "../LoadingModal";
 import { Link } from "react-router-dom";
 
 class ProductDetails extends Component {
+  state = {};
 
-  state = { }
-
-  onChange = (event) => {
+  onChange = event => {
     this.setState({
       setQuantity: {
         ...this.state.setQuantity,
         [event.target.name]: event.target.value
       }
-    })
-  }
+    });
+  };
 
   componentDidMount() {
     const productId = this.props.match.params.productId;
@@ -26,18 +25,18 @@ class ProductDetails extends Component {
   }
 
   handleClick = (e, userId, orderId) => {
-    const {id, price, shopId} = this.props.product;
+    const { id, price, shopId } = this.props.product;
     const quantity = this.state.setQuantity.quantity;
-    console.log(quantity, "Q")
+
     this.props.addToOrderline(id, price, quantity, shopId, userId, orderId);
   };
-
 
   render() {
     const userId = this.props.currentUser.id;
     const orderId = this.props.currentUser.orderid;
-    const instock = this.props.product && this.props.product.in_stock === true
-    const inputQuantity = this.state.setQuantity && this.state.setQuantity.quantity
+    const instock = this.props.product && this.props.product.in_stock === true;
+    const inputQuantity =
+      this.state.setQuantity && this.state.setQuantity.quantity;
     return (
       <div>
         {this.props.loading ? (
@@ -52,29 +51,54 @@ class ProductDetails extends Component {
               />
             )}
             <div className="container mb-5">
-            
-            {this.props.product && this.props.product.prices_by === "gram" && (
-              <div><input type="number" name="quantity" min="50" max="5000" value={inputQuantity} onChange={this.onChange}/>{this.props.product.prices_by}</div>)}
-              
-            {this.props.product && this.props.product.prices_by === "piece" && (
-             <div><input type="number" name="quantity" min="1" max="50" value={inputQuantity} onChange={this.onChange}/>{this.props.product.prices_by}</div>)}
-              
-            {this.props.product && instock && (<button
-                className="btn btn-outline-success"
-                value={"hello"}
-                onClick={(e)=> this.handleClick(e, userId, orderId, inputQuantity)}
-              >
-                Add to cart
-            </button>)
-            }
+              {this.props.product && this.props.product.prices_by === "gram" && (
+                <div>
+                  <input
+                    type="number"
+                    name="quantity"
+                    min="50"
+                    max="5000"
+                    value={inputQuantity}
+                    onChange={this.onChange}
+                  />
+                  {this.props.product.prices_by}
+                </div>
+              )}
+
+              {this.props.product && this.props.product.prices_by === "piece" && (
+                <div>
+                  <input
+                    type="number"
+                    name="quantity"
+                    min="1"
+                    max="50"
+                    value={inputQuantity}
+                    onChange={this.onChange}
+                  />
+                  {this.props.product.prices_by}
+                </div>
+              )}
+
+              {this.props.product && instock && (
+                <button
+                  className="btn btn-outline-success"
+                  value={"hello"}
+                  onClick={e =>
+                    this.handleClick(e, userId, orderId, inputQuantity)
+                  }
+                >
+                  Add to cart
+                </button>
+              )}
               {this.props.product && (
                 <Link
                   className="ml-2"
                   to={`/shops/${this.props.product.shopId}`}
                 >
-                  <button className="btn btn-outline-secondary ">Back to shop</button>
+                  <button className="btn btn-outline-secondary ">
+                    Back to shop
+                  </button>
                 </Link>
-                
               )}
             </div>
           </div>

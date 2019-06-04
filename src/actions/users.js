@@ -49,11 +49,13 @@ const updateUser = user => ({
 });
 
 export const login = (email, password) => dispatch =>
-
   request
     .post(`${baseUrl}/logins`)
     .send({ email, password })
-    .then(result => {console.log(result.body); dispatch(userLoginSuccess(result.body))})
+    .then(result => {
+      console.log(result.body);
+      dispatch(userLoginSuccess(result.body));
+    })
     .catch(err => {
       if (err.status === 400) {
         dispatch(userLoginFailed(err.response.body.message));
@@ -110,14 +112,12 @@ export const getUsers = () => (dispatch, getState) => {
     .get(`${baseUrl}/register`)
     .set("Authorization", `Bearer ${jwt}`)
     .then(result => {
-      console.log('GETUSERS', result)
       dispatch(updateUsers(result.body));
     })
     .catch(err => console.error(err));
 };
 
 export const getUser = id => (dispatch, getState) => {
-  console.log('getUserId', id)
   const state = getState();
   if (!state.currentUser) return null;
   const jwt = state.currentUser.jwt;
@@ -128,7 +128,6 @@ export const getUser = id => (dispatch, getState) => {
   request
     .get(`${baseUrl}/users/${id}`)
     .then(result => {
-      console.log("GETUSER", result);
       dispatch(updateUser(result.body));
       dispatch(appLoaded());
     })

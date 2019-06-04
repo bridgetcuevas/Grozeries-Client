@@ -3,6 +3,8 @@ import { baseUrl } from "../constants";
 
 export const SET_CATEGORIES = "SET_CATEGORIES";
 
+//Needs to be implemented
+
 export const setCategories = categories => {
   return {
     type: SET_CATEGORIES,
