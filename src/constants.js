@@ -1,4 +1,4 @@
-export const baseUrl = "http://grozeries3.herokuapp.com";
+export const baseUrl = "https://grozeries3.herokuapp.com";
 // export const baseUrl = 'http://localhost:4000'
 //
 
