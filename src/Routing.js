@@ -27,12 +27,15 @@ const Router = () => (
     <Route path="/products/:productId" exact component={ProductDetails} />
     <Route path="/categories" exact component={CategoryList} />
 
-    <Route path="/orders/:id/orderlines" exact component={OrderlinePageContainer} />
+    <Route
+      path="/orders/:id/orderlines"
+      exact
+      component={OrderlinePageContainer}
+    />
 
     <Route path="/profile" exact component={ProfilePage} />
     <Route path="/contact" exact component={ContactPage} />
     <Route path="/orders/thank-you" exact component={ThanksPage} />
-
 
     <Route exact path="/" render={() => <Redirect to="/" />} />
   </Switch>
