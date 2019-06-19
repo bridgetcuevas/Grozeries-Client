@@ -5,7 +5,7 @@ P.S. Server is running on Heroku.
 
 ## About
 
-- This project is for 'Grozeries' a web-shop designed to host local artisan bakers, butchers, and fromageries to cater to the greater  Hilversum area, Netherlands. 
+- This project is for 'Grozeries' a web-shop designed to host local artisan bakers, butchers, and fromageries catering to the greater  Hilversum area, Netherlands. 
 - To browse 'shops' signup and login.
 - For additional information about the Grozeries CMS or Server as well as what prompted this project view: **[Project Goals](#project-goals)
 
