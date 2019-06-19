@@ -1,6 +1,6 @@
 # Version 1.0(BÈTA) Grozeries-Client 
 
-## [View Deployed Version Here 🥕🍎](https://grozeries-client.netlify.com)
+## [🥕View Deployed Version Here](https://grozeries-client.netlify.com)
 P.S. Server is running on Heroku.
 
 ## About
