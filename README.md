@@ -41,7 +41,7 @@ P.S. Server is running on Heroku.
 ## Start up
 
 1. Install required dependencies using 'npm install'
-2. Choose [here](.src/constants.js)** whether you would like to run 'Grozeries-Client' on our deployed server or your own local 'Grozeries-Server'.
+2. Select [here](.src/constants.js) whether you would like to run 'Grozeries-Client' on our deployed server or your own local 'Grozeries-Server'.
 3. After which you may run 'npm start'
 
 ## Create React App
