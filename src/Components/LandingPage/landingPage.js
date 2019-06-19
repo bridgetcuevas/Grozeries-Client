@@ -27,7 +27,7 @@ class LandingPage extends Component {
               <h1 className="h2-landingPage font-weight-700">
               shop local . shop easy . shop fresh
               </h1>
-              <p className="p-landingPage">Grozeries brings a world full of vibrant local communities online offering access to a network of local shops and the stories behind their products.</p>
+              <p className="p-landingPage">Grozeries brings a world full of vibrant communities online offering access to a local network of shops and the stories behind their products.</p>
               <div className="row pt-4">
                 {this.props.shops &&
                   this.props.shops.length &&
