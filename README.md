@@ -21,11 +21,11 @@ P.S. Server is running on Heroku.
 
 #### View samples within this project by clicking the links below 👇
 
-- **[react](./src/components/Product/productListPage.js)**
+- **[react](./src/Components/Product/productListPage.js)**
 - **[redux](./src/reducers/products.js)**
 - **[redux-thunk](./src/actions/products.js)**
-- **[bootstrap](./src/components/Signup/signupForm.js)**
-- **[css](.src/components/Navigation/navigationBar.css)**
+- **[bootstrap](./src/Components/Signup/signupForm.js)**
+- **[css](./src/Components/Navigation/navigationBar.css)**
 
 ## Project Goals
 
